@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21513" systemVersion="21G419" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Aircraft" representedClassName="Aircraft" syncable="YES" codeGenerationType="class">
+        <attribute name="deletedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="manufacturer" optional="YES" attributeType="String"/>
+        <attribute name="model" optional="YES" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="newAtPurchase" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="purchaseDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="purchasedFrom" optional="YES" attributeType="String"/>
+        <attribute name="serialNumber" optional="YES" attributeType="String"/>
+        <relationship name="aircraftImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SavedImage" inverseName="aircraftImage" inverseEntity="SavedImage"/>
+        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Flight" inverseName="aircraft" inverseEntity="Flight"/>
+    </entity>
+    <entity name="Flight" representedClassName="Flight" syncable="YES" codeGenerationType="class">
+        <attribute name="activity" optional="YES" attributeType="String"/>
+        <attribute name="deletedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="details" optional="YES" attributeType="String"/>
+        <attribute name="landing" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="preflightChecks" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="preflightIssuesResolved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="siteConditions" optional="YES" attributeType="String"/>
+        <attribute name="takeoff" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="weatherConditions" optional="YES" attributeType="String"/>
+        <relationship name="aircraft" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Aircraft" inverseName="flights" inverseEntity="Aircraft"/>
+        <relationship name="flightIssues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FlightIssue" inverseName="flightIssues" inverseEntity="FlightIssue"/>
+        <relationship name="pilot" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pilot" inverseName="flights" inverseEntity="Pilot"/>
+        <relationship name="preflightIssues" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="FlightIssue" inverseName="preflightissues" inverseEntity="FlightIssue"/>
+    </entity>
+    <entity name="FlightIssue" representedClassName="FlightIssue" syncable="YES" codeGenerationType="class">
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="resolved" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="flightIssues" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Flight" inverseName="flightIssues" inverseEntity="Flight"/>
+        <relationship name="preflightissues" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Flight" inverseName="preflightIssues" inverseEntity="Flight"/>
+    </entity>
+    <entity name="Pilot" representedClassName="Pilot" syncable="YES" codeGenerationType="class">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="caaRegistration" attributeType="String"/>
+        <attribute name="deletedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="firstName" attributeType="String"/>
+        <attribute name="homePhone" optional="YES" attributeType="String"/>
+        <attribute name="lastName" attributeType="String"/>
+        <attribute name="mobilePhone" optional="YES" attributeType="String"/>
+        <attribute name="postCode" optional="YES" attributeType="String"/>
+        <relationship name="flights" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Flight" inverseName="pilot" inverseEntity="Flight"/>
+        <relationship name="profileImage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SavedImage" inverseName="profileImage" inverseEntity="SavedImage"/>
+    </entity>
+    <entity name="SavedImage" representedClassName="SavedImage" syncable="YES">
+        <attribute name="image" optional="YES" attributeType="Transformable" valueTransformerName="UIImageTransformer" customClassName="UIImage"/>
+        <relationship name="aircraftImage" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Aircraft" inverseName="aircraftImage" inverseEntity="Aircraft"/>
+        <relationship name="profileImage" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Pilot" inverseName="profileImage" inverseEntity="Pilot"/>
+    </entity>
+</model>

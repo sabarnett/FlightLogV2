@@ -1,0 +1,658 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E80F147629D47EF700227D1D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E80F147529D47EF700227D1D /* Launch Screen.storyboard */; };
+		E80F147929D482F000227D1D /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F147829D482F000227D1D /* Color+Extension.swift */; };
+		E80F147B29D4898F00227D1D /* bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80F147A29D4898F00227D1D /* bundle+Extension.swift */; };
+		E812D70229D1C6CC009ED9A1 /* Flight2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D70129D1C6CC009ED9A1 /* Flight2App.swift */; };
+		E812D70429D1C6CC009ED9A1 /* FlightLogHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D70329D1C6CC009ED9A1 /* FlightLogHome.swift */; };
+		E812D70629D1C6CD009ED9A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E812D70529D1C6CD009ED9A1 /* Assets.xcassets */; };
+		E812D70929D1C6CD009ED9A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E812D70829D1C6CD009ED9A1 /* Preview Assets.xcassets */; };
+		E812D71329D1C76E009ED9A1 /* PilotList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71229D1C76E009ED9A1 /* PilotList.swift */; };
+		E812D71529D1C77F009ED9A1 /* AircraftList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71429D1C77F009ED9A1 /* AircraftList.swift */; };
+		E812D71729D1C78B009ED9A1 /* FlightList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71629D1C78B009ED9A1 /* FlightList.swift */; };
+		E812D71A29D1CC2E009ED9A1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71929D1CC2E009ED9A1 /* SettingsView.swift */; };
+		E812D71C29D1CC3A009ED9A1 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71B29D1CC3A009ED9A1 /* InfoView.swift */; };
+		E874728629D333F60088C513 /* DisplayModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874728529D333F60088C513 /* DisplayModeToggle.swift */; };
+		E89282E129D1D120000BB957 /* ListTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89282E029D1D120000BB957 /* ListTitleBar.swift */; };
+		E8D3EF9729D4BD2B00C042DB /* UtilityViews.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; };
+		E8D3EF9829D4BD2B00C042DB /* UtilityViews.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */; };
+		E8D3EF9E29D4C07500C042DB /* GroupFlightsBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */; };
+		E8D3EFA029D4C0C000C042DB /* FlightAgeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9F29D4C0C000C042DB /* FlightAgeSelection.swift */; };
+		E8D3EFA329D4C31E00C042DB /* Mantis in Frameworks */ = {isa = PBXBuildFile; productRef = E8D3EFA229D4C31E00C042DB /* Mantis */; };
+		E8D3EFA829D4C35D00C042DB /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFA529D4C35D00C042DB /* PlaceHolderView.swift */; };
+		E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFA629D4C35D00C042DB /* ImageCropper.swift */; };
+		E8D3EFAA29D4C35D00C042DB /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFA729D4C35D00C042DB /* ImagePickerView.swift */; };
+		E8D3EFB029D4C3DE00C042DB /* StorageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFAF29D4C3DE00C042DB /* StorageProvider.swift */; };
+		E8D3EFB329D4C3F800C042DB /* UIImage+Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFB229D4C3F800C042DB /* UIImage+Transformer.swift */; };
+		E8D3EFB829D4C40300C042DB /* Aircraft+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFB429D4C40200C042DB /* Aircraft+Extensions.swift */; };
+		E8D3EFB929D4C40300C042DB /* Flight+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFB529D4C40200C042DB /* Flight+Extensions.swift */; };
+		E8D3EFBA29D4C40300C042DB /* FlightIssue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFB629D4C40300C042DB /* FlightIssue+Extensions.swift */; };
+		E8D3EFBB29D4C40300C042DB /* Pilot+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFB729D4C40300C042DB /* Pilot+Extensions.swift */; };
+		E8D3EFC229D4C41400C042DB /* BaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFBC29D4C41300C042DB /* BaseModel.swift */; };
+		E8D3EFC329D4C41400C042DB /* db.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFBD29D4C41300C042DB /* db.xcdatamodeld */; };
+		E8D3EFC429D4C41400C042DB /* SavedImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFBF29D4C41300C042DB /* SavedImage+CoreDataProperties.swift */; };
+		E8D3EFC529D4C41400C042DB /* SearchOptonsBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFC029D4C41300C042DB /* SearchOptonsBase.swift */; };
+		E8D3EFC629D4C41400C042DB /* SavedImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFC129D4C41300C042DB /* SavedImage+CoreDataClass.swift */; };
+		E8D3EFC829D4C46C00C042DB /* PicketOption+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFC729D4C46C00C042DB /* PicketOption+Extensions.swift */; };
+		E8D3EFCA29D4C47700C042DB /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFC929D4C47700C042DB /* Date+Extensions.swift */; };
+		E8D3EFCE29D4C56400C042DB /* WriteLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFCB29D4C56400C042DB /* WriteLog.swift */; };
+		E8D3EFCF29D4C56400C042DB /* MessageCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFCC29D4C56400C042DB /* MessageCenter.swift */; };
+		E8D3EFD029D4C56400C042DB /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFCD29D4C56400C042DB /* Validators.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E8D3EF9929D4BD2B00C042DB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E8D3EF9829D4BD2B00C042DB /* UtilityViews.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		E80F147529D47EF700227D1D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		E80F147829D482F000227D1D /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		E80F147A29D4898F00227D1D /* bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "bundle+Extension.swift"; sourceTree = "<group>"; };
+		E812D6FE29D1C6CC009ED9A1 /* Flight2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flight2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E812D70129D1C6CC009ED9A1 /* Flight2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight2App.swift; sourceTree = "<group>"; };
+		E812D70329D1C6CC009ED9A1 /* FlightLogHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightLogHome.swift; sourceTree = "<group>"; };
+		E812D70529D1C6CD009ED9A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E812D70829D1C6CD009ED9A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E812D71229D1C76E009ED9A1 /* PilotList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotList.swift; sourceTree = "<group>"; };
+		E812D71429D1C77F009ED9A1 /* AircraftList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftList.swift; sourceTree = "<group>"; };
+		E812D71629D1C78B009ED9A1 /* FlightList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightList.swift; sourceTree = "<group>"; };
+		E812D71929D1CC2E009ED9A1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E812D71B29D1CC3A009ED9A1 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
+		E874728529D333F60088C513 /* DisplayModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModeToggle.swift; sourceTree = "<group>"; };
+		E89282E029D1D120000BB957 /* ListTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTitleBar.swift; sourceTree = "<group>"; };
+		E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UtilityViews.xcframework; path = ../../Apps/Frameworks/UtilityViews/UtilityViews/build/UtilityViews.xcframework; sourceTree = "<group>"; };
+		E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
+		E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFlightsBy.swift; sourceTree = "<group>"; };
+		E8D3EF9F29D4C0C000C042DB /* FlightAgeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightAgeSelection.swift; sourceTree = "<group>"; };
+		E8D3EFA529D4C35D00C042DB /* PlaceHolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
+		E8D3EFA629D4C35D00C042DB /* ImageCropper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCropper.swift; sourceTree = "<group>"; };
+		E8D3EFA729D4C35D00C042DB /* ImagePickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		E8D3EFAF29D4C3DE00C042DB /* StorageProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageProvider.swift; sourceTree = "<group>"; };
+		E8D3EFB229D4C3F800C042DB /* UIImage+Transformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Transformer.swift"; sourceTree = "<group>"; };
+		E8D3EFB429D4C40200C042DB /* Aircraft+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Aircraft+Extensions.swift"; sourceTree = "<group>"; };
+		E8D3EFB529D4C40200C042DB /* Flight+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Flight+Extensions.swift"; sourceTree = "<group>"; };
+		E8D3EFB629D4C40300C042DB /* FlightIssue+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FlightIssue+Extensions.swift"; sourceTree = "<group>"; };
+		E8D3EFB729D4C40300C042DB /* Pilot+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pilot+Extensions.swift"; sourceTree = "<group>"; };
+		E8D3EFBC29D4C41300C042DB /* BaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseModel.swift; sourceTree = "<group>"; };
+		E8D3EFBE29D4C41300C042DB /* db.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = db.xcdatamodel; sourceTree = "<group>"; };
+		E8D3EFBF29D4C41300C042DB /* SavedImage+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavedImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E8D3EFC029D4C41300C042DB /* SearchOptonsBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchOptonsBase.swift; sourceTree = "<group>"; };
+		E8D3EFC129D4C41300C042DB /* SavedImage+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SavedImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		E8D3EFC729D4C46C00C042DB /* PicketOption+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PicketOption+Extensions.swift"; sourceTree = "<group>"; };
+		E8D3EFC929D4C47700C042DB /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		E8D3EFCB29D4C56400C042DB /* WriteLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteLog.swift; sourceTree = "<group>"; };
+		E8D3EFCC29D4C56400C042DB /* MessageCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCenter.swift; sourceTree = "<group>"; };
+		E8D3EFCD29D4C56400C042DB /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E812D6FB29D1C6CC009ED9A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8D3EFA329D4C31E00C042DB /* Mantis in Frameworks */,
+				E8D3EF9729D4BD2B00C042DB /* UtilityViews.xcframework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E80F147729D482D800227D1D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EFC929D4C47700C042DB /* Date+Extensions.swift */,
+				E8D3EFC729D4C46C00C042DB /* PicketOption+Extensions.swift */,
+				E80F147829D482F000227D1D /* Color+Extension.swift */,
+				E80F147A29D4898F00227D1D /* bundle+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E80F147C29D48A1A00227D1D /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				E812D71129D1C759009ED9A1 /* Flights */,
+				E812D71029D1C748009ED9A1 /* Aircraft */,
+				E812D70F29D1C73E009ED9A1 /* Pilots */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		E812D6F529D1C6CC009ED9A1 = {
+			isa = PBXGroup;
+			children = (
+				E812D70029D1C6CC009ED9A1 /* Flight2 */,
+				E812D6FF29D1C6CC009ED9A1 /* Products */,
+				E8D3EF9529D4BD2B00C042DB /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E812D6FF29D1C6CC009ED9A1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E812D6FE29D1C6CC009ED9A1 /* Flight2.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E812D70029D1C6CC009ED9A1 /* Flight2 */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EFAB29D4C39900C042DB /* DataModel */,
+				E8D3EF9C29D4BEFC00C042DB /* AppStartup */,
+				E80F147729D482D800227D1D /* Extensions */,
+				E812D71829D1CC1E009ED9A1 /* Admin */,
+				E89282E229D1D127000BB957 /* Helpers */,
+				E80F147C29D48A1A00227D1D /* Content */,
+				E812D70529D1C6CD009ED9A1 /* Assets.xcassets */,
+				E812D70729D1C6CD009ED9A1 /* Preview Content */,
+			);
+			path = Flight2;
+			sourceTree = "<group>";
+		};
+		E812D70729D1C6CD009ED9A1 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				E812D70829D1C6CD009ED9A1 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E812D70F29D1C73E009ED9A1 /* Pilots */ = {
+			isa = PBXGroup;
+			children = (
+				E812D71229D1C76E009ED9A1 /* PilotList.swift */,
+			);
+			path = Pilots;
+			sourceTree = "<group>";
+		};
+		E812D71029D1C748009ED9A1 /* Aircraft */ = {
+			isa = PBXGroup;
+			children = (
+				E812D71429D1C77F009ED9A1 /* AircraftList.swift */,
+			);
+			path = Aircraft;
+			sourceTree = "<group>";
+		};
+		E812D71129D1C759009ED9A1 /* Flights */ = {
+			isa = PBXGroup;
+			children = (
+				E812D71629D1C78B009ED9A1 /* FlightList.swift */,
+				E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */,
+				E8D3EF9F29D4C0C000C042DB /* FlightAgeSelection.swift */,
+			);
+			path = Flights;
+			sourceTree = "<group>";
+		};
+		E812D71829D1CC1E009ED9A1 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				E812D71929D1CC2E009ED9A1 /* SettingsView.swift */,
+				E812D71B29D1CC3A009ED9A1 /* InfoView.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		E89282E229D1D127000BB957 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EFCC29D4C56400C042DB /* MessageCenter.swift */,
+				E8D3EFCD29D4C56400C042DB /* Validators.swift */,
+				E8D3EFCB29D4C56400C042DB /* WriteLog.swift */,
+				E8D3EFA429D4C34400C042DB /* Images */,
+				E89282E029D1D120000BB957 /* ListTitleBar.swift */,
+				E874728529D333F60088C513 /* DisplayModeToggle.swift */,
+				E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E8D3EF9529D4BD2B00C042DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E8D3EF9C29D4BEFC00C042DB /* AppStartup */ = {
+			isa = PBXGroup;
+			children = (
+				E80F147529D47EF700227D1D /* Launch Screen.storyboard */,
+				E812D70129D1C6CC009ED9A1 /* Flight2App.swift */,
+				E812D70329D1C6CC009ED9A1 /* FlightLogHome.swift */,
+			);
+			path = AppStartup;
+			sourceTree = "<group>";
+		};
+		E8D3EFA429D4C34400C042DB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EFA629D4C35D00C042DB /* ImageCropper.swift */,
+				E8D3EFA729D4C35D00C042DB /* ImagePickerView.swift */,
+				E8D3EFA529D4C35D00C042DB /* PlaceHolderView.swift */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		E8D3EFAB29D4C39900C042DB /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EFB129D4C3E800C042DB /* Transformers */,
+				E8D3EFAE29D4C3C600C042DB /* ObjectExtensions */,
+				E8D3EFAD29D4C3BC00C042DB /* Model */,
+				E8D3EFAC29D4C3A900C042DB /* DataAccess */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		E8D3EFAC29D4C3A900C042DB /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EFAF29D4C3DE00C042DB /* StorageProvider.swift */,
+			);
+			path = DataAccess;
+			sourceTree = "<group>";
+		};
+		E8D3EFAD29D4C3BC00C042DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EFBC29D4C41300C042DB /* BaseModel.swift */,
+				E8D3EFBD29D4C41300C042DB /* db.xcdatamodeld */,
+				E8D3EFC129D4C41300C042DB /* SavedImage+CoreDataClass.swift */,
+				E8D3EFBF29D4C41300C042DB /* SavedImage+CoreDataProperties.swift */,
+				E8D3EFC029D4C41300C042DB /* SearchOptonsBase.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E8D3EFAE29D4C3C600C042DB /* ObjectExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EFB429D4C40200C042DB /* Aircraft+Extensions.swift */,
+				E8D3EFB529D4C40200C042DB /* Flight+Extensions.swift */,
+				E8D3EFB629D4C40300C042DB /* FlightIssue+Extensions.swift */,
+				E8D3EFB729D4C40300C042DB /* Pilot+Extensions.swift */,
+			);
+			path = ObjectExtensions;
+			sourceTree = "<group>";
+		};
+		E8D3EFB129D4C3E800C042DB /* Transformers */ = {
+			isa = PBXGroup;
+			children = (
+				E8D3EFB229D4C3F800C042DB /* UIImage+Transformer.swift */,
+			);
+			path = Transformers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E812D6FD29D1C6CC009ED9A1 /* Flight2 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E812D70C29D1C6CD009ED9A1 /* Build configuration list for PBXNativeTarget "Flight2" */;
+			buildPhases = (
+				E812D6FA29D1C6CC009ED9A1 /* Sources */,
+				E812D6FB29D1C6CC009ED9A1 /* Frameworks */,
+				E812D6FC29D1C6CC009ED9A1 /* Resources */,
+				E8D3EF9929D4BD2B00C042DB /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Flight2;
+			packageProductDependencies = (
+				E8D3EFA229D4C31E00C042DB /* Mantis */,
+			);
+			productName = Flight2;
+			productReference = E812D6FE29D1C6CC009ED9A1 /* Flight2.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E812D6F629D1C6CC009ED9A1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					E812D6FD29D1C6CC009ED9A1 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = E812D6F929D1C6CC009ED9A1 /* Build configuration list for PBXProject "Flight2" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E812D6F529D1C6CC009ED9A1;
+			packageReferences = (
+				E8D3EFA129D4C31E00C042DB /* XCRemoteSwiftPackageReference "Mantis" */,
+			);
+			productRefGroup = E812D6FF29D1C6CC009ED9A1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E812D6FD29D1C6CC009ED9A1 /* Flight2 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E812D6FC29D1C6CC009ED9A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E80F147629D47EF700227D1D /* Launch Screen.storyboard in Resources */,
+				E812D70929D1C6CD009ED9A1 /* Preview Assets.xcassets in Resources */,
+				E812D70629D1C6CD009ED9A1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E812D6FA29D1C6CC009ED9A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8D3EF9E29D4C07500C042DB /* GroupFlightsBy.swift in Sources */,
+				E8D3EFC529D4C41400C042DB /* SearchOptonsBase.swift in Sources */,
+				E8D3EFA829D4C35D00C042DB /* PlaceHolderView.swift in Sources */,
+				E812D70429D1C6CC009ED9A1 /* FlightLogHome.swift in Sources */,
+				E80F147929D482F000227D1D /* Color+Extension.swift in Sources */,
+				E8D3EFB029D4C3DE00C042DB /* StorageProvider.swift in Sources */,
+				E8D3EFC429D4C41400C042DB /* SavedImage+CoreDataProperties.swift in Sources */,
+				E8D3EFC829D4C46C00C042DB /* PicketOption+Extensions.swift in Sources */,
+				E812D71729D1C78B009ED9A1 /* FlightList.swift in Sources */,
+				E8D3EFC229D4C41400C042DB /* BaseModel.swift in Sources */,
+				E812D70229D1C6CC009ED9A1 /* Flight2App.swift in Sources */,
+				E874728629D333F60088C513 /* DisplayModeToggle.swift in Sources */,
+				E812D71A29D1CC2E009ED9A1 /* SettingsView.swift in Sources */,
+				E89282E129D1D120000BB957 /* ListTitleBar.swift in Sources */,
+				E8D3EFA029D4C0C000C042DB /* FlightAgeSelection.swift in Sources */,
+				E812D71329D1C76E009ED9A1 /* PilotList.swift in Sources */,
+				E8D3EFC629D4C41400C042DB /* SavedImage+CoreDataClass.swift in Sources */,
+				E8D3EFCE29D4C56400C042DB /* WriteLog.swift in Sources */,
+				E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */,
+				E8D3EFC329D4C41400C042DB /* db.xcdatamodeld in Sources */,
+				E8D3EFCF29D4C56400C042DB /* MessageCenter.swift in Sources */,
+				E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */,
+				E812D71529D1C77F009ED9A1 /* AircraftList.swift in Sources */,
+				E8D3EFB829D4C40300C042DB /* Aircraft+Extensions.swift in Sources */,
+				E812D71C29D1CC3A009ED9A1 /* InfoView.swift in Sources */,
+				E8D3EFCA29D4C47700C042DB /* Date+Extensions.swift in Sources */,
+				E8D3EFD029D4C56400C042DB /* Validators.swift in Sources */,
+				E80F147B29D4898F00227D1D /* bundle+Extension.swift in Sources */,
+				E8D3EFB929D4C40300C042DB /* Flight+Extensions.swift in Sources */,
+				E8D3EFBA29D4C40300C042DB /* FlightIssue+Extensions.swift in Sources */,
+				E8D3EFBB29D4C40300C042DB /* Pilot+Extensions.swift in Sources */,
+				E8D3EFB329D4C3F800C042DB /* UIImage+Transformer.swift in Sources */,
+				E8D3EFAA29D4C35D00C042DB /* ImagePickerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E812D70A29D1C6CD009ED9A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E812D70B29D1C6CD009ED9A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E812D70D29D1C6CD009ED9A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "\"Flight2/Preview Content\"";
+				DEVELOPMENT_TEAM = MH62Y8D74P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Flight Log";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.sabarnett.Flight2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E812D70E29D1C6CD009ED9A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0;
+				DEVELOPMENT_ASSET_PATHS = "\"Flight2/Preview Content\"";
+				DEVELOPMENT_TEAM = MH62Y8D74P;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Flight Log";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 2.0;
+				PRODUCT_BUNDLE_IDENTIFIER = uk.co.sabarnett.Flight2;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E812D6F929D1C6CC009ED9A1 /* Build configuration list for PBXProject "Flight2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E812D70A29D1C6CD009ED9A1 /* Debug */,
+				E812D70B29D1C6CD009ED9A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E812D70C29D1C6CD009ED9A1 /* Build configuration list for PBXNativeTarget "Flight2" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E812D70D29D1C6CD009ED9A1 /* Debug */,
+				E812D70E29D1C6CD009ED9A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E8D3EFA129D4C31E00C042DB /* XCRemoteSwiftPackageReference "Mantis" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/guoyingtao/Mantis.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E8D3EFA229D4C31E00C042DB /* Mantis */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E8D3EFA129D4C31E00C042DB /* XCRemoteSwiftPackageReference "Mantis" */;
+			productName = Mantis;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		E8D3EFBD29D4C41300C042DB /* db.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E8D3EFBE29D4C41300C042DB /* db.xcdatamodel */,
+			);
+			currentVersion = E8D3EFBE29D4C41300C042DB /* db.xcdatamodel */;
+			path = db.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E812D6F629D1C6CC009ED9A1 /* Project object */;
+}
