@@ -157,12 +157,12 @@
 		E812D70029D1C6CC009ED9A1 /* Flight2 */ = {
 			isa = PBXGroup;
 			children = (
-				E8D3EFAB29D4C39900C042DB /* DataModel */,
 				E8D3EF9C29D4BEFC00C042DB /* AppStartup */,
+				E80F147C29D48A1A00227D1D /* Content */,
+				E8D3EFAB29D4C39900C042DB /* DataModel */,
 				E80F147729D482D800227D1D /* Extensions */,
 				E812D71829D1CC1E009ED9A1 /* Admin */,
 				E89282E229D1D127000BB957 /* Helpers */,
-				E80F147C29D48A1A00227D1D /* Content */,
 				E812D70529D1C6CD009ED9A1 /* Assets.xcassets */,
 				E812D70729D1C6CD009ED9A1 /* Preview Content */,
 			);
@@ -343,7 +343,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E812D6F929D1C6CC009ED9A1 /* Build configuration list for PBXProject "Flight2" */;
+			buildConfigurationList = E812D6F929D1C6CC009ED9A1 /* Build configuration list for PBXProject "FlightLogV2" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -546,7 +546,7 @@
 				DEVELOPMENT_TEAM = MH62Y8D74P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Flight Log";
+				INFOPLIST_KEY_CFBundleDisplayName = "RC Flight Log V2";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
@@ -578,7 +578,7 @@
 				DEVELOPMENT_TEAM = MH62Y8D74P;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "Flight Log";
+				INFOPLIST_KEY_CFBundleDisplayName = "RC Flight Log V2";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
@@ -602,7 +602,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E812D6F929D1C6CC009ED9A1 /* Build configuration list for PBXProject "Flight2" */ = {
+		E812D6F929D1C6CC009ED9A1 /* Build configuration list for PBXProject "FlightLogV2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E812D70A29D1C6CD009ED9A1 /* Debug */,

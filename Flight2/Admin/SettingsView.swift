@@ -78,7 +78,7 @@ struct SettingsView: View {
             }
             .navigationTitle("Options")
             .navigationBarHidden(true)
-        }
+        }.preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 
