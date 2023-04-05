@@ -47,6 +47,10 @@
 		E8D3EFCF29D4C56400C042DB /* MessageCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFCC29D4C56400C042DB /* MessageCenter.swift */; };
 		E8D3EFD029D4C56400C042DB /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFCD29D4C56400C042DB /* Validators.swift */; };
 		E8DCA84229DD735A000E4961 /* PilotListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84129DD735A000E4961 /* PilotListViewModel.swift */; };
+		E8DCA84429DD809F000E4961 /* PilotListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84329DD809F000E4961 /* PilotListCellView.swift */; };
+		E8DCA84629DD839E000E4961 /* PilotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84529DD839E000E4961 /* PilotDetailView.swift */; };
+		E8DCA84829DD83C2000E4961 /* PilotDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84729DD83C2000E4961 /* PilotDetailViewModel.swift */; };
+		E8DCA84A29DD863B000E4961 /* DetailLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84929DD863B000E4961 /* DetailLine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +107,10 @@
 		E8D3EFCC29D4C56400C042DB /* MessageCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCenter.swift; sourceTree = "<group>"; };
 		E8D3EFCD29D4C56400C042DB /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		E8DCA84129DD735A000E4961 /* PilotListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotListViewModel.swift; sourceTree = "<group>"; };
+		E8DCA84329DD809F000E4961 /* PilotListCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotListCellView.swift; sourceTree = "<group>"; };
+		E8DCA84529DD839E000E4961 /* PilotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotDetailView.swift; sourceTree = "<group>"; };
+		E8DCA84729DD83C2000E4961 /* PilotDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotDetailViewModel.swift; sourceTree = "<group>"; };
+		E8DCA84929DD863B000E4961 /* DetailLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +192,9 @@
 			children = (
 				E812D71229D1C76E009ED9A1 /* PilotList.swift */,
 				E8DCA84129DD735A000E4961 /* PilotListViewModel.swift */,
+				E8DCA84329DD809F000E4961 /* PilotListCellView.swift */,
+				E8DCA84529DD839E000E4961 /* PilotDetailView.swift */,
+				E8DCA84729DD83C2000E4961 /* PilotDetailViewModel.swift */,
 			);
 			path = Pilots;
 			sourceTree = "<group>";
@@ -225,6 +236,7 @@
 				E89282E029D1D120000BB957 /* ListTitleBar.swift */,
 				E874728529D333F60088C513 /* DisplayModeToggle.swift */,
 				E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */,
+				E8DCA84929DD863B000E4961 /* DetailLine.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -387,6 +399,7 @@
 			files = (
 				E8D3EF9E29D4C07500C042DB /* GroupFlightsBy.swift in Sources */,
 				E8D3EFC529D4C41400C042DB /* SearchOptonsBase.swift in Sources */,
+				E8DCA84829DD83C2000E4961 /* PilotDetailViewModel.swift in Sources */,
 				E8D3EFA829D4C35D00C042DB /* PlaceHolderView.swift in Sources */,
 				E812D70429D1C6CC009ED9A1 /* FlightLogHome.swift in Sources */,
 				E80F147929D482F000227D1D /* Color+Extension.swift in Sources */,
@@ -406,16 +419,19 @@
 				E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */,
 				E8DCA84229DD735A000E4961 /* PilotListViewModel.swift in Sources */,
 				E8D3EFC329D4C41400C042DB /* db.xcdatamodeld in Sources */,
+				E8DCA84A29DD863B000E4961 /* DetailLine.swift in Sources */,
 				E8D3EFCF29D4C56400C042DB /* MessageCenter.swift in Sources */,
 				E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */,
 				E812D71529D1C77F009ED9A1 /* AircraftList.swift in Sources */,
 				E8D3EFB829D4C40300C042DB /* Aircraft+Extensions.swift in Sources */,
 				E812D71C29D1CC3A009ED9A1 /* InfoView.swift in Sources */,
+				E8DCA84629DD839E000E4961 /* PilotDetailView.swift in Sources */,
 				E8D3EFCA29D4C47700C042DB /* Date+Extensions.swift in Sources */,
 				E8D3EFD029D4C56400C042DB /* Validators.swift in Sources */,
 				E80F147B29D4898F00227D1D /* bundle+Extension.swift in Sources */,
 				E8D3EFB929D4C40300C042DB /* Flight+Extensions.swift in Sources */,
 				E8D3EFBA29D4C40300C042DB /* FlightIssue+Extensions.swift in Sources */,
+				E8DCA84429DD809F000E4961 /* PilotListCellView.swift in Sources */,
 				E8D3EFBB29D4C40300C042DB /* Pilot+Extensions.swift in Sources */,
 				E8D3EFB329D4C3F800C042DB /* UIImage+Transformer.swift in Sources */,
 				E8D3EFAA29D4C35D00C042DB /* ImagePickerView.swift in Sources */,

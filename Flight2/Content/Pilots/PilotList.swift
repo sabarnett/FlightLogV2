@@ -26,46 +26,18 @@ struct PilotList: View {
                                     prompt: "Select + to add a pilot")
                 } else {
                     List(vm.pilotList, id: \.self, selection: $vm.selectedPilot) { pilot in
-                        NavigationLink(pilot.displayName, value: pilot)
-                            .tag(pilot.id)
+                        NavigationLink(value: pilot) {
+                            PilotListCellView(pilot: pilot)
+                        }.tag(pilot.id)
                     }
                     .listStyle(.plain)
                 }
             }
         } detail: {
-            if let selectedPilot = vm.selectedPilot {
-                Text("Selected Pilot: \(selectedPilot)")
-                    .toolbar {
-                        ToolbarItemGroup(placement: .primaryAction) {
-                            HStack {
-                                Button(action: {
-                                    print("Add new")
-                                }, label: {
-                                    Image(systemName: "plus")
-                                })
-                                
-                                Button( action: {
-                                    print("Delete")
-                                }, label: {
-                                    Image(systemName: "trash")
-                                })
-                            }
-                            .foregroundColor(.toolbarIcon)
-                        }
-                    }
+            if let selectedPilot = vm.getSelectedPilot() {
+                PilotDetailView(vm: PilotDetailViewModel(pilot: selectedPilot))
             } else {
                 Text("Please select a pilot")
-                .toolbar {
-                    ToolbarItemGroup(placement: .primaryAction) {
-                        Button(action: {
-                            print("Add new")
-                        }, label: {
-                            Image(systemName: "plus")
-                        })
-                        .foregroundColor(.toolbarIcon)
-
-                    }
-                }
             }
         }
         .onAppear {
@@ -76,20 +48,19 @@ struct PilotList: View {
     func additionalButtons() -> [AdditionalToolbarButton] {
         var buttons: [AdditionalToolbarButton] = []
         buttons.append(toggleStateButton())
-        
-        if UIDevice.current.userInterfaceIdiom != .pad {
-            // Phone dev ices will need an add button
-            let addButton = AdditionalToolbarButton(image: Image(systemName: "plus")) {
-                print("add")
-            }
-            buttons.append(addButton)
-        }
+        buttons.append(addPilotButton())
         
         return buttons
     }
+
+    func addPilotButton() -> AdditionalToolbarButton {
+        return AdditionalToolbarButton(image: Image(systemName: "plus")) {
+            print("add")
+        }
+    }
     
     func toggleStateButton() -> AdditionalToolbarButton {
-        return AdditionalToolbarButton(
+        AdditionalToolbarButton(
             image: Image(systemName: viewStyle.imageName)) {
                 viewStyle = viewStyle.nextStyle
         }

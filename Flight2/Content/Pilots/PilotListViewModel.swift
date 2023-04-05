@@ -92,6 +92,10 @@ class PilotsListViewModel: ObservableObject {
         
         pilotList = Pilot.all(withOptions: searchOptions).map { pilotListModel(pilot: $0) }
     }
+    
+    func getSelectedPilot() -> pilotListModel? {
+        pilotList.first(where: { $0.id == selectedPilot })
+    }
 }
 
 struct pilotListModel: Hashable, Identifiable {
