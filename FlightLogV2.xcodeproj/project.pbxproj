@@ -190,11 +190,9 @@
 		E812D70F29D1C73E009ED9A1 /* Pilots */ = {
 			isa = PBXGroup;
 			children = (
-				E812D71229D1C76E009ED9A1 /* PilotList.swift */,
-				E8DCA84129DD735A000E4961 /* PilotListViewModel.swift */,
-				E8DCA84329DD809F000E4961 /* PilotListCellView.swift */,
-				E8DCA84529DD839E000E4961 /* PilotDetailView.swift */,
-				E8DCA84729DD83C2000E4961 /* PilotDetailViewModel.swift */,
+				E8DCA84B29DD8865000E4961 /* List */,
+				E8DCA84C29DD886D000E4961 /* Detail */,
+				E8DCA84D29DD887B000E4961 /* Edit */,
 			);
 			path = Pilots;
 			sourceTree = "<group>";
@@ -317,6 +315,32 @@
 				E8D3EFB229D4C3F800C042DB /* UIImage+Transformer.swift */,
 			);
 			path = Transformers;
+			sourceTree = "<group>";
+		};
+		E8DCA84B29DD8865000E4961 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E812D71229D1C76E009ED9A1 /* PilotList.swift */,
+				E8DCA84129DD735A000E4961 /* PilotListViewModel.swift */,
+				E8DCA84329DD809F000E4961 /* PilotListCellView.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		E8DCA84C29DD886D000E4961 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				E8DCA84529DD839E000E4961 /* PilotDetailView.swift */,
+				E8DCA84729DD83C2000E4961 /* PilotDetailViewModel.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		E8DCA84D29DD887B000E4961 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
