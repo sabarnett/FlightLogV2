@@ -45,14 +45,6 @@ extension Pilot: BaseModel {
             NSSortDescriptor(key: #keyPath(Pilot.firstName), ascending: true)
         ]
         
-//        fetchRequest.propertiesToFetch = [
-//            #keyPath(Pilot.lastName),
-//            #keyPath(Pilot.firstName),
-//            #keyPath(Pilot.profileImage),
-//            #keyPath(Pilot.caaRegistration),
-//            #keyPath(Pilot.deletedDate)
-//        ]
-        
         do {
             return try StorageProvider.shared.context.fetch(fetchRequest).map { pilot in
                 PickerOptionWithKey(image: pilot.profileImage?.image,

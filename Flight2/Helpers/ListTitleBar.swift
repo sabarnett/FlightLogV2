@@ -6,7 +6,6 @@
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
 
-
 import SwiftUI
 
 struct AdditionalToolbarButton: Identifiable {
@@ -36,10 +35,26 @@ struct ListTitleBar: View {
                 .foregroundColor(.heading)
         }
         .toolbar {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                HStack(spacing: 6) {
+                    
+                    Button(action: {
+                        showSettings.toggle()
+                    }, label: {
+                        Image(systemName: "gear")
+                    })
+                    
+                    Button(action: {
+                        showAbout.toggle()
+                    }, label: {
+                        Image(systemName: "info.circle")
+                    })
+                }
+                .foregroundColor(.toolbarIcon)
+            }
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                HStack(spacing: 8) {
-                    Spacer()
-                    // Allow the user to put additional buttons before the system buttons.
+                HStack(spacing: 6) {
+                    // Allow the user to put additional buttons after the system buttons.
                     ForEach(additionalButtons) { button in
                         Button(action: {
                             button.action()
@@ -53,18 +68,6 @@ struct ListTitleBar: View {
                             }
                         })
                     }
-                    
-                    Button(action: {
-                        showSettings.toggle()
-                    }, label: {
-                        Image(systemName: "gear")
-                    })
-                    
-                    Button(action: {
-                        showAbout.toggle()
-                    }, label: {
-                        Image(systemName: "info.circle")
-                    })
                 }
                 .foregroundColor(.toolbarIcon)
             }

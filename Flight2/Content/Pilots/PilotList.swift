@@ -11,8 +11,7 @@ import SwiftUI
 
 struct PilotList: View {
     
-    private var pilots = ["Pilot1", "Pilot2", "Pilot3"]
-    @State private var selectedPilot: String?
+    @StateObject private var vm: PilotsListViewModel = PilotsListViewModel()
     @State private var viewStyle: ViewStyleToggle = .list
     
     var body: some View {
@@ -20,17 +19,21 @@ struct PilotList: View {
             VStack(spacing: 0) {
                 ListTitleBar(title: "Pilots",
                              iconName: "person.fill",
-                             additionalButtons: [
-                                toggleStateButton()
-                             ])
+                             additionalButtons: additionalButtons())
                 
-                List(pilots, id: \.self, selection: $selectedPilot) { pilot in
-                    NavigationLink(pilot, value: pilot)
+                if !vm.hasPilots {
+                    PlaceHolderView(image: "person-placeholder",
+                                    prompt: "Select + to add a pilot")
+                } else {
+                    List(vm.pilotList, id: \.self, selection: $vm.selectedPilot) { pilot in
+                        NavigationLink(pilot.displayName, value: pilot)
+                            .tag(pilot.id)
+                    }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
             }
         } detail: {
-            if let selectedPilot {
+            if let selectedPilot = vm.selectedPilot {
                 Text("Selected Pilot: \(selectedPilot)")
                     .toolbar {
                         ToolbarItemGroup(placement: .primaryAction) {
@@ -65,6 +68,24 @@ struct PilotList: View {
                 }
             }
         }
+        .onAppear {
+            vm.loadPilots()
+        }
+    }
+    
+    func additionalButtons() -> [AdditionalToolbarButton] {
+        var buttons: [AdditionalToolbarButton] = []
+        buttons.append(toggleStateButton())
+        
+        if UIDevice.current.userInterfaceIdiom != .pad {
+            // Phone dev ices will need an add button
+            let addButton = AdditionalToolbarButton(image: Image(systemName: "plus")) {
+                print("add")
+            }
+            buttons.append(addButton)
+        }
+        
+        return buttons
     }
     
     func toggleStateButton() -> AdditionalToolbarButton {

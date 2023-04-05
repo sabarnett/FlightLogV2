@@ -46,6 +46,7 @@
 		E8D3EFCE29D4C56400C042DB /* WriteLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFCB29D4C56400C042DB /* WriteLog.swift */; };
 		E8D3EFCF29D4C56400C042DB /* MessageCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFCC29D4C56400C042DB /* MessageCenter.swift */; };
 		E8D3EFD029D4C56400C042DB /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EFCD29D4C56400C042DB /* Validators.swift */; };
+		E8DCA84229DD735A000E4961 /* PilotListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84129DD735A000E4961 /* PilotListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -101,6 +102,7 @@
 		E8D3EFCB29D4C56400C042DB /* WriteLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteLog.swift; sourceTree = "<group>"; };
 		E8D3EFCC29D4C56400C042DB /* MessageCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCenter.swift; sourceTree = "<group>"; };
 		E8D3EFCD29D4C56400C042DB /* Validators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		E8DCA84129DD735A000E4961 /* PilotListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				E812D71229D1C76E009ED9A1 /* PilotList.swift */,
+				E8DCA84129DD735A000E4961 /* PilotListViewModel.swift */,
 			);
 			path = Pilots;
 			sourceTree = "<group>";
@@ -401,6 +404,7 @@
 				E8D3EFC629D4C41400C042DB /* SavedImage+CoreDataClass.swift in Sources */,
 				E8D3EFCE29D4C56400C042DB /* WriteLog.swift in Sources */,
 				E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */,
+				E8DCA84229DD735A000E4961 /* PilotListViewModel.swift in Sources */,
 				E8D3EFC329D4C41400C042DB /* db.xcdatamodeld in Sources */,
 				E8D3EFCF29D4C56400C042DB /* MessageCenter.swift in Sources */,
 				E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */,
