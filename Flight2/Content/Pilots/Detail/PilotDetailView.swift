@@ -8,16 +8,21 @@
              
 import SwiftUI
 import UtilityViews
+import CoreData
 
 struct PilotDetailView: View {
     
     @Environment(\.dismiss) private var dismiss
 
-    @StateObject var vm: PilotDetailViewModel
+    @ObservedObject var vm: PilotDetailViewModel
     @State var readonlyModal: Bool = false
 
     @State private var editPilot: Bool = false
     @State private var isPresentingDeleteConfirm: Bool = false
+    
+    init(pilotId: NSManagedObjectID) {
+        vm = PilotDetailViewModel(pilotId: pilotId)
+    }
     
     var body: some View {
         VStack {

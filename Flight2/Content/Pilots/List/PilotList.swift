@@ -34,8 +34,8 @@ struct PilotList: View {
                 }
             }
         } detail: {
-            if let selectedPilot = vm.getSelectedPilot() {
-                PilotDetailView(vm: PilotDetailViewModel(pilot: selectedPilot))
+            if let selectedPilot = vm.selectedPilot {
+                PilotDetailView(pilotId: selectedPilot)
             } else {
                 Text("Please select a pilot")
             }

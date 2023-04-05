@@ -15,9 +15,9 @@ class PilotDetailViewModel: ObservableObject {
     @Published var pilot: Pilot
     @Published var pilotId: NSManagedObjectID?
     
-    init(pilot: pilotListModel) {
-        pilotId = pilot.id
-        self.pilot = Pilot.byId(id: pilot.id) ?? Pilot.dummyData
+    init(pilotId: NSManagedObjectID) {
+        self.pilotId = pilotId
+        self.pilot = Pilot.byId(id: pilotId) ?? Pilot.dummyData
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(sectionChanged),
                                                name: Notification.Name.sectionChanged,
