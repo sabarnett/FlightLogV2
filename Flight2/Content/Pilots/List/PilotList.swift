@@ -16,7 +16,7 @@ struct PilotList: View {
     
     var body: some View {
         NavigationSplitView {
-            VStack(spacing: 0) {
+            VStack {
                 ListTitleBar(title: "Pilots",
                              iconName: "person.fill",
                              additionalButtons: additionalButtons())
@@ -25,12 +25,17 @@ struct PilotList: View {
                     PlaceHolderView(image: "person-placeholder",
                                     prompt: "Select + to add a pilot")
                 } else {
-                    List(vm.pilotList, id: \.self, selection: $vm.selectedPilot) { pilot in
-                        NavigationLink(value: pilot) {
-                            PilotListCellView(pilot: pilot)
-                        }.tag(pilot.id)
+                    
+                    List(selection: $vm.selectedPilot) {
+                        ForEach(vm.pilotList, id: \.id) { pilot in
+                            NavigationLink(value: pilot) {
+                                PilotListCellView(pilot: pilot)
+                            }
+                            .tag(pilot.id)
+                        }
                     }
                     .listStyle(.plain)
+                    .id(vm.listRefresh)
                 }
             }
         } detail: {

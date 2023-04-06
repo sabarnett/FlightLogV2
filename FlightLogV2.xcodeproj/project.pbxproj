@@ -21,6 +21,8 @@
 		E812D71C29D1CC3A009ED9A1 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71B29D1CC3A009ED9A1 /* InfoView.swift */; };
 		E874728629D333F60088C513 /* DisplayModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874728529D333F60088C513 /* DisplayModeToggle.swift */; };
 		E89282E129D1D120000BB957 /* ListTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89282E029D1D120000BB957 /* ListTitleBar.swift */; };
+		E8C8EE2B29DED5F7001823D3 /* PilotEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */; };
+		E8C8EE2D29DED62D001823D3 /* PilotEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */; };
 		E8D3EF9729D4BD2B00C042DB /* UtilityViews.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; };
 		E8D3EF9829D4BD2B00C042DB /* UtilityViews.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */; };
@@ -83,6 +85,8 @@
 		E812D71B29D1CC3A009ED9A1 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		E874728529D333F60088C513 /* DisplayModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModeToggle.swift; sourceTree = "<group>"; };
 		E89282E029D1D120000BB957 /* ListTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTitleBar.swift; sourceTree = "<group>"; };
+		E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotEdit.swift; sourceTree = "<group>"; };
+		E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotEditViewModel.swift; sourceTree = "<group>"; };
 		E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UtilityViews.xcframework; path = ../../Apps/Frameworks/UtilityViews/UtilityViews/build/UtilityViews.xcframework; sourceTree = "<group>"; };
 		E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFlightsBy.swift; sourceTree = "<group>"; };
@@ -339,6 +343,8 @@
 		E8DCA84D29DD887B000E4961 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */,
+				E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 				E8D3EFCF29D4C56400C042DB /* MessageCenter.swift in Sources */,
 				E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */,
 				E812D71529D1C77F009ED9A1 /* AircraftList.swift in Sources */,
+				E8C8EE2B29DED5F7001823D3 /* PilotEdit.swift in Sources */,
 				E8D3EFB829D4C40300C042DB /* Aircraft+Extensions.swift in Sources */,
 				E812D71C29D1CC3A009ED9A1 /* InfoView.swift in Sources */,
 				E8DCA84629DD839E000E4961 /* PilotDetailView.swift in Sources */,
@@ -457,6 +464,7 @@
 				E8D3EFBA29D4C40300C042DB /* FlightIssue+Extensions.swift in Sources */,
 				E8DCA84429DD809F000E4961 /* PilotListCellView.swift in Sources */,
 				E8D3EFBB29D4C40300C042DB /* Pilot+Extensions.swift in Sources */,
+				E8C8EE2D29DED62D001823D3 /* PilotEditViewModel.swift in Sources */,
 				E8D3EFB329D4C3F800C042DB /* UIImage+Transformer.swift in Sources */,
 				E8D3EFAA29D4C35D00C042DB /* ImagePickerView.swift in Sources */,
 			);

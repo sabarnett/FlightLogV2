@@ -75,11 +75,13 @@ struct PilotDetailView: View {
                         .foregroundColor(.toolbarIcon)
                     }
                 }
-//                .sheet(isPresented: $editPilot, onDismiss: {
-//                    vm.reloadData()
-//                }) {
-//                    PilotEdit(editViewModel: PilotEditViewModel(pilotID: vm.pilot.objectID))
-//                }
+                .sheet(isPresented: $editPilot, onDismiss: {
+                    vm.reloadData()
+                }) {
+                    if let pilotId = vm.pilotId {
+                        PilotEdit(editViewModel: PilotEditViewModel(pilotID: pilotId))
+                    }
+                }
                 .confirmationDialog("Are you sure?",
                                     isPresented: $isPresentingDeleteConfirm) {
                     Button("Delete pilot?", role: .destructive) {

@@ -74,10 +74,9 @@ class PilotsListViewModel: ObservableObject {
         if let updatedPilot = Pilot.byId(id: id) as? Pilot  {
             pilotModel.pilot = updatedPilot
             pilotModel.listId = UUID()
-            
-            if UIDevice.current.userInterfaceIdiom == .pad {
-                self.listRefresh = UUID()
-            }
+
+            // Force the list to refresh
+            self.listRefresh = UUID()
             
             selectedPilot = pilotModel.id
         }

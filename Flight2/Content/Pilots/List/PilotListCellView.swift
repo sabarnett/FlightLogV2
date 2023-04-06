@@ -10,7 +10,7 @@ import SwiftUI
 
 struct PilotListCellView: View {
     
-    let pilot: pilotListModel
+    @State var pilot: pilotListModel
     
     var body: some View {
         HStack {
