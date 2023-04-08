@@ -12,7 +12,7 @@ import SwiftUI
 
 class PilotsListViewModel: ObservableObject {
     
-    @Published var pilotList: [pilotListModel] = []
+    @Published var pilotList: [Pilot] = []
     @Published var selectedPilot: NSManagedObjectID?
     
     // This is abit of a fudge. If we have updated a pilot in the detail view, we need to
@@ -25,7 +25,7 @@ class PilotsListViewModel: ObservableObject {
     // correctly when the list is re-displayed, just by updating the listId.
     @Published var listRefresh: UUID = UUID()
     
-    var pilotToDelete: pilotListModel?
+    //var pilotToDelete: pilotListModel?
     var includeDeleted: Bool = false
     
     var pilotsCount: Int { pilotList.count }
@@ -63,23 +63,16 @@ class PilotsListViewModel: ObservableObject {
             return
         }
         
-        guard var pilotModel = pilotList.first(where: { $0.id == id }) else {
+        guard let pilotIndex = pilotList.firstIndex(where: { $0.objectID == id }) else {
             // It's a new pilot, requery the data
+            selectedPilot = nil
             loadPilots(includeDeleted: includeDeleted)
             selectedPilot = id
             return
         }
         
-        // Update the pilot in the item
-        if let updatedPilot = Pilot.byId(id: id) as? Pilot  {
-            pilotModel.pilot = updatedPilot
-            pilotModel.listId = UUID()
-
-            // Force the list to refresh
-            self.listRefresh = UUID()
-            
-            selectedPilot = pilotModel.id
-        }
+        StorageProvider.shared.context.refresh(pilotList[pilotIndex], mergeChanges: true)
+        selectedPilot = pilotList[pilotIndex].objectID
     }
     
     func loadPilots(includeDeleted: Bool = false) {
@@ -89,36 +82,18 @@ class PilotsListViewModel: ObservableObject {
         searchOptions.includeDeleted = includeDeleted
         searchOptions.textSearch = self.searchFor
         
-        pilotList = Pilot.all(withOptions: searchOptions).map { pilotListModel(pilot: $0) }
+        pilotList = Pilot.all(withOptions: searchOptions)
+        
+        // Is the currently selected item still in the list?
+        guard let selectedPilot,
+              pilotList.contains(where: { $0.objectID == selectedPilot}) else {
+            self.selectedPilot = nil
+            return
+        }
     }
     
-    func getSelectedPilot() -> pilotListModel? {
-        pilotList.first(where: { $0.id == selectedPilot })
-    }
-}
-
-struct pilotListModel: Hashable, Identifiable {
-    
-    var pilot: Pilot
-    var listId: UUID = UUID()
-    
-    var id: NSManagedObjectID {
-        pilot.objectID
-    }
-    
-    var firstName: String { pilot.firstName ?? "" }
-    var lastName: String { pilot.lastName ?? "" }
-    var caaRegistration: String { pilot.caaRegistration ?? "" }
-    var mobilePhone: String { pilot.mobilePhone ?? "" }
-    var alternatePhone: String { pilot.homePhone ?? "" }
-    var emailAddress: String { pilot.email ?? "" }
-    var profileImage: UIImage { pilot.profileImage?.image ?? UIImage(named: "person-placeholder")!}
-    var displayName: String { pilot.displayName }
-    
-    var isDeleted: Bool { pilot.deletedDate != nil }
-    
-    init(pilot: Pilot, listId: UUID = UUID()) {
-        self.pilot = pilot
-        self.listId = listId
+    func getSelectedPilot() -> Pilot? {
+        guard let selectedPilot = self.selectedPilot else { return nil }
+        return pilotList.first(where: { $0.objectID == selectedPilot })
     }
 }

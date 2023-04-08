@@ -20,10 +20,6 @@ struct PilotDetailView: View {
     @State private var editPilot: Bool = false
     @State private var isPresentingDeleteConfirm: Bool = false
     
-    init(pilotId: NSManagedObjectID) {
-        vm = PilotDetailViewModel(pilotId: pilotId)
-    }
-    
     var body: some View {
         VStack {
             if vm.pilotId == nil {
@@ -35,7 +31,7 @@ struct PilotDetailView: View {
                     .frame(width: 200, height: 200)
                     .padding(2)
                 
-                if vm.isDeleted {
+                if vm.pilotDeleted {
                     HStack {
                         Spacer()
                         Text("This pilot has been deleted")
@@ -69,8 +65,10 @@ struct PilotDetailView: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .primaryAction) {
                         HStack {
-                            Button { editPilot = true } label: { Image(systemName: "square.and.pencil") }
-                            Button { deletePilot() } label: { Image(systemName: vm.isDeleted ? "trash.slash" : "trash") }
+                            if !vm.pilotDeleted {
+                                Button { editPilot = true } label: { Image(systemName: "square.and.pencil") }
+                            }
+                            Button { deletePilot() } label: { Image(systemName: vm.pilotDeleted ? "trash.slash" : "trash") }
                         }
                         .foregroundColor(.toolbarIcon)
                     }
@@ -105,7 +103,7 @@ struct PilotDetailView: View {
     }
 
     func deletePilot() {
-        if vm.isDeleted {
+        if vm.pilotDeleted {
             vm.undeletePilot()
             vm.reloadData()
         } else {

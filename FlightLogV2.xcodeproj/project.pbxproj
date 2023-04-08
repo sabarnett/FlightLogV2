@@ -19,7 +19,7 @@
 		E812D71729D1C78B009ED9A1 /* FlightList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71629D1C78B009ED9A1 /* FlightList.swift */; };
 		E812D71A29D1CC2E009ED9A1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71929D1CC2E009ED9A1 /* SettingsView.swift */; };
 		E812D71C29D1CC3A009ED9A1 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71B29D1CC3A009ED9A1 /* InfoView.swift */; };
-		E874728629D333F60088C513 /* DisplayModeToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874728529D333F60088C513 /* DisplayModeToggle.swift */; };
+		E874728629D333F60088C513 /* ViewStyleToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874728529D333F60088C513 /* ViewStyleToggle.swift */; };
 		E89282E129D1D120000BB957 /* ListTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89282E029D1D120000BB957 /* ListTitleBar.swift */; };
 		E8C8EE2B29DED5F7001823D3 /* PilotEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */; };
 		E8C8EE2D29DED62D001823D3 /* PilotEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */; };
@@ -83,7 +83,7 @@
 		E812D71629D1C78B009ED9A1 /* FlightList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightList.swift; sourceTree = "<group>"; };
 		E812D71929D1CC2E009ED9A1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E812D71B29D1CC3A009ED9A1 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
-		E874728529D333F60088C513 /* DisplayModeToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayModeToggle.swift; sourceTree = "<group>"; };
+		E874728529D333F60088C513 /* ViewStyleToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyleToggle.swift; sourceTree = "<group>"; };
 		E89282E029D1D120000BB957 /* ListTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTitleBar.swift; sourceTree = "<group>"; };
 		E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotEdit.swift; sourceTree = "<group>"; };
 		E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotEditViewModel.swift; sourceTree = "<group>"; };
@@ -236,7 +236,7 @@
 				E8D3EFCB29D4C56400C042DB /* WriteLog.swift */,
 				E8D3EFA429D4C34400C042DB /* Images */,
 				E89282E029D1D120000BB957 /* ListTitleBar.swift */,
-				E874728529D333F60088C513 /* DisplayModeToggle.swift */,
+				E874728529D333F60088C513 /* ViewStyleToggle.swift */,
 				E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */,
 				E8DCA84929DD863B000E4961 /* DetailLine.swift */,
 			);
@@ -439,7 +439,7 @@
 				E812D71729D1C78B009ED9A1 /* FlightList.swift in Sources */,
 				E8D3EFC229D4C41400C042DB /* BaseModel.swift in Sources */,
 				E812D70229D1C6CC009ED9A1 /* Flight2App.swift in Sources */,
-				E874728629D333F60088C513 /* DisplayModeToggle.swift in Sources */,
+				E874728629D333F60088C513 /* ViewStyleToggle.swift in Sources */,
 				E812D71A29D1CC2E009ED9A1 /* SettingsView.swift in Sources */,
 				E89282E129D1D120000BB957 /* ListTitleBar.swift in Sources */,
 				E8D3EFA029D4C0C000C042DB /* FlightAgeSelection.swift in Sources */,

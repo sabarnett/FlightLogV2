@@ -10,26 +10,26 @@ import SwiftUI
 
 struct PilotListCellView: View {
     
-    @State var pilot: pilotListModel
+    @ObservedObject var pilot: Pilot
     
     var body: some View {
         HStack {
-            Image(uiImage: pilot.profileImage)
+            Image(uiImage: pilot.viewProfileImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 70, height: 70)
             VStack(alignment: .leading) {
-                Text("\(pilot.firstName) \(pilot.lastName)").font(.title3)
-                Text(pilot.caaRegistration).font(.caption)
-                Text(pilot.mobilePhone).font(.caption)
-            }.foregroundColor(pilot.isDeleted ? Color(.systemRed) : .primary)
+                Text("\(pilot.viewFirstName) \(pilot.viewLastName)").font(.title3)
+                Text(pilot.viewCAARegistration).font(.caption)
+                Text(pilot.viewMobilePhone).font(.caption)
+            }.foregroundColor(pilot.pilotDeleted ? Color(.systemRed) : .primary)
         }
     }
 }
 
 struct PilotListCellView_Previews: PreviewProvider {
     static var previews: some View {
-        PilotListCellView(pilot: pilotListModel(pilot: Pilot.dummyData))
+        PilotListCellView(pilot: Pilot.dummyData)
             .previewLayout(.sizeThatFits)
     }
 }

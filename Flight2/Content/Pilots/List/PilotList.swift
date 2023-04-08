@@ -5,14 +5,17 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 
 struct PilotList: View {
     
+    @AppStorage("showDeletedPilots") var showDeleted: Bool = false
+    @AppStorage("displayPilotsAs") var displayPilotsAs: ViewStyleToggle = .card
+    
     @StateObject private var vm: PilotsListViewModel = PilotsListViewModel()
     @State private var viewStyle: ViewStyleToggle = .list
+    @State private var showAdd: Bool = false
     
     var body: some View {
         NavigationSplitView {
@@ -27,26 +30,29 @@ struct PilotList: View {
                 } else {
                     
                     List(selection: $vm.selectedPilot) {
-                        ForEach(vm.pilotList, id: \.id) { pilot in
-                            NavigationLink(value: pilot) {
+                        ForEach(vm.pilotList, id: \.objectID) { pilot in
+                            NavigationLink(value: pilot.objectID) {
                                 PilotListCellView(pilot: pilot)
                             }
                             .tag(pilot.id)
                         }
                     }
                     .listStyle(.plain)
-                    .id(vm.listRefresh)
                 }
             }
         } detail: {
             if let selectedPilot = vm.selectedPilot {
-                PilotDetailView(pilotId: selectedPilot)
+                PilotDetailView(vm: PilotDetailViewModel(pilotId: selectedPilot))
             } else {
                 Text("Please select a pilot")
             }
         }
-        .onAppear {
-            vm.loadPilots()
+        .onAppear { vm.loadPilots(includeDeleted: showDeleted) }
+        .onChange(of: showDeleted, perform: { _ in vm.loadPilots(includeDeleted: showDeleted) })
+        .sheet(isPresented: $showAdd, onDismiss: {
+            vm.loadPilots(includeDeleted: showDeleted)
+        }) {
+            PilotEdit(editViewModel: PilotEditViewModel(pilotID: nil))
         }
     }
     
@@ -60,7 +66,7 @@ struct PilotList: View {
 
     func addPilotButton() -> AdditionalToolbarButton {
         return AdditionalToolbarButton(image: Image(systemName: "plus")) {
-            print("add")
+            showAdd.toggle()
         }
     }
     

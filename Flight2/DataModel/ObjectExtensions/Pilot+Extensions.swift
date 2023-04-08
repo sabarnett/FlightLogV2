@@ -16,6 +16,20 @@ class PilotSearchOptions: SearchOptionsBase {
     // Additional options here please.
 }
 
+extension Pilot {
+    
+        var viewFirstName: String { self.firstName ?? "" }
+        var viewLastName: String { self.lastName ?? "" }
+        var viewCAARegistration: String { self.caaRegistration ?? "" }
+        var viewMobilePhone: String { self.mobilePhone ?? "" }
+        var viewAlternatePhone: String { self.homePhone ?? "" }
+        var viewEmailAddress: String { self.email ?? "" }
+        var viewProfileImage: UIImage { self.profileImage?.image ?? UIImage(named: "person-placeholder")!}
+        var viewDisplayName: String { self.displayName }
+    
+        var pilotDeleted: Bool { self.deletedDate != nil }
+}
+
 extension Pilot: BaseModel {
     
     // MARK: - Public interface - static methods

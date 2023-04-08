@@ -44,7 +44,7 @@ class PilotDetailViewModel: ObservableObject {
     var email: String { pilot.email ?? "" }
     
     var profilePicture: UIImage { pilot.profileImage?.image ?? UIImage(imageLiteralResourceName: "person-placeholder") }
-    var isDeleted: Bool { pilot.deletedDate != nil }
+    var pilotDeleted: Bool { pilot.deletedDate != nil }
     
     func reloadData() {
         self.pilot = Pilot.byId(id: pilot.objectID) ?? Pilot.dummyData
