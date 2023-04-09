@@ -19,7 +19,7 @@ struct PilotEdit: View {
     var body: some View {
         VStack {
             List {
-                Section("Profile Image") {
+                Section {
                     HStack {
                         Spacer()
                         ImagePickerView(image: $editViewModel.profilePicture,
@@ -27,9 +27,11 @@ struct PilotEdit: View {
                         Spacer()
                     }
                     .padding()
+                } header: {
+                    SectionTitle("Profile Image")
                 }
                 
-                Section("Name") {
+                Section {
                     FloatingTextView("First Name", text: $editViewModel.firstName)
                         .autocorrectionDisabled(true)
                         .textInputAutocapitalization(.words)
@@ -39,9 +41,11 @@ struct PilotEdit: View {
                     FloatingTextView("CAA Registration", text: $editViewModel.caaRegistration)
                         .autocorrectionDisabled(true)
                         .textInputAutocapitalization(.characters)
+                } header: {
+                    SectionTitle("Name")
                 }
                 
-                Section("Contact") {
+                Section {
                     TextEdit(placeholder: "Address", text: $editViewModel.address)
                         .frame(minHeight: 100)
                     FloatingTextView("Post Code", text: $editViewModel.postCode)
@@ -55,12 +59,16 @@ struct PilotEdit: View {
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.never)
+                } header: {
+                    SectionTitle("Contact")
                 }
                 
                 if editViewModel.hasErrors {
-                    Section("Errors") {
+                    Section {
                         Text(editViewModel.errorDigest)
                             .foregroundColor(Color(.systemRed))
+                    } header: {
+                        SectionTitle("Errors")
                     }
                 }
             }

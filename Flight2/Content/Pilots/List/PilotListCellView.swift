@@ -19,10 +19,12 @@ struct PilotListCellView: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 70, height: 70)
             VStack(alignment: .leading) {
-                Text("\(pilot.viewFirstName) \(pilot.viewLastName)").font(.title3)
+                Text("\(pilot.viewFirstName) \(pilot.viewLastName)")
+                    .font(.title3)
+                    .foregroundColor(.primary)
                 Text(pilot.viewCAARegistration).font(.caption)
                 Text(pilot.viewMobilePhone).font(.caption)
-            }.foregroundColor(pilot.pilotDeleted ? Color(.systemRed) : .primary)
+            }.foregroundColor(pilot.pilotDeleted ? Color(.systemRed) : .primaryText)
         }
     }
 }

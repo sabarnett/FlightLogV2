@@ -12,4 +12,5 @@ import SwiftUI
 extension Color {
     static var toolbarIcon: Color { get { Color("ToolbarIconColor") }}
     static var heading: Color { get { Color("Headings") }}
+    static var primaryText: Color { get { Color("PrimaryText") }}
 }

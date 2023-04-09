@@ -30,7 +30,7 @@ struct ListTitleBar: View {
                 Image(systemName: iconName)
                 Text(title)
                 Spacer()
-            }.font(.title2)
+            }.font(.title)
                 .padding()
                 .foregroundColor(.heading)
         }

@@ -18,7 +18,7 @@ struct DetailLine: View {
             VStack(alignment: .leading) {
                 Text(key)
                     .foregroundColor(.secondary)
-                    .font(.caption)
+                    .font(.body)
                     .frame(minWidth: 20, idealWidth: 30, maxWidth: 90, alignment: .leading)
             }
             VStack(alignment: .leading) {

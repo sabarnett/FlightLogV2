@@ -34,10 +34,10 @@ struct PilotDetailView: View {
                             .frame(width: 200, height: 200)
                             .padding(2)
                         VStack(alignment: .leading, spacing: 3) {
-                            Text(vm.pilot.displayName).font(.title)
+                            Text(vm.pilot.displayName).font(.title).foregroundColor(Color.heading)
                             Text(vm.pilot.viewCAARegistration).font(.title2)
                             Text(vm.pilot.viewMobilePhone).font(.title2)
-                        }
+                        }.foregroundColor(.primaryText)
                         Spacer()
                     }.frame(height: 210)
                 } else {
@@ -65,18 +65,18 @@ struct PilotDetailView: View {
                             DetailLine(key: "CAA Reg", value: vm.pilot.viewCAARegistration)
                         } header: {
                             SectionTitle("Pilot")
-                        }
+                        }.foregroundColor(.primaryText)
                     }
                     
                     Section {
-                        DetailLine(key: "Address", value: vm.pilot.viewAddress)
+                        DetailLine(key: "Address", value: vm.pilot.viewAddress).foregroundColor(.primaryText)
                         DetailLine(key: "Post Code", value: vm.pilot.viewPostCode)
                         DetailLine(key: "Home Phone", value: vm.pilot.viewAlternatePhone)
                         DetailLine(key: "Mobile Phone", value: vm.pilot.viewMobilePhone)
                         DetailLine(key: "Email", value: vm.pilot.viewEmailAddress)
                     } header: {
                         SectionTitle("Contact Detals")
-                    }
+                    }.foregroundColor(.primaryText)
                 }
                 .listStyle(.grouped)
                 .navigationTitle("")
