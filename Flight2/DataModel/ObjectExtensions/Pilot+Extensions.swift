@@ -5,7 +5,7 @@
 // 
 // Copyright © 2022 Steven Barnett. All rights reserved.
 //
-        
+
 
 import Foundation
 import CoreData
@@ -18,16 +18,18 @@ class PilotSearchOptions: SearchOptionsBase {
 
 extension Pilot {
     
-        var viewFirstName: String { self.firstName ?? "" }
-        var viewLastName: String { self.lastName ?? "" }
-        var viewCAARegistration: String { self.caaRegistration ?? "" }
-        var viewMobilePhone: String { self.mobilePhone ?? "" }
-        var viewAlternatePhone: String { self.homePhone ?? "" }
-        var viewEmailAddress: String { self.email ?? "" }
-        var viewProfileImage: UIImage { self.profileImage?.image ?? UIImage(named: "person-placeholder")!}
-        var viewDisplayName: String { self.displayName }
+    var viewFirstName: String { self.firstName ?? "" }
+    var viewLastName: String { self.lastName ?? "" }
+    var viewCAARegistration: String { self.caaRegistration ?? "" }
+    var viewMobilePhone: String { self.mobilePhone ?? "" }
+    var viewAlternatePhone: String { self.homePhone ?? "" }
+    var viewEmailAddress: String { self.email ?? "" }
+    var viewProfileImage: UIImage { self.profileImage?.image ?? UIImage(named: "person-placeholder")!}
+    var viewDisplayName: String { self.displayName }
+    var viewAddress: String { self.address ?? "" }
+    var viewPostCode: String { self.postCode ?? "" }
     
-        var pilotDeleted: Bool { self.deletedDate != nil }
+    var pilotDeleted: Bool { self.deletedDate != nil }
 }
 
 extension Pilot: BaseModel {
@@ -36,7 +38,7 @@ extension Pilot: BaseModel {
     
     static func all() -> [Pilot] { return fetchPilots(withOptions: PilotSearchOptions()) }
     static func all(withOptions: PilotSearchOptions) -> [Pilot] { return fetchPilots(withOptions: withOptions) }
-
+    
     static func count() -> Int {
         let fetchRequest: NSFetchRequest<Pilot> = Pilot.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "deletedDate = nil")
@@ -51,7 +53,7 @@ extension Pilot: BaseModel {
     
     static func pickerData() -> [PickerOption] {
         let fetchRequest: NSFetchRequest<Pilot> = Pilot.fetchRequest()
-
+        
         fetchRequest.predicate = NSPredicate(format: "deletedDate = nil")
         
         fetchRequest.sortDescriptors = [
@@ -81,7 +83,7 @@ extension Pilot: BaseModel {
     /// reset in the pilot object and the picture wioll be deleted from the SavedImages table.
     func clearProfileImage() {
         guard let profilePicture = self.profileImage else { return }
-
+        
         // Delete the existing image
         StorageProvider.shared.context.delete(profilePicture)
         profileImage = nil
@@ -127,7 +129,7 @@ extension Pilot: BaseModel {
             let searchLastName = NSPredicate(format: "%K CONTAINS[cd] %@", #keyPath(Pilot.lastName), searchFor)
             let searchAddress = NSPredicate(format: "%K CONTAINS[cd] %@", #keyPath(Pilot.address), searchFor)
             let searchMobile = NSPredicate(format: "%K CONTAINS[cd] %@", #keyPath(Pilot.mobilePhone), searchFor)
-
+            
             let searchPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [
                 searchFirstName,
                 searchLastName,
@@ -147,7 +149,7 @@ extension Pilot: BaseModel {
     // MARK: - Dummy data for preview usage
     static var dummyData: Pilot {
         let pilot = Pilot.create() as Pilot
-
+        
         pilot.firstName = "Dummy"
         pilot.lastName = "Pilot"
         pilot.caaRegistration = "AAA-BBBBBBBB-CCCC"

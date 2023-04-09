@@ -18,6 +18,7 @@ class PilotDetailViewModel: ObservableObject {
     init(pilotId: NSManagedObjectID) {
         self.pilotId = pilotId
         self.pilot = Pilot.byId(id: pilotId) ?? Pilot.dummyData
+        
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(sectionChanged),
                                                name: Notification.Name.sectionChanged,
@@ -33,18 +34,6 @@ class PilotDetailViewModel: ObservableObject {
     @objc func sectionChanged() {
         pilotId = nil
     }
-    
-    var firstName: String { pilot.firstName ?? "" }
-    var lastName: String { pilot.lastName ?? "" }
-    var caaRegistration: String { pilot.caaRegistration ?? "" }
-    var homePhone: String { pilot.homePhone ?? "" }
-    var mobilePhone: String { pilot.mobilePhone ?? "" }
-    var address: String { pilot.address ?? "" }
-    var postcode: String { pilot.postCode ?? "" }
-    var email: String { pilot.email ?? "" }
-    
-    var profilePicture: UIImage { pilot.profileImage?.image ?? UIImage(imageLiteralResourceName: "person-placeholder") }
-    var pilotDeleted: Bool { pilot.deletedDate != nil }
     
     func reloadData() {
         self.pilot = Pilot.byId(id: pilot.objectID) ?? Pilot.dummyData

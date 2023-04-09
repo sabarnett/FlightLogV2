@@ -25,13 +25,30 @@ struct PilotDetailView: View {
             if vm.pilotId == nil {
                 Text("Nothing selected")
             } else {
-                Image(uiImage: vm.profilePicture)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
-                    .padding(2)
+                Text("")
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    HStack(alignment: .top) {
+                        Image(uiImage: vm.pilot.viewProfileImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+                            .padding(2)
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(vm.pilot.displayName).font(.title)
+                            Text(vm.pilot.viewCAARegistration).font(.title2)
+                            Text(vm.pilot.viewMobilePhone).font(.title2)
+                        }
+                        Spacer()
+                    }.frame(height: 210)
+                } else {
+                    Image(uiImage: vm.pilot.viewProfileImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
+                        .padding(2)
+                }
                 
-                if vm.pilotDeleted {
+                if vm.pilot.pilotDeleted {
                     HStack {
                         Spacer()
                         Text("This pilot has been deleted")
@@ -42,19 +59,21 @@ struct PilotDetailView: View {
                 }
                 
                 List {
-                    Section {
-                        DetailLine(key: "Name", value: "\(vm.firstName) \(vm.lastName)")
-                        DetailLine(key: "CAA Reg", value: vm.caaRegistration)
-                    } header: {
-                        SectionTitle("Pilot")
+                    if UIDevice.current.userInterfaceIdiom != .pad {
+                        Section {
+                            DetailLine(key: "Name", value: "\(vm.pilot.viewFirstName) \(vm.pilot.viewLastName)")
+                            DetailLine(key: "CAA Reg", value: vm.pilot.viewCAARegistration)
+                        } header: {
+                            SectionTitle("Pilot")
+                        }
                     }
                     
                     Section {
-                        DetailLine(key: "Address", value: vm.address)
-                        DetailLine(key: "Post Code", value: vm.postcode)
-                        DetailLine(key: "Home Phone", value: vm.homePhone)
-                        DetailLine(key: "Mobile Phone", value: vm.mobilePhone)
-                        DetailLine(key: "Email", value: vm.email)
+                        DetailLine(key: "Address", value: vm.pilot.viewAddress)
+                        DetailLine(key: "Post Code", value: vm.pilot.viewPostCode)
+                        DetailLine(key: "Home Phone", value: vm.pilot.viewAlternatePhone)
+                        DetailLine(key: "Mobile Phone", value: vm.pilot.viewMobilePhone)
+                        DetailLine(key: "Email", value: vm.pilot.viewEmailAddress)
                     } header: {
                         SectionTitle("Contact Detals")
                     }
@@ -65,10 +84,10 @@ struct PilotDetailView: View {
                 .toolbar {
                     ToolbarItemGroup(placement: .primaryAction) {
                         HStack {
-                            if !vm.pilotDeleted {
+                            if !vm.pilot.pilotDeleted {
                                 Button { editPilot = true } label: { Image(systemName: "square.and.pencil") }
                             }
-                            Button { deletePilot() } label: { Image(systemName: vm.pilotDeleted ? "trash.slash" : "trash") }
+                            Button { deletePilot() } label: { Image(systemName: vm.pilot.pilotDeleted ? "trash.slash" : "trash") }
                         }
                         .foregroundColor(.toolbarIcon)
                     }
@@ -97,13 +116,13 @@ struct PilotDetailView: View {
                             XDismissButton()
                         }
                     }
-                }
+                }.padding(.horizontal)
             }
         }
     }
 
     func deletePilot() {
-        if vm.pilotDeleted {
+        if vm.pilot.pilotDeleted {
             vm.undeletePilot()
             vm.reloadData()
         } else {
