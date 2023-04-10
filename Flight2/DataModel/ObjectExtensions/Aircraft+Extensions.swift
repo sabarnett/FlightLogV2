@@ -15,6 +15,22 @@ class AircraftSearchOptions: SearchOptionsBase {
     // Additional options here please.
 }
 
+extension Aircraft {
+    
+    var viewName: String { self.name ?? "" }
+    var viewManufacturer: String { self.manufacturer ?? "" }
+    var viewModel: String { self.model ?? "" }
+    var viewNotes: String { self.notes ?? "" }
+    var viewSerialNumber: String { self.serialNumber ?? "" }
+    var viewPurchasedFrom: String { self.purchasedFrom ?? "" }
+    var viewPurchaseDate: Date { self.purchaseDate ?? Date() }    // TODO: Blank date???
+    var viewNewAtPurchase: String { self.newAtPurchase == true ? "Yes" : "No" }
+    var viewAircraftImage: UIImage { self.aircraftImage?.image ?? UIImage(named: "plane-placeholder")!}
+    
+    var aircraftDeleted: Bool { self.deletedDate != nil }
+    
+}
+
 extension Aircraft: BaseModel {
     
     // MARK: - Public interface - static methods
