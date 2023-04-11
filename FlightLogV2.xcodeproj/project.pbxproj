@@ -20,6 +20,7 @@
 		E812D71A29D1CC2E009ED9A1 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71929D1CC2E009ED9A1 /* SettingsView.swift */; };
 		E812D71C29D1CC3A009ED9A1 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812D71B29D1CC3A009ED9A1 /* InfoView.swift */; };
 		E874728629D333F60088C513 /* ViewStyleToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874728529D333F60088C513 /* ViewStyleToggle.swift */; };
+		E88D940329E5DD5200087E97 /* NothingSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D940229E5DD5200087E97 /* NothingSelectedView.swift */; };
 		E89282E129D1D120000BB957 /* ListTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89282E029D1D120000BB957 /* ListTitleBar.swift */; };
 		E8C8EE2B29DED5F7001823D3 /* PilotEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */; };
 		E8C8EE2D29DED62D001823D3 /* PilotEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */; };
@@ -90,6 +91,7 @@
 		E812D71929D1CC2E009ED9A1 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E812D71B29D1CC3A009ED9A1 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		E874728529D333F60088C513 /* ViewStyleToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewStyleToggle.swift; sourceTree = "<group>"; };
+		E88D940229E5DD5200087E97 /* NothingSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NothingSelectedView.swift; sourceTree = "<group>"; };
 		E89282E029D1D120000BB957 /* ListTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTitleBar.swift; sourceTree = "<group>"; };
 		E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotEdit.swift; sourceTree = "<group>"; };
 		E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotEditViewModel.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				E874728529D333F60088C513 /* ViewStyleToggle.swift */,
 				E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */,
 				E8DCA84929DD863B000E4961 /* DetailLine.swift */,
+				E88D940229E5DD5200087E97 /* NothingSelectedView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				E8D3EFC629D4C41400C042DB /* SavedImage+CoreDataClass.swift in Sources */,
 				E8D88EDC29E4491200621F69 /* AircraftEditViewModel.swift in Sources */,
 				E8D3EFCE29D4C56400C042DB /* WriteLog.swift in Sources */,
+				E88D940329E5DD5200087E97 /* NothingSelectedView.swift in Sources */,
 				E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */,
 				E8D88ED129E4451900621F69 /* AircraftListCellView.swift in Sources */,
 				E8DCA84229DD735A000E4961 /* PilotListViewModel.swift in Sources */,

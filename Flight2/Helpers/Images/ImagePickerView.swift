@@ -103,7 +103,7 @@ struct ImagePickerView: View {
 
 struct ImagePicker_Previews: PreviewProvider {    
     static var previews: some View {
-        ImagePickerView(image: .constant(UIImage(named: "plane-placeholder")!), placeholderImage: "person-placeholder")
+        ImagePickerView(image: .constant(UIImage(named: "airctaft-placeholder")!), placeholderImage: "person-placeholder")
             .previewLayout(.sizeThatFits)
     }
 }

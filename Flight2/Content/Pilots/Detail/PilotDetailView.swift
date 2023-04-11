@@ -23,9 +23,8 @@ struct PilotDetailView: View {
     var body: some View {
         VStack {
             if vm.pilotId == nil {
-                Text("Nothing selected")
+                NothingSelectedView()
             } else {
-                Text("")
                 if UIDevice.current.userInterfaceIdiom == .pad {
                     HStack(alignment: .top) {
                         Image(uiImage: vm.pilot.viewProfileImage)
@@ -40,6 +39,7 @@ struct PilotDetailView: View {
                         }.foregroundColor(.primaryText)
                         Spacer()
                     }.frame(height: 210)
+                        .padding(20)
                 } else {
                     Image(uiImage: vm.pilot.viewProfileImage)
                         .resizable()

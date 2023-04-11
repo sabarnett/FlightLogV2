@@ -23,7 +23,7 @@ struct PilotEdit: View {
                     HStack {
                         Spacer()
                         ImagePickerView(image: $editViewModel.profilePicture,
-                                        placeholderImage: "person-placeholder")
+                                        placeholderImage: "aircraft-placeholder")
                         Spacer()
                     }
                     .padding()

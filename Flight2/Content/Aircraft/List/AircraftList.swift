@@ -24,8 +24,8 @@ struct AircraftList: View {
                              additionalButtons: additionalButtons())
                 
                 if !vm.hasAircraft {
-                    PlaceHolderView(image: "person-placeholder",
-                                    prompt: "Select + to add a pilot")
+                    PlaceHolderView(image: "aircraft-placeholder",
+                                    prompt: "Select + to add an aircraft")
                 } else {
                     
                     List(selection: $vm.selectedAircraftID) {
@@ -43,7 +43,7 @@ struct AircraftList: View {
             if let selectedAircraft = vm.selectedAircraft {
                 AircraftDetailView(vm: AircraftDetailViewModel(aircraft: selectedAircraft))
             } else {
-                Text("Please select an aircraft")
+                NothingSelectedView(prompt: "Please select or add an aircraft")
             }
         }
         .onAppear { vm.loadAircraft(includeDeleted: showDeleted) }

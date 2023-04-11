@@ -25,7 +25,7 @@ extension Aircraft {
     var viewPurchasedFrom: String { self.purchasedFrom ?? "" }
     var viewPurchaseDate: Date { self.purchaseDate ?? Date() }    // TODO: Blank date???
     var viewNewAtPurchase: String { self.newAtPurchase == true ? "Yes" : "No" }
-    var viewAircraftImage: UIImage { self.aircraftImage?.image ?? UIImage(named: "plane-placeholder")!}
+    var viewAircraftImage: UIImage { self.aircraftImage?.image ?? UIImage(named: "aircraft-placeholder")!}
     
     var aircraftDeleted: Bool { self.deletedDate != nil }
     

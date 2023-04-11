@@ -20,15 +20,32 @@ struct AircraftDetailView: View {
     
     var body: some View {
         if vm.aircraftId == nil {
-            Text("Nothing Selected")
+            NothingSelectedView()
         } else {
             VStack {
-                Image(uiImage: vm.aircraft.viewAircraftImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 200, height: 200)
-                    .padding(2)
-                
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    HStack(alignment: .top) {
+                        Image(uiImage: vm.aircraft.viewAircraftImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fit)
+                            .frame(width: 200, height: 200)
+                            .padding(2)
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text("\(vm.aircraft.viewName) by \(vm.aircraft.viewManufacturer)").font(.title).foregroundColor(Color.heading)
+                            Text(vm.aircraft.viewModel).font(.title2)
+                            Text("s/n \(vm.aircraft.viewSerialNumber)").font(.title2)
+                        }.foregroundColor(.primaryText)
+                        Spacer()
+                    }.frame(height: 210)
+                        .padding(20)
+                } else {
+                    Image(uiImage: vm.aircraft.viewAircraftImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 200, height: 200)
+                        .padding(2)
+                }
+
                 if vm.aircraft.aircraftDeleted {
                     HStack {
                         Spacer()
@@ -40,13 +57,15 @@ struct AircraftDetailView: View {
                 }
                 
                 List {
-                    Section {
-                        DetailLine(key: "Name", value: vm.aircraft.viewName)
-                        DetailLine(key: "Manufacturer", value: vm.aircraft.viewManufacturer)
-                        DetailLine(key: "Model", value: vm.aircraft.viewModel)
-                        DetailLine(key: "Serial", value: vm.aircraft.viewSerialNumber)
-                    } header: {
-                        SectionTitle("Aircraft")
+                    if UIDevice.current.userInterfaceIdiom != .pad {
+                        Section {
+                            DetailLine(key: "Name", value: vm.aircraft.viewName)
+                            DetailLine(key: "Manufacturer", value: vm.aircraft.viewManufacturer)
+                            DetailLine(key: "Model", value: vm.aircraft.viewModel)
+                            DetailLine(key: "Serial Number", value: vm.aircraft.viewSerialNumber)
+                        } header: {
+                            SectionTitle("Aircraft")
+                        }
                     }
                     
                     if vm.aircraft.hasPurchaseData {

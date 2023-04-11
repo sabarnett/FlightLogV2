@@ -44,7 +44,7 @@ struct PilotList: View {
             if let selectedPilot = vm.selectedPilot {
                 PilotDetailView(vm: PilotDetailViewModel(pilot: selectedPilot))
             } else {
-                Text("Please select a pilot")
+                NothingSelectedView(prompt: "Please select or add a pilot")
             }
         }
         .onAppear { vm.loadPilots(includeDeleted: showDeleted) }
