@@ -13,7 +13,7 @@ import SwiftUI
 class AircraftListViewModel: ObservableObject {
     
     @Published var aircraftList: [Aircraft] = []
-    @Published var selectedAircraft: NSManagedObjectID?
+    @Published var selectedAircraftID: NSManagedObjectID?
     
     var includeDeleted: Bool = false
     
@@ -54,14 +54,14 @@ class AircraftListViewModel: ObservableObject {
         
         guard let aircraftIndex = aircraftList.firstIndex(where: { $0.objectID == id }) else {
             // It's a new pilot, requery the data
-            selectedAircraft = nil
+            selectedAircraftID = nil
             loadAircraft(includeDeleted: includeDeleted)
-            selectedAircraft = id
+            selectedAircraftID = id
             return
         }
         
         StorageProvider.shared.context.refresh(aircraftList[aircraftIndex], mergeChanges: true)
-        selectedAircraft = aircraftList[aircraftIndex].objectID
+        selectedAircraftID = aircraftList[aircraftIndex].objectID
     }
     
     func loadAircraft(includeDeleted: Bool = false) {
@@ -74,15 +74,15 @@ class AircraftListViewModel: ObservableObject {
         aircraftList = Aircraft.all(withOptions: searchOptions)
         
         // Is the currently selected item still in the list?
-        guard let selectedAircraft,
-              aircraftList.contains(where: { $0.objectID == selectedAircraft}) else {
-            self.selectedAircraft = nil
+        guard let selectedAircraftID,
+              aircraftList.contains(where: { $0.objectID == selectedAircraftID}) else {
+            self.selectedAircraftID = nil
             return
         }
     }
     
-    func getSelectedAircraft() -> Aircraft? {
-        guard let selectedAircraft = self.selectedAircraft else { return nil }
-        return aircraftList.first(where: { $0.objectID == selectedAircraft })
+    var selectedAircraft: Aircraft? {
+        guard let selectedAircraftID = self.selectedAircraftID else { return nil }
+        return aircraftList.first(where: { $0.objectID == selectedAircraftID })
     }
 }

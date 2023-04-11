@@ -13,7 +13,7 @@ import SwiftUI
 class PilotsListViewModel: ObservableObject {
     
     @Published var pilotList: [Pilot] = []
-    @Published var selectedPilot: NSManagedObjectID?
+    @Published var selectedPilotID: NSManagedObjectID?
     
     // This is abit of a fudge. If we have updated a pilot in the detail view, we need to
     // get the listview to update. It won't do that because it reuses the old structs for the
@@ -65,14 +65,14 @@ class PilotsListViewModel: ObservableObject {
         
         guard let pilotIndex = pilotList.firstIndex(where: { $0.objectID == id }) else {
             // It's a new pilot, requery the data
-            selectedPilot = nil
+            selectedPilotID = nil
             loadPilots(includeDeleted: includeDeleted)
-            selectedPilot = id
+            selectedPilotID = id
             return
         }
         
         StorageProvider.shared.context.refresh(pilotList[pilotIndex], mergeChanges: true)
-        selectedPilot = pilotList[pilotIndex].objectID
+        selectedPilotID = pilotList[pilotIndex].objectID
     }
     
     func loadPilots(includeDeleted: Bool = false) {
@@ -85,15 +85,15 @@ class PilotsListViewModel: ObservableObject {
         pilotList = Pilot.all(withOptions: searchOptions)
         
         // Is the currently selected item still in the list?
-        guard let selectedPilot,
-              pilotList.contains(where: { $0.objectID == selectedPilot}) else {
-            self.selectedPilot = nil
+        guard let selectedPilotID,
+              pilotList.contains(where: { $0.objectID == selectedPilotID}) else {
+            self.selectedPilotID = nil
             return
         }
     }
     
-    func getSelectedPilot() -> Pilot? {
-        guard let selectedPilot = self.selectedPilot else { return nil }
-        return pilotList.first(where: { $0.objectID == selectedPilot })
+    var selectedPilot: Pilot? {
+        guard let selectedPilotID = self.selectedPilotID else { return nil }
+        return pilotList.first(where: { $0.objectID == selectedPilotID })
     }
 }

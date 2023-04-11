@@ -15,9 +15,9 @@ class PilotDetailViewModel: ObservableObject {
     @Published var pilot: Pilot
     @Published var pilotId: NSManagedObjectID?
     
-    init(pilotId: NSManagedObjectID) {
-        self.pilotId = pilotId
-        self.pilot = Pilot.byId(id: pilotId) ?? Pilot.dummyData
+    init(pilot: Pilot) {
+        self.pilotId = pilot.objectID
+        self.pilot = pilot
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(sectionChanged),
@@ -36,7 +36,7 @@ class PilotDetailViewModel: ObservableObject {
     }
     
     func reloadData() {
-        self.pilot = Pilot.byId(id: pilot.objectID) ?? Pilot.dummyData
+        StorageProvider.shared.context.refresh(pilot, mergeChanges: true)
     }
     
     func deletePilot() {

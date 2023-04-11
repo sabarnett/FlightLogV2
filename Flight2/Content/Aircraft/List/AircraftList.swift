@@ -28,7 +28,7 @@ struct AircraftList: View {
                                     prompt: "Select + to add a pilot")
                 } else {
                     
-                    List(selection: $vm.selectedAircraft) {
+                    List(selection: $vm.selectedAircraftID) {
                         ForEach(vm.aircraftList, id: \.objectID) { aircraft in
                             NavigationLink(value: aircraft.objectID) {
                                 AircraftListCellView(aircraft: aircraft)
@@ -41,7 +41,7 @@ struct AircraftList: View {
             }
         } detail: {
             if let selectedAircraft = vm.selectedAircraft {
-                AircraftDetailView(vm: AircraftDetailViewModel(aircraftId: selectedAircraft))
+                AircraftDetailView(vm: AircraftDetailViewModel(aircraft: selectedAircraft))
             } else {
                 Text("Please select an aircraft")
             }

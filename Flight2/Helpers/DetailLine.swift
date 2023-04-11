@@ -19,7 +19,7 @@ struct DetailLine: View {
                 Text(key)
                     .foregroundColor(.secondary)
                     .font(.body)
-                    .frame(minWidth: 20, idealWidth: 30, maxWidth: 90, alignment: .leading)
+                    .frame(minWidth: 20, idealWidth: 50, maxWidth: 120, alignment: .leading)
             }
             VStack(alignment: .leading) {
                 Text(value)

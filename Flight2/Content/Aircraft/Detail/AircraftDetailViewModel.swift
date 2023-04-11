@@ -16,9 +16,9 @@ class AircraftDetailViewModel: ObservableObject {
     @Published var aircraft: Aircraft
     @Published var aircraftId: NSManagedObjectID?
     
-    init(aircraftId: NSManagedObjectID) {
-        self.aircraftId = aircraftId
-        self.aircraft = Aircraft.byId(id: aircraftId) ?? Aircraft.dummyData
+    init(aircraft: Aircraft) {
+        self.aircraftId = aircraft.objectID
+        self.aircraft = aircraft
         
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(sectionChanged),
@@ -37,7 +37,7 @@ class AircraftDetailViewModel: ObservableObject {
     }
     
     func reloadData() {
-        self.aircraft = Aircraft.byId(id: aircraft.objectID) ?? Aircraft.dummyData
+        StorageProvider.shared.context.refresh(aircraft, mergeChanges: true)
     }
     
     func deleteAircraft() {
