@@ -19,6 +19,7 @@ struct FlightList: View {
     
     @State private var selectedFlight: String?
     @State private var showAdd: Bool = false
+    @State private var showFilters: Bool = false
     
     var body: some View {
         NavigationSplitView {
@@ -28,6 +29,7 @@ struct FlightList: View {
                              additionalButtons: additionalButtons())
                 
                 Text("TODO: List of primary key")
+                Spacer()
 //                List(vm.flights, id: \.self, selection: $vm.selectedFlight) { flight in
 //                    NavigationLink(flight, value: flight)
 //                }
@@ -60,11 +62,11 @@ struct FlightList: View {
         }) {
             FlightEdit(editViewModel: FlightEditViewModel(flightID: nil))
         }
-//        .sheet(isPresented: $showFilters, onDismiss: {
-//            vm.refreshData()
-//        }) {
-//            FlightListFilterView(vm: vm)
-//        }
+        .sheet(isPresented: $showFilters, onDismiss: {
+            vm.refreshData()
+        }) {
+            FlightListFilterView(vm: vm)
+        }
         .onAppear { vm.refreshData(forceLoad: true) }
         .onChange(of: vm.showDeleted) { _ in vm.refreshData(forceLoad: true) }
         .onChange(of: vm.groupBy) { _ in vm.refreshData() }
@@ -90,7 +92,7 @@ struct FlightList: View {
     
     func showFilterButton() -> AdditionalToolbarButton {
         AdditionalToolbarButton(image: Image(systemName: "slider.horizontal.3")) {
-            print("showFilters")
+            showFilters.toggle()
         }
     }
 }
