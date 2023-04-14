@@ -15,6 +15,44 @@ class FlightSearchOptions: SearchOptionsBase {
     var ageFilter: FlightAgeSelection?
 }
 
+extension Flight {
+    var viewTitle: String { self.title ?? "" }
+    var viewActivity: String { self.activity ?? "" }
+    var viewLocation: String { self.location ?? "" }
+    var viewWeatherConditions: String { self.weatherConditions ?? "" }
+    var viewSiteConditions: String { self.siteConditions ?? "" }
+    var viewPreflightChecksPerformed: Bool { self.preflightChecks }
+    var viewPreflightIssuesResolved: Bool { self.preflightIssuesResolved }
+    // TODO: var viewPreflightIssues: [FlightIssue] { self.preflightIssues ?? [] }
+    var viewTakeOff: Date? { self.takeoff}
+    var viewLanding: Date? { self.landing }
+    // TODO: var viewIncidents: [FlightIssue] { self.flightIssues ?? [] }
+    var viewNotes: String { self.notes ?? "" }
+    
+    var viewPilot: Pilot { self.pilot ?? Pilot.dummyData }
+    var viewAircraft: Aircraft { self.aircraft ?? Aircraft.dummyData }
+    
+    var flightDeleted: Bool { self.deletedDate != nil }
+    
+    var viewTakeoffDate: String {
+        guard let takeoff = self.takeoff else { return "Not known" }
+        return takeoff.appDateTime
+    }
+    
+    var viewLandingDate: String {
+        guard let landing = self.landing else { return "not known" }
+        return landing.appDateTime
+    }
+    
+    func hasSearch(string searchFor: String) -> Bool {
+        if self.viewTitle.range(of: searchFor, options: .caseInsensitive) != nil { return true }
+        if self.viewActivity.range(of: searchFor, options: .caseInsensitive) != nil { return true }
+        if self.viewLocation.range(of: searchFor, options: .caseInsensitive) != nil { return true }
+        if self.viewNotes.range(of: searchFor, options: .caseInsensitive) != nil { return true }
+        return false
+    }
+}
+
 extension Flight: BaseModel {
     
     // MARK: - Public interface - static methods

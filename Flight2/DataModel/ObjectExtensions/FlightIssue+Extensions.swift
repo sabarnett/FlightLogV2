@@ -9,6 +9,12 @@
 
 import SwiftUI
 
+extension FlightIssue {
+    var viewTitle: String { self.title ?? "" }
+    var viewNotes: String { self.notes ?? "" }
+    var viewResolved: Bool  { self.resolved }
+}
+
 extension FlightIssue: BaseModel {
     // TODO: Add extension items
     
