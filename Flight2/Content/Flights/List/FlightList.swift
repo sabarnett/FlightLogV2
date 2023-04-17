@@ -20,41 +20,37 @@ struct FlightList: View {
     @State private var selectedFlight: String?
     @State private var showAdd: Bool = false
     @State private var showFilters: Bool = false
+    @State private var showEdit: Bool = false
+    @State private var columnsVisible: NavigationSplitViewVisibility = .all
     
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(columnVisibility: $columnsVisible) {
             VStack(spacing: 0) {
                 ListTitleBar(title: "Flights",
                              iconName: "airplane.departure",
                              additionalButtons: additionalButtons())
                 
-                Text("TODO: List of primary key")
-                Spacer()
-//                List(vm.flights, id: \.self, selection: $vm.selectedFlight) { flight in
-//                    NavigationLink(flight, value: flight)
-//                }
-//                .listStyle(.plain)
+                List(vm.primaryList, id: \.objectID, selection: $vm.primarySelection) { flight in
+                    FlightListCell(flight: flight, groupedBy: vm.groupBy)
+                        .tag(flight.objectID)
+                }
+                .listStyle(.plain)
+                .id(vm.primaryListId)
+            }
+        } content: {
+            if vm.primarySelection != nil {
+                List(vm.secondaryList, id: \.objectID, selection: $vm.secondarySelection) { flight in
+                    FlightListCell(flight: flight, groupedBy: vm.groupedByOpposite)
+                        .tag(flight.objectID)
+                }
+            } else {
+                Text(vm.groupBy == .pilot ? "Please select a pilot" : "Please sleect an aircraft")
             }
         } detail: {
-            if let selectedFlight {
-                Text("Selected Flight: \(selectedFlight)")
-                    .toolbar {
-                        ToolbarItemGroup(placement: .primaryAction) {
-                            HStack {
-                                Button("AA") { print("AA selected") }
-                                Button("BB") { print("BB selected") }
-                            }
-                            .foregroundColor(.toolbarIcon)
-                        }
-                    }
+            if vm.secondarySelection != nil {
+                FlightDetailView(vm: FlightDetailViewModel(flight: vm.selectedFlight))
             } else {
-                Text("Please select a flight")
-                .toolbar {
-                    ToolbarItemGroup(placement: .navigationBarTrailing) {
-                        Button("Add") { print("Add selected") }
-                            .foregroundColor(.toolbarIcon)
-                    }
-                }
+                Text("Select a flight")
             }
         }
         .sheet(isPresented: $showAdd, onDismiss: {
@@ -94,6 +90,10 @@ struct FlightList: View {
         AdditionalToolbarButton(image: Image(systemName: "slider.horizontal.3")) {
             showFilters.toggle()
         }
+    }
+    
+    func deleteFlight() {
+        
     }
 }
 

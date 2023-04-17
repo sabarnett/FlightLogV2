@@ -11,13 +11,45 @@ import CoreData
 
 class FlightListViewModel: ObservableObject {
     
-    @Published var flights: Dictionary<String, [Flight]> = [:]
+    var flights: Dictionary<String, [Flight]> = [:]
+    
+    @Published var primaryList: [Flight] = []
+    @Published var primarySelection: NSManagedObjectID? {
+        didSet {
+            secondaryList = buildSecondaryList(forId: primarySelection)
+        }
+    }
+    @Published var primaryListId: UUID = UUID()
+    
+    @Published var secondaryList: [Flight] = []
+    @Published var secondarySelection: NSManagedObjectID?
+    
     @Published var selectedFlightID: NSManagedObjectID = NSManagedObjectID()
     @Published var showActiveFlights: Bool = false
+    
+    var selectedFlight: Flight {
+        get {
+            guard let selectedFlightId = secondarySelection else {
+                return Flight.dummyData
+            }
+            
+            guard let selected = flightList.first(where: { $0.objectID == selectedFlightId}) else {
+                return Flight.dummyData
+            }
+            
+            return selected
+        }
+    }
     
     @AppStorage("showDeletedFlights") var showDeleted: Bool = false
     @AppStorage("GroupedBy") var groupBy: GroupFlightsBy = .pilot
     @AppStorage("FlightPeriod") var ageFilter: FlightAgeSelection = .lastMonth
+    
+    var groupedByOpposite: GroupFlightsBy {
+        get {
+            groupBy == .pilot ? .aircraft : .pilot
+        }
+    }
     
     // A change in these variables will require us to re-build the dictionary only. The fetched
     // data will have everytghing we need.
@@ -160,6 +192,7 @@ class FlightListViewModel: ObservableObject {
         
         // STEP 2: Build the dictionary. The key is the name of the pilot or the aircraft, depending on what grouping
         //         the user selecfted. The values is an array of matching flights.
+        WriteLog.info("Grouping flights by \(groupBy)")
         var flightGroup = Dictionary(grouping: flightList, by: { flight in
             switch groupBy {
             case .pilot:
@@ -169,7 +202,7 @@ class FlightListViewModel: ObservableObject {
             }
         })
         
-        // STEP 3: If a specific pilot or aircraft has been deleted, filter the dictionary to only include the
+        // STEP 3: If a specific pilot or aircraft has been selected, filter the dictionary to only include the
         //         specific pilot or aircraft.
         if selectGroup != "All" {
             WriteLog.info("Limit to be applied: \(selectGroup)")
@@ -217,6 +250,68 @@ class FlightListViewModel: ObservableObject {
         
         WriteLog.info("Group list created with \(flightGroup.count) items in it.")
         flights = flightGroup
+        
+        // What we have now is a dictionary, key'd off the pilot or aircraft. For each entry, the key is
+        // the name and the value is the list of applicable flights. That's great for the second column
+        // list, but not helpful for the first column. We now need to create a list of flights that
+        // matches the keys of the dictionary, so we have a list of 'primary' flight instances to
+        // build the first list with.
+        var primaryList: [Flight] = []
+        for (key, _) in flightGroup {
+            // The ket is the displayname of the pilot or the description of an aircraft.
+            switch groupBy {
+            case .pilot:
+                if let flight = flightList.first(where: { flight in
+                    flight.viewPilot.viewDisplayName == key
+                }) {
+                    primaryList.append(flight)
+                }
+                
+            case .aircraft:
+                if let flight = flightList.first(where: { flight in
+                    flight.viewAircraft.name == key
+                }) {
+                    primaryList.append(flight)
+                }
+            }
+        }
+        
+        WriteLog.info("Updating the primary list")
+        self.primaryList = primaryList
+        self.primarySelection = nil
+        
+        WriteLog.info("Clearing secondary selection")
+        secondarySelection = nil
+
+        WriteLog.info("Force re-generate the list")
+        self.primaryListId = UUID()
     }
     
+    func buildSecondaryList(forId: NSManagedObjectID?) -> [Flight] {
+        WriteLog.info("secondaryListBuild with key: \(forId)")
+        
+        // Key is nil, return an empty list
+        guard let id = forId else { return [] }
+        
+        WriteLog.info("Locate the flight")
+        // Locate the corresponding flight, or return an empty list
+        guard let flight = flightList.first(where: { flight in flight.objectID == id}) else {
+            return []
+        }
+        
+        var dictionaryKey = ""
+        switch groupBy {
+        case .pilot:
+            dictionaryKey = flight.pilot?.displayName ?? ""
+        case .aircraft:
+            dictionaryKey = flight.aircraft?.name ?? ""
+        }
+        
+        WriteLog.info("Find flights in dictionary for ket \(dictionaryKey)")
+        // Get the list of matching flights
+        guard let flights = flights[dictionaryKey]  else { return [] }
+        
+        WriteLog.info("\(flights.count) flights found")
+        return flights
+    }
 }
