@@ -5,7 +5,6 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 
@@ -53,6 +52,7 @@ struct FlightList: View {
                 Text("Select a flight")
             }
         }
+        .navigationSplitViewStyle(.balanced)
         .sheet(isPresented: $showAdd, onDismiss: {
             vm.refreshData()
         }) {
@@ -69,6 +69,13 @@ struct FlightList: View {
         .onChange(of: vm.ageFilter) { _ in vm.refreshData() }
         .onChange(of: vm.showActiveFlights) { _ in vm.refreshData() }
 //        .onChange(of: searchFor) { _ in vm.searchFor = self.searchFor }
+        .onChange(of: vm.secondarySelection) { _ in
+            if vm.secondarySelection == nil {
+                columnsVisible = .all
+            } else {
+                columnsVisible = .doubleColumn
+            }
+        }
     }
     
     
