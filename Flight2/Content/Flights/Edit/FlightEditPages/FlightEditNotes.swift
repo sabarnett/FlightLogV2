@@ -18,10 +18,12 @@ struct FlightEditNotes: View {
         VStack(alignment: .leading, spacing: 20) {
             EditSectionHeader("Notes")
    
-            TextEdit(placeholder: "Notes", text: $editViewModel.notes)
-                .frame(minHeight: 300)
-            
-            Spacer()
+            ScrollView(showsIndicators: false) {
+                TextEdit(placeholder: "Notes", text: $editViewModel.notes)
+                    .frame(minHeight: 300)
+                
+                Spacer()
+            }
         }
     }
 }

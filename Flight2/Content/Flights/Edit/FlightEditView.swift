@@ -124,7 +124,7 @@ struct EditSectionHeader: View {
             Text(title)
                 .font(.title2)
                 .fontWeight(.semibold)
-                .foregroundColor(.primary)
+                .foregroundColor(.heading)
             Spacer()
         }
     }

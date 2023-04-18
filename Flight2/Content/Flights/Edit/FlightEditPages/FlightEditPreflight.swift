@@ -18,16 +18,18 @@ struct FlightEditPreflight: View {
         VStack(alignment: .leading, spacing: 20) {
             EditSectionHeader("Pre-flight Checks")
    
-            Toggle(isOn: $editViewModel.checksPerformed,
-                   label: {Text("Checks Performed")})
-            
-            FlightIssuesListView(issues: $editViewModel.preflightIssues, editable: true, viewTitle: "Pre-flight Issues")
-                .frame(height: 200)
-            
-            Toggle(isOn: $editViewModel.issuesResolved,
-                   label: { Text("All issues resolved") } )
-            
-            Spacer()
+            ScrollView(showsIndicators: false) {
+                Toggle(isOn: $editViewModel.checksPerformed,
+                       label: {Text("Checks Performed")})
+                
+                FlightIssuesListView(issues: $editViewModel.preflightIssues, editable: true, viewTitle: "Pre-flight Issues")
+                    .frame(height: 200)
+                
+                Toggle(isOn: $editViewModel.issuesResolved,
+                       label: { Text("All issues resolved") } )
+                
+                Spacer()
+            }
         }
     }
 }
