@@ -18,7 +18,7 @@ struct PilotList: View {
     @State private var showAdd: Bool = false
     
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView (sidebar: {
             VStack {
                 ListTitleBar(title: "Pilots",
                              iconName: "person.fill",
@@ -36,20 +36,20 @@ struct PilotList: View {
                     .listStyle(.plain)
                 }
             }
-        } detail: {
+        }, detail: {
             if let selectedPilot = vm.selectedPilot {
                 PilotDetailView(vm: PilotDetailViewModel(pilot: selectedPilot))
             } else {
                 NothingSelectedView(prompt: "Please select or add a pilot")
             }
-        }
+        })
         .onAppear { vm.loadPilots(includeDeleted: showDeleted) }
         .onChange(of: showDeleted, perform: { _ in vm.loadPilots(includeDeleted: showDeleted) })
         .sheet(isPresented: $showAdd, onDismiss: {
             vm.loadPilots(includeDeleted: showDeleted)
-        }) {
+        }, content: {
             PilotEdit(editViewModel: PilotEditViewModel(pilotID: nil))
-        }
+        })
     }
     
     func additionalButtons() -> [AdditionalToolbarButton] {

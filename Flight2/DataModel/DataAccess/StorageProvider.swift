@@ -5,7 +5,6 @@
 // 
 // Copyright © 2022 Steven Barnett. All rights reserved.
 //
-        
 
 import Foundation
 import CoreData
@@ -25,7 +24,7 @@ class StorageProvider {
         
         persistentContainer = NSPersistentContainer(name: "db")
         persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
-        persistentContainer.loadPersistentStores() { description, error in
+        persistentContainer.loadPersistentStores { description, error in
             if let error {
                 fatalError("Failed to load data store: \(error)")
             }

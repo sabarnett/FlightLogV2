@@ -5,7 +5,6 @@
 // 
 // Copyright © 2022 Steven Barnett. All rights reserved.
 //
-        
 
 import Foundation
 import UIKit

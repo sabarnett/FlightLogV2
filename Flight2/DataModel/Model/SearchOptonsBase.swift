@@ -5,11 +5,10 @@
 // 
 // Copyright © 2022 Steven Barnett. All rights reserved.
 //
-        
 
 import Foundation
 
 class SearchOptionsBase {
     var includeDeleted: Bool = false
-    var textSearch: String? = nil
+    var textSearch: String?
 }

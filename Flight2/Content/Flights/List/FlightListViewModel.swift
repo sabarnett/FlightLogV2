@@ -11,7 +11,7 @@ import CoreData
 
 class FlightListViewModel: ObservableObject {
     
-    var flights: Dictionary<String, [Flight]> = [:]
+    var flights: [String: [Flight]] = [:]
     
     @Published var primaryList: [Flight] = []
     @Published var primarySelection: NSManagedObjectID? {
@@ -28,7 +28,6 @@ class FlightListViewModel: ObservableObject {
     @Published var showActiveFlights: Bool = false
     
     var selectedFlight: Flight {
-        get {
             guard let selectedFlightId = secondarySelection else {
                 return Flight.dummyData
             }
@@ -38,7 +37,6 @@ class FlightListViewModel: ObservableObject {
             }
             
             return selected
-        }
     }
     
     @AppStorage("showDeletedFlights") var showDeleted: Bool = false
@@ -52,7 +50,7 @@ class FlightListViewModel: ObservableObject {
     // A change in these variables will require us to re-build the dictionary only. The fetched
     // data will have everytghing we need.
     var searchFor: String = "" { didSet { buildFlightDictionary() } }
-    var selectGroup: String = "All"  { didSet { buildFlightDictionary() }}
+    var selectGroup: String = "All" { didSet { buildFlightDictionary() }}
     
     // This is the data that gets used to build the display.
     private var flightList: [Flight] = []
@@ -283,8 +281,6 @@ class FlightListViewModel: ObservableObject {
     }
     
     func buildSecondaryList(forId: NSManagedObjectID?) -> [Flight] {
-        WriteLog.info("secondaryListBuild with key: \(forId)")
-        
         // Key is nil, return an empty list
         guard let id = forId else { return [] }
         

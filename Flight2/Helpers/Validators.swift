@@ -5,7 +5,6 @@
 // 
 // Copyright © 2022 Steven Barnett. All rights reserved.
 //
-        
 
 import Foundation
 
@@ -21,8 +20,8 @@ class Validators {
     static func isValidEmail(_ value: String?) -> Bool {
         guard let testValue = value else { return true }
 
-        let emailTest = NSPredicate(format: "SELF MATCHES %@"
-                                    , "^(\\D)+(\\w)*((\\.(\\w)+)?)+@(\\D)+(\\w)*((\\.(\\D)+(\\w)*)+)?(\\.)[a-z]{2,}$")
+        let emailTest = NSPredicate(format: "SELF MATCHES %@",
+                                    "^(\\D)+(\\w)*((\\.(\\w)+)?)+@(\\D)+(\\w)*((\\.(\\D)+(\\w)*)+)?(\\.)[a-z]{2,}$")
         return emailTest.evaluate(with: testValue)
     }
     

@@ -6,7 +6,6 @@
 // Copyright © 2022 Steven Barnett. All rights reserved.
 //
 
-
 import Foundation
 import CoreData
 import SwiftUI
@@ -107,8 +106,7 @@ extension Pilot: BaseModel {
         newImage.image = image
         profileImage = newImage
     }
-    
-    
+
     // MARK: - Private Helper functions
     fileprivate static func fetchPilots(withOptions options: PilotSearchOptions) -> [Pilot] {
         

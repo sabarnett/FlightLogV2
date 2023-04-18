@@ -5,7 +5,6 @@
 // 
 // Copyright © 2022 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 import Mantis
@@ -18,7 +17,10 @@ struct ImageCropper: UIViewControllerRepresentable {
     @Environment(\.dismiss) private var dismiss
     
     class Coordinator: CropViewControllerDelegate {
-        func cropViewControllerDidCrop(_ cropViewController: Mantis.CropViewController, cropped: UIImage, transformation: Mantis.Transformation, cropInfo: Mantis.CropInfo) {
+        func cropViewControllerDidCrop(_ cropViewController: Mantis.CropViewController,
+                                       cropped: UIImage,
+                                       transformation: Mantis.Transformation,
+                                       cropInfo: Mantis.CropInfo) {
             parent.image = cropped
             print("transformation is \(transformation)")
             parent.dismiss()
@@ -29,12 +31,6 @@ struct ImageCropper: UIViewControllerRepresentable {
         init(_ parent: ImageCropper) {
             self.parent = parent
         }
-        
-//        func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage, transformation: Transformation) {
-//            parent.image = cropped
-//            print("transformation is \(transformation)")
-//            parent.dismiss()
-//        }
         
         func cropViewControllerDidCancel(_ cropViewController: CropViewController, original: UIImage) {
             parent.dismiss()

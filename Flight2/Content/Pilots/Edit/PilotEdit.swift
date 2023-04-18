@@ -19,7 +19,7 @@ struct PilotEdit: View {
     var body: some View {
         VStack {
             List {
-                Section {
+                Section(content: {
                     HStack {
                         Spacer()
                         ImagePickerView(image: $editViewModel.profilePicture,
@@ -27,11 +27,11 @@ struct PilotEdit: View {
                         Spacer()
                     }
                     .padding()
-                } header: {
+                }, header: {
                     SectionTitle("Profile Image")
-                }
+                })
                 
-                Section {
+                Section(content: {
                     FloatingTextView("First Name", text: $editViewModel.firstName)
                         .autocorrectionDisabled(true)
                         .textInputAutocapitalization(.words)
@@ -41,11 +41,11 @@ struct PilotEdit: View {
                     FloatingTextView("CAA Registration", text: $editViewModel.caaRegistration)
                         .autocorrectionDisabled(true)
                         .textInputAutocapitalization(.characters)
-                } header: {
+                }, header: {
                     SectionTitle("Name")
-                }
+                })
                 
-                Section {
+                Section(content: {
                     TextEdit(placeholder: "Address", text: $editViewModel.address)
                         .frame(minHeight: 100)
                     FloatingTextView("Post Code", text: $editViewModel.postCode)
@@ -59,17 +59,17 @@ struct PilotEdit: View {
                         .textContentType(.emailAddress)
                         .keyboardType(.emailAddress)
                         .textInputAutocapitalization(.never)
-                } header: {
+                }, header: {
                     SectionTitle("Contact")
-                }
+                })
                 
                 if editViewModel.hasErrors {
-                    Section {
+                    Section(content: {
                         Text(editViewModel.errorDigest)
                             .foregroundColor(Color(.systemRed))
-                    } header: {
+                    }, header: {
                         SectionTitle("Errors")
-                    }
+                    })
                 }
             }
             .listStyle(.grouped)
@@ -93,11 +93,11 @@ struct PilotEdit: View {
         }
         .interactiveDismissDisabled(true)
         .overlay(alignment: .topTrailing) {
-            Button {
+            Button(action: {
                 dismiss()
-            } label: {
+            }, label: {
                 XDismissButton()
-            }
+            })
         }
     }
 }

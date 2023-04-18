@@ -54,14 +54,15 @@ struct InfoView: View {
             }
         }
         .overlay(alignment: .topTrailing) {
-            Button { dismiss() }
-                label: {
+            Button(action: {
+                dismiss()
+            }, label: {
                     Image(systemName: "x.circle.fill")
                         .font(Font.body.weight(.bold))
                         .foregroundColor(.primary)
                         .frame(width: 44, height: 44)
                         .scaleEffect(1.5)
-                    }
+                    })
         }
     }
 }
@@ -74,5 +75,3 @@ struct InfoView_Previews: PreviewProvider {
         }
     }
 }
-
-

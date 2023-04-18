@@ -61,23 +61,23 @@ struct PilotDetailView: View {
                     
                     List {
                         if UIDevice.current.userInterfaceIdiom != .pad {
-                            Section {
+                            Section(content: {
                                 DetailLine(key: "Name", value: "\(vm.pilot.viewFirstName) \(vm.pilot.viewLastName)")
                                 DetailLine(key: "CAA Reg", value: vm.pilot.viewCAARegistration)
-                            } header: {
+                            }, header: {
                                 SectionTitle("Pilot")
-                            }.foregroundColor(.primaryText)
+                            }).foregroundColor(.primaryText)
                         }
                         
-                        Section {
+                        Section(content: {
                             DetailLine(key: "Address", value: vm.pilot.viewAddress).foregroundColor(.primaryText)
                             DetailLine(key: "Post Code", value: vm.pilot.viewPostCode)
                             DetailLine(key: "Home Phone", value: vm.pilot.viewAlternatePhone)
                             DetailLine(key: "Mobile Phone", value: vm.pilot.viewMobilePhone)
                             DetailLine(key: "Email", value: vm.pilot.viewEmailAddress)
-                        } header: {
+                        }, header: {
                             SectionTitle("Contact Detals")
-                        }.foregroundColor(.primaryText)
+                        }).foregroundColor(.primaryText)
                     }
                     .listStyle(.grouped)
                     .navigationTitle("")
@@ -87,9 +87,21 @@ struct PilotDetailView: View {
                             ToolbarItemGroup(placement: .primaryAction) {
                                 HStack {
                                     if !vm.pilot.pilotDeleted {
-                                        Button { editPilot = true } label: { Image(systemName: "square.and.pencil") }
+                                        Button(action: { editPilot = true
+                                        }, label: { Image(systemName: "square.and.pencil") })
                                     }
-                                    Button { deletePilot() } label: { Image(systemName: vm.pilot.pilotDeleted ? "trash.slash" : "trash") }
+                                    Button(action: { deletePilot()
+                                    }, label: { Image(systemName: vm.pilot.pilotDeleted ? "trash.slash" : "trash") })
+                                    .confirmationDialog("Are you sure?",
+                                                        isPresented: $isPresentingDeleteConfirm,
+                                                        actions: {
+                                        Button("Delete pilot?", role: .destructive) {
+                                            vm.deletePilot()
+                                        }
+                                    }, message: {
+                                        Text("You can undo this action.")
+                                    })
+
                                 }
                                 .foregroundColor(.toolbarIcon)
                             }
@@ -98,27 +110,19 @@ struct PilotDetailView: View {
                 }
                 .sheet(isPresented: $editPilot, onDismiss: {
                     vm.reloadData()
-                }) {
+                }, content: {
                     if let pilotId = vm.pilotId {
                         PilotEdit(editViewModel: PilotEditViewModel(pilotID: pilotId))
                     }
-                }
-                .confirmationDialog("Are you sure?",
-                                    isPresented: $isPresentingDeleteConfirm) {
-                    Button("Delete pilot?", role: .destructive) {
-                        vm.deletePilot()
-                    }
-                } message: {
-                    Text("You can undo this action.")
-                }
+                })
                 .interactiveDismissDisabled(true)
                 .overlay(alignment: .topTrailing) {
                     if readonlyModal {
-                        Button {
+                        Button(action: {
                             dismiss()
-                        } label: {
+                        }, label: {
                             XDismissButton()
-                        }
+                        })
                     }
                 }.padding(.horizontal)
             }

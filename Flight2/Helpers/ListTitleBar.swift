@@ -26,7 +26,7 @@ struct ListTitleBar: View {
     var body: some View {
         VStack {
             Text("")
-            HStack{
+            HStack {
                 Image(systemName: iconName)
                 Text(title)
                 Spacer()
@@ -80,4 +80,3 @@ struct ListTitleBar: View {
         }
     }
 }
-

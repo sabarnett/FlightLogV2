@@ -29,7 +29,7 @@ struct SettingsView: View {
         NavigationView {
             Form {
                 Section(header: SectionTitle("Pilots")) {
-                    Toggle(isOn: $showDeletedPilots, label: { Text("Show Deleted Pilots")} )
+                    Toggle(isOn: $showDeletedPilots, label: { Text("Show Deleted Pilots") })
                     Picker("Display as", selection: $displayPilotsAs) {
                         ForEach(ViewStyleToggle.allCases, id: \.self) {
                             Text($0.rawValue)
@@ -37,7 +37,8 @@ struct SettingsView: View {
                     }.pickerStyle(.automatic)
                 }
                 Section(header: SectionTitle("Aircraft")) {
-                    Toggle(isOn: $showDeletedAircraft, label: { Text("Show Deleted Aircraft")} )
+                    Toggle(isOn: $showDeletedAircraft,
+                           label: { Text("Show Deleted Aircraft")})
                     Picker("Display as", selection: $displayAircraftAs) {
                         ForEach(ViewStyleToggle.allCases, id: \.self) {
                             Text($0.rawValue)
@@ -46,7 +47,8 @@ struct SettingsView: View {
                 }
                 
                 Section(header: SectionTitle("Flights")) {
-                    Toggle(isOn: $showDeletedFlights, label: { Text("Show Deleted Flights")} )
+                    Toggle(isOn: $showDeletedFlights,
+                           label: { Text("Show Deleted Flights") })
                     Picker("Group By", selection: $groupFlightsBy) {
                         ForEach(GroupFlightsBy.allCases, id: \.self) { grouping in
                             Text(grouping.description).tag(grouping)
@@ -67,14 +69,15 @@ struct SettingsView: View {
                 }
             }
             .overlay(alignment: .topTrailing) {
-                Button { dismiss() }
-                    label: {
+                Button(action: {
+                    dismiss()
+                }, label: {
                         Image(systemName: "x.circle.fill")
                             .font(Font.body.weight(.bold))
                             .foregroundColor(.primary)
                             .frame(width: 44, height: 44)
                             .scaleEffect(1.5)
-                        }
+                        })
             }
             .navigationTitle("Options")
             .navigationBarHidden(true)

@@ -35,7 +35,7 @@ struct ImagePickerView: View {
                 .frame(width: 280, height: 280)
             
             VStack {
-                Button(action: { },label: {
+                Button(action: { }, label: {
                     Image(systemName: "camera")
                         .scaleEffect(1.4)
                         .foregroundColor(.primary)
@@ -46,7 +46,7 @@ struct ImagePickerView: View {
                     showCameraSelection = true
                 }
                 
-                Button(action: { },label: {
+                Button(action: { }, label: {
                     Image(systemName: "photo")
                         .scaleEffect(1.4)
                         .foregroundColor(.primary)
@@ -56,7 +56,7 @@ struct ImagePickerView: View {
                     showPhotoSelection = true
                 }
                 
-                Button(action: { },label: {
+                Button(action: { }, label: {
                     Image(systemName: "trash")
                         .scaleEffect(1.4)
                         .foregroundColor(.primary)
@@ -66,7 +66,7 @@ struct ImagePickerView: View {
                     image = UIImage()
                 }
                 
-                Button(action: { },label: {
+                Button(action: { }, label: {
                     Image(systemName: "pencil")
                         .scaleEffect(1.4)
                         .foregroundColor(.primary)

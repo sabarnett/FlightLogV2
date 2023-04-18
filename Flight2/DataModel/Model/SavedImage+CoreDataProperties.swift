@@ -23,6 +23,6 @@ extension SavedImage {
 
 }
 
-extension SavedImage : Identifiable {
+extension SavedImage: Identifiable {
 
 }
