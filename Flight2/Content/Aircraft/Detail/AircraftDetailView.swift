@@ -13,7 +13,7 @@ struct AircraftDetailView: View {
     
     @Environment(\.dismiss) private var dismiss
     
-    @StateObject var vm: AircraftDetailViewModel
+    @ObservedObject var vm: AircraftDetailViewModel
     @State var readonlyModal: Bool = false
     @State private var editAircraft: Bool = false
     @State private var isPresentingDeleteConfirm: Bool = false

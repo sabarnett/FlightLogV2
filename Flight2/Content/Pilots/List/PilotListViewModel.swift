@@ -25,7 +25,6 @@ class PilotsListViewModel: ObservableObject {
     // correctly when the list is re-displayed, just by updating the listId.
     @Published var listRefresh: UUID = UUID()
     
-    //var pilotToDelete: pilotListModel?
     var includeDeleted: Bool = false
     
     var pilotsCount: Int { pilotList.count }

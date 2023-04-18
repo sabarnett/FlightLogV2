@@ -27,15 +27,12 @@ struct AircraftList: View {
                     PlaceHolderView(image: "aircraft-placeholder",
                                     prompt: "Select + to add an aircraft")
                 } else {
-                    
-                    List(selection: $vm.selectedAircraftID) {
-                        ForEach(vm.aircraftList, id: \.objectID) { aircraft in
+                    List(vm.aircraftList, id: \.objectID, selection: $vm.selectedAircraftID) {
+                        aircraft in
                             NavigationLink(value: aircraft.objectID) {
                                 AircraftListCellView(aircraft: aircraft)
                             }
-                            .tag(aircraft.id)
                         }
-                    }
                     .listStyle(.plain)
                 }
             }

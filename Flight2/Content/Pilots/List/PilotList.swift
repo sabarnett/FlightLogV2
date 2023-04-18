@@ -28,13 +28,9 @@ struct PilotList: View {
                     PlaceHolderView(image: "person-placeholder",
                                     prompt: "Select + to add a pilot")
                 } else {
-                    
-                    List(selection: $vm.selectedPilotID) {
-                        ForEach(vm.pilotList, id: \.objectID) { pilot in
-                            NavigationLink(value: pilot.objectID) {
-                                PilotListCellView(pilot: pilot)
-                            }
-                            .tag(pilot.id)
+                    List(vm.pilotList, id: \.objectID, selection: $vm.selectedPilotID) { pilot in
+                        NavigationLink(value: pilot.objectID) {
+                            PilotListCellView(pilot: pilot)
                         }
                     }
                     .listStyle(.plain)
@@ -63,7 +59,7 @@ struct PilotList: View {
         
         return buttons
     }
-
+    
     func addPilotButton() -> AdditionalToolbarButton {
         return AdditionalToolbarButton(image: Image(systemName: "plus")) {
             showAdd.toggle()
@@ -74,7 +70,7 @@ struct PilotList: View {
         AdditionalToolbarButton(
             image: Image(systemName: viewStyle.imageName)) {
                 viewStyle = viewStyle.nextStyle
-        }
+            }
     }
 }
 
