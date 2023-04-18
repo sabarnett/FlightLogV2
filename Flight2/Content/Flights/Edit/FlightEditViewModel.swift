@@ -81,7 +81,7 @@ class FlightEditViewModel: ObservableObject {
         
         if let flightID {
             self.flightID = flightID
-            // TODO: Load flight details
+
             let flight = Flight.byId(id: flightID) ?? Flight.dummyData
             
             self.pilot = flight.pilot
@@ -116,7 +116,6 @@ class FlightEditViewModel: ObservableObject {
             
         } else {
             self.flightID = nil
-            // TODO: Initialise new flight
             
             title = ""
             expectedActivity = ""

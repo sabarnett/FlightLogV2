@@ -15,8 +15,6 @@ extension FlightIssue {
 }
 
 extension FlightIssue: BaseModel {
-    // TODO: Add extension items
-    
     // MARK: - Dummy data for preview usage
     static var dummyData: FlightIssue {
         let issue = FlightIssue()

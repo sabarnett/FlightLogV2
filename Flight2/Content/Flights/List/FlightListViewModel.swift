@@ -175,7 +175,9 @@ class FlightListViewModel: ObservableObject {
     
     private func buildFlightDictionary() {
         
-        WriteLog.info("Create dictionary using limit: \(selectGroup) for group \(groupBy) with age limit \(ageFilter.description)")
+        WriteLog.info("Create dictionary using limit: \(selectGroup) "
+                      + "for group \(groupBy) with "
+                      + "age limit \(ageFilter.description)")
         
         // STEP 1: Do we have an age filter. If we do, we must force a database round trip as we may not have
         //         all the records we need.

@@ -39,7 +39,7 @@ struct FlightDetailView: View {
                     FlightDetailPreflightView(vm: vm)
                     FlightDetailFlightView(vm: vm)
                     FlightDetailNotesView(vm: vm)
-                }
+                }.id(vm.flightId)
                 Spacer()
             }
             .navigationTitle("")
