@@ -5,7 +5,7 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-            
+
 import SwiftUI
 import UtilityViews
 
@@ -31,7 +31,9 @@ struct AircraftDetailView: View {
                             .frame(width: 200, height: 200)
                             .padding(2)
                         VStack(alignment: .leading, spacing: 3) {
-                            Text("\(vm.aircraft.viewName) by \(vm.aircraft.viewManufacturer)").font(.title).foregroundColor(Color.heading)
+                            Text("\(vm.aircraft.viewName) by \(vm.aircraft.viewManufacturer)")
+                                .font(.title)
+                                .foregroundColor(Color.heading)
                             Text(vm.aircraft.viewModel).font(.title2)
                             Text("s/n \(vm.aircraft.viewSerialNumber)").font(.title2)
                         }.foregroundColor(.primaryText)
@@ -45,7 +47,7 @@ struct AircraftDetailView: View {
                         .frame(width: 200, height: 200)
                         .padding(2)
                 }
-
+                
                 if vm.aircraft.aircraftDeleted {
                     HStack {
                         Spacer()
@@ -58,35 +60,35 @@ struct AircraftDetailView: View {
                 
                 List {
                     if UIDevice.current.userInterfaceIdiom != .pad {
-                        Section {
+                        Section(content: {
                             DetailLine(key: "Name", value: vm.aircraft.viewName)
                             DetailLine(key: "Manufacturer", value: vm.aircraft.viewManufacturer)
                             DetailLine(key: "Model", value: vm.aircraft.viewModel)
                             DetailLine(key: "Serial Number", value: vm.aircraft.viewSerialNumber)
-                        } header: {
+                        }, header: {
                             SectionTitle("Aircraft")
-                        }
+                        })
                     }
                     
                     if vm.aircraft.hasPurchaseData {
-                        Section {
+                        Section(content: {
                             DetailLine(key: "From", value: vm.aircraft.viewPurchasedFrom)
                             DetailLine(key: "On", value: vm.aircraft.formattedPurchaseDate)
                             DetailLine(key: "New?", value: vm.aircraft.viewNewAtPurchase)
-                        } header: {
+                        }, header: {
                             SectionTitle("Purchase Info")
-                        }
+                        })
                     }
                     
-                    Section {
+                    Section(content: {
                         HStack {
                             Text(vm.aircraft.viewNotes)
                                 .lineLimit(10)
                             Spacer()
                         }.padding(.horizontal, 16)
-                    } header: {
+                    }, header: {
                         SectionTitle("Notes")
-                    }
+                    })
                 }
                 .listStyle(.insetGrouped)
             }
@@ -97,33 +99,44 @@ struct AircraftDetailView: View {
                     ToolbarItemGroup(placement: .primaryAction) {
                         HStack {
                             if !vm.aircraft.aircraftDeleted {
-                                Button { editAircraft = true } label: { Image(systemName: "square.and.pencil") }
+                                Button(action: {
+                                    editAircraft = true
+                                }, label: {
+                                    Image(systemName: "square.and.pencil")
+                                })
                             }
-                            Button { deleteAircraft() } label: { Image(systemName: vm.aircraft.aircraftDeleted ? "trash.slash" : "trash") }
+                            Button(action: {
+                                deleteAircraft()
+                            }, label: {
+                                Image(systemName: vm.aircraft.aircraftDeleted ? "trash.slash" : "trash")
+                            })
+                            .confirmationDialog("Are you sure?",
+                                                isPresented: $isPresentingDeleteConfirm,
+                                                actions: {
+                                Button("Delete aircraft?", role: .destructive) {
+                                    vm.deleteAircraft()
+                                }
+                            }, message: {
+                                Text("You can undo this action later if necessary.")
+                            })
                         }
                     }
                 }
             }
-            .sheet(isPresented: $editAircraft, onDismiss: {
-                vm.reloadData()
-            }) {
+            .sheet(isPresented: $editAircraft,
+                   onDismiss: { vm.reloadData()
+            }, content: {
                 AircraftEdit(editViewModel: AircraftEditViewModel(aircraftID: vm.aircraft.objectID))
-            }
-            .confirmationDialog("Are you sure?", isPresented: $isPresentingDeleteConfirm) {
-                Button("Delete aircraft?", role: .destructive) {
-                    vm.deleteAircraft()
-                }
-            } message: {
-                Text("You can undo this action later if necessary.")
-            }
+            })
+
             .interactiveDismissDisabled(true)
             .overlay(alignment: .topTrailing) {
                 if readonlyModal {
-                    Button {
+                    Button(action: {
                         dismiss()
-                    } label: {
+                    }, label: {
                         XDismissButton()
-                    }
+                    })
                 }
             }
         }

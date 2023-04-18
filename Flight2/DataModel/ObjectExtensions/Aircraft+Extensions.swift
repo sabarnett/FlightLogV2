@@ -128,7 +128,6 @@ extension Aircraft: BaseModel {
         aircraftImage = newImage
     }
     
-    
     // MARK: - Private Helper functions
     fileprivate static func fetchAircraft(withOptions options: AircraftSearchOptions) -> [Aircraft] {
         
@@ -146,7 +145,8 @@ extension Aircraft: BaseModel {
         if let searchFor = options.textSearch, searchFor.count > 0 {
             // We have search text!
             let searchName = NSPredicate(format: "%K CONTAINS[cd] %@", #keyPath(Aircraft.name), searchFor)
-            let searchManufacturer = NSPredicate(format: "%K CONTAINS[cd] %@", #keyPath(Aircraft.manufacturer), searchFor)
+            let searchManufacturer = NSPredicate(format: "%K CONTAINS[cd] %@",
+                                                 #keyPath(Aircraft.manufacturer), searchFor)
             let searchModel = NSPredicate(format: "%K CONTAINS[cd] %@", #keyPath(Aircraft.model), searchFor)
 
             let searchPredicate = NSCompoundPredicate(orPredicateWithSubpredicates: [
@@ -172,7 +172,8 @@ extension Aircraft: BaseModel {
         aircraft.model = "Aircraft model"
         aircraft.name = "Aircraft Name"
         aircraft.newAtPurchase = true
-        aircraft.notes = "Sample aircraft data.\nCreated to allow testing to be done on views and in code.\nNot for general use."
+        aircraft.notes = "Sample aircraft data.\nCreated to allow testing to be "
+            + "done on views and in code.\nNot for general use."
         aircraft.purchaseDate = Date()
         aircraft.purchasedFrom = "eBay"
         aircraft.serialNumber = "AIR-000-12345"

@@ -5,7 +5,6 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import Foundation
 import CoreData
@@ -53,4 +52,3 @@ class AircraftDetailViewModel: ObservableObject {
         aircraft.save()
     }
 }
-

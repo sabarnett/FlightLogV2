@@ -18,7 +18,7 @@ struct AircraftList: View {
     @State private var showAdd: Bool = false
     
     var body: some View {
-        NavigationSplitView {
+        NavigationSplitView(sidebar: {
             VStack(spacing: 0) {
                 ListTitleBar(title: "Aircraft", iconName: "airplane",
                              additionalButtons: additionalButtons())
@@ -36,20 +36,20 @@ struct AircraftList: View {
                     .listStyle(.plain)
                 }
             }
-        } detail: {
+        }, detail: {
             if let selectedAircraft = vm.selectedAircraft {
                 AircraftDetailView(vm: AircraftDetailViewModel(aircraft: selectedAircraft))
             } else {
                 NothingSelectedView(prompt: "Please select or add an aircraft")
             }
-        }
+        })
         .onAppear { vm.loadAircraft(includeDeleted: showDeleted) }
         .onChange(of: showDeleted, perform: { _ in vm.loadAircraft(includeDeleted: showDeleted) })
         .sheet(isPresented: $showAdd, onDismiss: {
             vm.loadAircraft(includeDeleted: showDeleted)
-        }) {
+        }, content: {
             AircraftEdit(editViewModel: AircraftEditViewModel(aircraftID: nil))
-        }
+        })
     }
     
     func additionalButtons() -> [AdditionalToolbarButton] {

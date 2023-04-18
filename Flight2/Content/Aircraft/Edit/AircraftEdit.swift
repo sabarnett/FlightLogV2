@@ -95,11 +95,11 @@ struct AircraftEdit: View {
             .blur(radius: showPurchaseDatePicker ? 8 : 0)
             .interactiveDismissDisabled(true)
             .overlay(alignment: .topTrailing) {
-                Button {
+                Button(action: {
                     dismiss()
-                } label: {
+                }, label: {
                     XDismissButton()
-                }
+                })
             }
             
             if showPurchaseDatePicker {
