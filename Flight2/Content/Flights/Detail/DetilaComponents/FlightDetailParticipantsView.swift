@@ -18,7 +18,7 @@ struct FlightDetailParticipantsView: View {
     @State var showAircraftdetail: Bool = false
     
     var body: some View {
-        Section("Participants") {
+        Section(content: {
             if horizontalSizeClass == .regular {
                 HStack {
                     Spacer()
@@ -63,7 +63,9 @@ struct FlightDetailParticipantsView: View {
                 }
                 
             }
-        }
+        }, header: {
+            SectionTitle("Participants")
+        })
         .sheet(isPresented: $showPilotDetail) {
             PilotDetailView(vm: PilotDetailViewModel(pilot: vm.pilot),
                             readonlyModal: true)

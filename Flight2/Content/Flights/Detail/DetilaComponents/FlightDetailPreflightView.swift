@@ -14,7 +14,7 @@ struct FlightDetailPreflightView: View {
     @State var vm: FlightDetailViewModel
     
     var body: some View {
-        Section("Pre-flight Checks") {
+        Section(content: {
             VStack(alignment: .leading) {
                 CheckBoxView(caption: "Checks Performed", checked: vm.preflightChecksPerformed)
                 FlightIssuesListView(issues: $vm.preflightIssues,
@@ -23,7 +23,9 @@ struct FlightDetailPreflightView: View {
                 .frame(minHeight: 200)
                 CheckBoxView(caption: "Issues Resolved", checked: vm.preflightIssuesResolved)
             }
-        }
+        }, header: {
+            SectionTitle("Pre-flight Checks")
+        })
     }
 }
 

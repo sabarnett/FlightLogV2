@@ -13,7 +13,7 @@ struct FlightDetailLocationView: View {
     @State var vm: FlightDetailViewModel
     
     var body: some View {
-        Section("Location") {
+        Section(content: {
             VStack(alignment: .leading) {
                 SectionSubtitle("Location")
                 Text(vm.location).padding(.bottom, 8)
@@ -27,8 +27,9 @@ struct FlightDetailLocationView: View {
                 Text(vm.siteConditions).padding(.bottom, 8)
                     .fixedSize(horizontal: false, vertical: true)
             }
-
-        }
+        }, header: {
+            SectionTitle("Location")
+        })
     }
 }
 

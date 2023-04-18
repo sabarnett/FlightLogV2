@@ -5,7 +5,7 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
+
 
 import SwiftUI
 
@@ -14,11 +14,13 @@ struct FlightDetailActivityView: View {
     @State var vm: FlightDetailViewModel
     
     var body: some View {
-        Section("Flight Activity") {
+        Section(content: {
             VStack(alignment: .leading) {
                 Text(vm.activity).font(.body)
             }
-        }
+        }, header: {
+            SectionTitle("Flight Activity")
+        })
     }
 }
 

@@ -15,7 +15,7 @@ struct FlightDetailFlightView: View {
     @State var vm: FlightDetailViewModel
     
     var body: some View {
-        Section("Flight") {
+        Section(content: {
             VStack(alignment: .leading) {
                 FlightDuration(vm: vm)
                     .padding(.top, 3)
@@ -30,7 +30,9 @@ struct FlightDetailFlightView: View {
                     .font(.body)
                     .fixedSize(horizontal: false, vertical: true)
             }
-        }
+        }, header: {
+            SectionTitle("Flight")
+        })
     }
 }
 

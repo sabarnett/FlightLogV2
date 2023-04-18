@@ -8,7 +8,7 @@
         
 import SwiftUI
 
-struct FlightListCell: View {
+struct FlightPrimaryListCell: View {
     
     @ObservedObject var flight: Flight
     @State var groupedBy: GroupFlightsBy
@@ -21,15 +21,12 @@ struct FlightListCell: View {
                 AircraftListCellView(aircraft: flight.viewAircraft)
             }
         }
-        .onAppear {
-            WriteLog.info("Cell, grouped by \(groupedBy)")
-        }
     }
 }
 
 struct FlightListCell_Previews: PreviewProvider {
     static var previews: some View {
-        FlightListCell(
+        FlightPrimaryListCell(
             flight: Flight.dummyData,
             groupedBy: .pilot
         )

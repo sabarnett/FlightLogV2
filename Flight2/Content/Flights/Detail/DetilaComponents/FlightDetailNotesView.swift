@@ -13,12 +13,14 @@ struct FlightDetailNotesView: View {
     @State var vm: FlightDetailViewModel
     
     var body: some View {
-        Section("Notes") {
+        Section(content: {
             VStack(alignment: .leading) {
                 Text(vm.notes)
                     .fixedSize(horizontal: false, vertical: true)
             }
-        }
+        }, header: {
+            SectionTitle("Notes")
+        })
     }
 }
 
