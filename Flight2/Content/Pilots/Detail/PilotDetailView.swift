@@ -25,71 +25,75 @@ struct PilotDetailView: View {
             if vm.pilotId == nil {
                 NothingSelectedView()
             } else {
-                if UIDevice.current.userInterfaceIdiom == .pad {
-                    HStack(alignment: .top) {
+                VStack {
+                    if UIDevice.current.userInterfaceIdiom == .pad {
+                        HStack(alignment: .top) {
+                            Image(uiImage: vm.pilot.viewProfileImage)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 200, height: 200)
+                                .padding(2)
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text(vm.pilot.displayName).font(.title).foregroundColor(Color.heading)
+                                Text(vm.pilot.viewCAARegistration).font(.title2)
+                                Text(vm.pilot.viewMobilePhone).font(.title2)
+                            }.foregroundColor(.primaryText)
+                            Spacer()
+                        }.frame(height: 210)
+                            .padding(20)
+                    } else {
                         Image(uiImage: vm.pilot.viewProfileImage)
                             .resizable()
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 200, height: 200)
                             .padding(2)
-                        VStack(alignment: .leading, spacing: 3) {
-                            Text(vm.pilot.displayName).font(.title).foregroundColor(Color.heading)
-                            Text(vm.pilot.viewCAARegistration).font(.title2)
-                            Text(vm.pilot.viewMobilePhone).font(.title2)
-                        }.foregroundColor(.primaryText)
-                        Spacer()
-                    }.frame(height: 210)
-                        .padding(20)
-                } else {
-                    Image(uiImage: vm.pilot.viewProfileImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 200, height: 200)
-                        .padding(2)
-                }
-                
-                if vm.pilot.pilotDeleted {
-                    HStack {
-                        Spacer()
-                        Text("This pilot has been deleted")
-                            .padding(.vertical, 2)
-                        Spacer()
-                    }.background(Color(.systemRed))
-                        .padding(.vertical, 2)
-                }
-                
-                List {
-                    if UIDevice.current.userInterfaceIdiom != .pad {
-                        Section {
-                            DetailLine(key: "Name", value: "\(vm.pilot.viewFirstName) \(vm.pilot.viewLastName)")
-                            DetailLine(key: "CAA Reg", value: vm.pilot.viewCAARegistration)
-                        } header: {
-                            SectionTitle("Pilot")
-                        }.foregroundColor(.primaryText)
                     }
                     
-                    Section {
-                        DetailLine(key: "Address", value: vm.pilot.viewAddress).foregroundColor(.primaryText)
-                        DetailLine(key: "Post Code", value: vm.pilot.viewPostCode)
-                        DetailLine(key: "Home Phone", value: vm.pilot.viewAlternatePhone)
-                        DetailLine(key: "Mobile Phone", value: vm.pilot.viewMobilePhone)
-                        DetailLine(key: "Email", value: vm.pilot.viewEmailAddress)
-                    } header: {
-                        SectionTitle("Contact Detals")
-                    }.foregroundColor(.primaryText)
-                }
-                .listStyle(.grouped)
-                .navigationTitle("")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbar {
-                    ToolbarItemGroup(placement: .primaryAction) {
+                    if vm.pilot.pilotDeleted {
                         HStack {
-                            if !vm.pilot.pilotDeleted {
-                                Button { editPilot = true } label: { Image(systemName: "square.and.pencil") }
-                            }
-                            Button { deletePilot() } label: { Image(systemName: vm.pilot.pilotDeleted ? "trash.slash" : "trash") }
+                            Spacer()
+                            Text("This pilot has been deleted")
+                                .padding(.vertical, 2)
+                            Spacer()
+                        }.background(Color(.systemRed))
+                            .padding(.vertical, 2)
+                    }
+                    
+                    List {
+                        if UIDevice.current.userInterfaceIdiom != .pad {
+                            Section {
+                                DetailLine(key: "Name", value: "\(vm.pilot.viewFirstName) \(vm.pilot.viewLastName)")
+                                DetailLine(key: "CAA Reg", value: vm.pilot.viewCAARegistration)
+                            } header: {
+                                SectionTitle("Pilot")
+                            }.foregroundColor(.primaryText)
                         }
-                        .foregroundColor(.toolbarIcon)
+                        
+                        Section {
+                            DetailLine(key: "Address", value: vm.pilot.viewAddress).foregroundColor(.primaryText)
+                            DetailLine(key: "Post Code", value: vm.pilot.viewPostCode)
+                            DetailLine(key: "Home Phone", value: vm.pilot.viewAlternatePhone)
+                            DetailLine(key: "Mobile Phone", value: vm.pilot.viewMobilePhone)
+                            DetailLine(key: "Email", value: vm.pilot.viewEmailAddress)
+                        } header: {
+                            SectionTitle("Contact Detals")
+                        }.foregroundColor(.primaryText)
+                    }
+                    .listStyle(.grouped)
+                    .navigationTitle("")
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbar {
+                        if !readonlyModal {
+                            ToolbarItemGroup(placement: .primaryAction) {
+                                HStack {
+                                    if !vm.pilot.pilotDeleted {
+                                        Button { editPilot = true } label: { Image(systemName: "square.and.pencil") }
+                                    }
+                                    Button { deletePilot() } label: { Image(systemName: vm.pilot.pilotDeleted ? "trash.slash" : "trash") }
+                                }
+                                .foregroundColor(.toolbarIcon)
+                            }
+                        }
                     }
                 }
                 .sheet(isPresented: $editPilot, onDismiss: {

@@ -93,12 +93,14 @@ struct AircraftDetailView: View {
             .navigationTitle("")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItemGroup(placement: .primaryAction) {
-                    HStack {
-                        if !vm.aircraft.aircraftDeleted {
-                            Button { editAircraft = true } label: { Image(systemName: "square.and.pencil") }
+                if !readonlyModal {
+                    ToolbarItemGroup(placement: .primaryAction) {
+                        HStack {
+                            if !vm.aircraft.aircraftDeleted {
+                                Button { editAircraft = true } label: { Image(systemName: "square.and.pencil") }
+                            }
+                            Button { deleteAircraft() } label: { Image(systemName: vm.aircraft.aircraftDeleted ? "trash.slash" : "trash") }
                         }
-                        Button { deleteAircraft() } label: { Image(systemName: vm.aircraft.aircraftDeleted ? "trash.slash" : "trash") }
                     }
                 }
             }
