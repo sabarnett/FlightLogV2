@@ -18,22 +18,28 @@ struct FlightIssueView: View {
     var body: some View {
         VStack {
             List {
-                Section("Short Description") {
+                Section(content: {
                     Text(issue.title)
-                }
+                }, header: {
+                    SectionTitle("Short Description")
+                })
                 
-                Section("Notes") {
+                Section(content: {
                     Text(issue.notes)
                         .multilineTextAlignment(.leading)
                         .frame(minHeight: 350, alignment: .topLeading)
-                }
+                }, header: {
+                    SectionTitle("Notes")
+                })
                 
-                Section("Resolved") {
+                Section(content: {
                     Text(issue.resolved
                          ? "This issue has been resolved"
                          : "This issue is waiting to be fixed")
-                }
-            }
+                }, header: {
+                    SectionTitle("Resolved")
+                })
+            }.padding(.top, 20)
         }
         .overlay(alignment: .topTrailing) {
             Button(action: { dismiss() },

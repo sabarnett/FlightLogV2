@@ -20,7 +20,10 @@ struct FlightDetailView: View {
             Text("Nothing Selected")
         } else {
             VStack(alignment: .leading) {
-                Text(vm.title).font(.title).padding()
+                Text(vm.title)
+                    .font(.title)
+                    .padding()
+                    .foregroundColor(.heading)
                 
                 if vm.isDeleted {
                     HStack(alignment: .center) {

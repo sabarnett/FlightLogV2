@@ -25,19 +25,18 @@ struct FlightIssueEditView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
-            
             List {
-                Section("Issue Description") {
+                Section("") {
                     FloatingTextView("Short Description", text: $title)
 
                     TextEdit(placeholder: "Long Description", text: $notes)
                         .frame(minHeight: 300)
                 }
-                Section("Resolved") {
+                Section("") {
                     Toggle(isOn: $resolved,
                            label: { Text("Issue Resolved")})
                 }
-            }.listStyle(.plain)
+            }
             
             Spacer()
             HStack {
