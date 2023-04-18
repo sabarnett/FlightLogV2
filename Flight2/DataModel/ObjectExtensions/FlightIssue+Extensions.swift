@@ -5,14 +5,13 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 
 extension FlightIssue {
     var viewTitle: String { self.title ?? "" }
     var viewNotes: String { self.notes ?? "" }
-    var viewResolved: Bool  { self.resolved }
+    var viewResolved: Bool { self.resolved }
 }
 
 extension FlightIssue: BaseModel {

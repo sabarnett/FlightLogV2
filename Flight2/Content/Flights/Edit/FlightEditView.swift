@@ -66,11 +66,11 @@ struct FlightEdit: View {
             .blur(radius: showingPicker() ? 5 : 0)
             .interactiveDismissDisabled(true)
             .overlay(alignment: .topTrailing) {
-                Button {
+                Button(action: {
                     dismiss()
-                } label: {
+                }, label: {
                     XDismissButton()
-                }
+                })
             }
             
             if showTakeoffPicker {

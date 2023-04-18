@@ -5,7 +5,6 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 import UtilityViews
@@ -45,7 +44,7 @@ struct FlightListFilterView: View {
                     
                     Picker("Limit to", selection: $limitTo) {
                         Text("All").tag("All")
-                        ForEach(vm.groupNames(for: groupBy).sorted(by: {$0 < $1}), id:\.self) { group in
+                        ForEach(vm.groupNames(for: groupBy).sorted(by: {$0 < $1}), id: \.self) { group in
                             Text(group).tag(group)
                         }
                     }
@@ -63,11 +62,11 @@ struct FlightListFilterView: View {
             }
             .padding(.top, 20)
             .overlay(alignment: .topTrailing) {
-                Button {
+                Button(action: {
                     dismiss()
-                } label: {
+                }, label: {
                     XDismissButton()
-                }
+                })
             }
             .navigationTitle("Flight Filters")
             .navigationBarHidden(true)

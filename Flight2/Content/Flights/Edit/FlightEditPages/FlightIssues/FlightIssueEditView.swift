@@ -5,7 +5,6 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 import UtilityViews
@@ -65,7 +64,8 @@ struct FlightIssueEditView: View {
             .padding()
         }
         .overlay(alignment: .topTrailing) {
-            Button { dismiss() } label: { XDismissButton() }
+            Button(action: { dismiss() },
+                   label: { XDismissButton() })
         }
         .onAppear {
             self.title = issue.title

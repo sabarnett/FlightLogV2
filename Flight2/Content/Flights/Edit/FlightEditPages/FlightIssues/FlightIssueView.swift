@@ -5,7 +5,6 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 import UtilityViews
@@ -37,7 +36,8 @@ struct FlightIssueView: View {
             }
         }
         .overlay(alignment: .topTrailing) {
-            Button { dismiss() } label: { XDismissButton() }
+            Button(action: { dismiss() },
+                   label: { XDismissButton() })
         }
     }
 }

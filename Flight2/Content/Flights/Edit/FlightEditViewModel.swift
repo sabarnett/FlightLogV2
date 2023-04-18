@@ -44,12 +44,12 @@ class FlightEditViewModel: ObservableObject {
     @Published var notes: String
     
     fileprivate var flightID: NSManagedObjectID?
-    fileprivate var pilot: Pilot? = nil
-    fileprivate var aircraft: Aircraft? = nil
+    fileprivate var pilot: Pilot?
+    fileprivate var aircraft: Aircraft?
     
     fileprivate var errors: [String] =  []
-    var errorDigest:        String      { errors.joined(separator: "\n") }
-    var hasErrors:          Bool        { !errors.isEmpty }
+    var errorDigest: String { errors.joined(separator: "\n") }
+    var hasErrors: Bool { !errors.isEmpty }
     
     var pilotList: [PickerOption] = []
     var currentPilot: PickerOption { selectedPilot
@@ -219,7 +219,9 @@ class FlightEditViewModel: ObservableObject {
         let itemsToUpdate = modifiedIssues.filter { issue in issue.hasChanged && issue.id != nil }
         
         for toDelete in itemsToDelete {
-            StorageProvider.shared.context.delete((issues?.first(where: {$0.objectID == toDelete.flightIssue?.objectID} ))!)
+            StorageProvider.shared.context.delete((issues?.first(where: {
+                $0.objectID == toDelete.flightIssue?.objectID
+            }))!)
         }
         for toUpdate in itemsToUpdate {
             if let issue = issues?.first(where: {$0.objectID == toUpdate.flightIssue?.objectID}) {
@@ -289,11 +291,11 @@ struct FlightIssueModel: Hashable {
     
     var title: String { didSet { listId = UUID() } }
     var notes: String { didSet { listId = UUID() } }
-    var resolved: Bool  { didSet { listId = UUID() } }
+    var resolved: Bool { didSet { listId = UUID() } }
     
     // Used to help rebuild the list when it is saved. We give users the chance to delete an
     // issue, but they get the chance to undelete it right up until they save the data.
-    var isDeleted: Bool  { didSet { listId = UUID() } }
+    var isDeleted: Bool { didSet { listId = UUID() } }
     
     // Used to force a list refresh. By changing the listId, we force any list to refresh the
     // specific issue. If we don't do this, SwiftUI will reuse the old cell view as it will decide

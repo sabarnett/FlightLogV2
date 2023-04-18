@@ -6,7 +6,6 @@
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
 
-
 import SwiftUI
 import UtilityViews
 
@@ -48,24 +47,28 @@ struct FlightDetailView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
                     HStack {
-                        Button { editFlight = true } label: { Image(systemName: "square.and.pencil") }
-                        Button { deleteFlight() } label: { Image(systemName: vm.isDeleted ? "trash.slash" : "trash") }
+                        Button(action: { editFlight = true },
+                               label: { Image(systemName: "square.and.pencil") })
+                        Button(action: { deleteFlight() },
+                               label: { Image(systemName: vm.isDeleted ? "trash.slash" : "trash") })
                             .disabled(!vm.canDelete)
                     }.foregroundColor(.toolbarIcon)
                 }
             }
             .sheet(isPresented: $editFlight, onDismiss: {
                 vm.reloadData()
-            }) {
+            }, content: {
                 FlightEdit(editViewModel: FlightEditViewModel(flightID: vm.flight.objectID))
-            }
-            .confirmationDialog("Are you sure?", isPresented: $isPresentingDeleteConfirm) {
+            })
+            .confirmationDialog("Are you sure?",
+                                isPresented: $isPresentingDeleteConfirm,
+                                actions: {
                 Button("Delete flight?", role: .destructive) {
                     vm.deleteFlight()
                 }
-            } message: {
+            }, message: {
                 Text("You can undo this action.")
-            }
+            })
         }
     }
     

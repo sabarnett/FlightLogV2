@@ -5,12 +5,11 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 
 extension Color {
-    static var toolbarIcon: Color { get { Color("ToolbarIconColor") }}
-    static var heading: Color { get { Color("Headings") }}
-    static var primaryText: Color { get { Color("PrimaryText") }}
+    static var toolbarIcon: Color { Color("ToolbarIconColor") }
+    static var heading: Color { Color("Headings") }
+    static var primaryText: Color { Color("PrimaryText") }
 }

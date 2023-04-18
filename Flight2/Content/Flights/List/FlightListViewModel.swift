@@ -45,10 +45,8 @@ class FlightListViewModel: ObservableObject {
     @AppStorage("GroupedBy") var groupBy: GroupFlightsBy = .pilot
     @AppStorage("FlightPeriod") var ageFilter: FlightAgeSelection = .lastMonth
     
-    var groupedByOpposite: GroupFlightsBy {
-        get {
+    var groupedByOpposite: GroupFlightsBy {        
             groupBy == .pilot ? .aircraft : .pilot
-        }
     }
     
     // A change in these variables will require us to re-build the dictionary only. The fetched
@@ -100,7 +98,7 @@ class FlightListViewModel: ObservableObject {
             return
         }
         
-        guard var flightIndex = flightList.firstIndex(where: { $0.objectID == id }) else {
+        guard let flightIndex = flightList.firstIndex(where: { $0.objectID == id }) else {
             // It's a new flight, requery the data
             refreshData(forceLoad: true)
             selectedFlightID = id
@@ -114,8 +112,9 @@ class FlightListViewModel: ObservableObject {
     
     // MARK: - Public interface
     
-    /// Retrieves a list of the names of the groups in the dictionary.  This is sourced from the original array of flights as there
-    /// may be filters applied to the flight dictionary. This routine will always return the full list of keys regardless of any filtering.
+    /// Retrieves a list of the names of the groups in the dictionary.  This is sourced from the original array
+    /// of flights as there may be filters applied to the flight dictionary. This routine will always return the
+    /// full list of keys regardless of any filtering.
     ///
     /// - Returns: An array of the dictionary keys
     ///
@@ -130,8 +129,8 @@ class FlightListViewModel: ObservableObject {
         }))
     }
     
-    /// Given a group name (ket in the flights dictionary), we retrieve the image associated with the key. This mighjt be a pilot image
-    /// or an aircraft image, depending on hiw the data was grouped.
+    /// Given a group name (ket in the flights dictionary), we retrieve the image associated with the key. This
+    /// might be a pilot image or an aircraft image, depending on hiw the data was grouped.
     ///
     /// - Parameter group: The group name (pilot ir aircraft name)
     /// - Returns: The image associated with the pilor or aircraft. Returns nil if there is no image
@@ -233,19 +232,15 @@ class FlightListViewModel: ObservableObject {
         if showActiveFlights {
             WriteLog.info("Only show active flights. Filter anything out that has a landing date")
             for (key, flights) in flightGroup {
-                for flight in flights {
-                    if flight.landing != nil {
-                        flightGroup[key]?.removeAll(where: {$0.id == flight.id })
-                    }
+                for flight in flights where flight.landing != nil {
+                    flightGroup[key]?.removeAll(where: {$0.id == flight.id })
                 }
             }
         }
         
         // STEP 6: Remove anything that has no flights left
-        for (key, flights) in flightGroup {
-            if flights.count == 0 {
-                flightGroup[key] = nil
-            }
+        for (key, flights) in flightGroup where flights.count == 0 {
+            flightGroup[key] = nil
         }
         
         WriteLog.info("Group list created with \(flightGroup.count) items in it.")

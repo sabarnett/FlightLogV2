@@ -6,7 +6,6 @@
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
 
-
 import SwiftUI
 
 struct FlightDetailParticipantsView: View {
@@ -90,7 +89,8 @@ struct ImageAndText: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .clipShape(
-                    RoundedRectangle(cornerRadius: 10)).shadow(color: .secondary, radius: 3, x: 2, y:2)
+                    RoundedRectangle(cornerRadius: 10))
+                        .shadow(color: .secondary, radius: 3, x: 2, y: 2)
                 .frame(width: 200, height: 200)
                 .padding(4)
             

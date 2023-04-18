@@ -5,7 +5,6 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 import UtilityViews
@@ -26,7 +25,7 @@ struct FlightEditPreflight: View {
                     .frame(height: 200)
                 
                 Toggle(isOn: $editViewModel.issuesResolved,
-                       label: { Text("All issues resolved") } )
+                       label: { Text("All issues resolved") })
                 
                 Spacer()
             }

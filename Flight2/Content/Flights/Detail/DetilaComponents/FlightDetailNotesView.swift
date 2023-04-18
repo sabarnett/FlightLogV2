@@ -5,7 +5,6 @@
 // 
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
-        
 
 import SwiftUI
 
@@ -23,4 +22,3 @@ struct FlightDetailNotesView: View {
         })
     }
 }
-

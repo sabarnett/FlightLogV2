@@ -74,7 +74,6 @@ extension Flight: BaseModel {
     
     // MARK: - Public helper methods
     
-    
     // MARK: - Private Helper functions
     fileprivate static func fetchFlights(withOptions options: FlightSearchOptions) -> [Flight] {
         
@@ -175,12 +174,14 @@ extension Flight: BaseModel {
 
         let incident = FlightIssue()
         incident.title = "Nose gear collapse on landing"
-        incident.notes = "The nmose gear collapsed on landing. This was due to hitting a small hole on the landing strip. Not an issue as much as an unfortunate accident."
+        incident.notes = "The nmose gear collapsed on landing. This was due to hitting a "
+            + "small hole on the landing strip. Not an issue as much as an unfortunate accident."
         
         flight.title = "Dummy Flight"
         flight.pilot = Pilot.dummyData
         flight.aircraft = Aircraft.dummyData
-        flight.activity = "Brief description of what we want to achieve. Can be as simple as 'pleasure trip' or something more complex."
+        flight.activity = "Brief description of what we want to achieve. Can be as simple as 'pleasure trip' "
+            + "or something more complex."
         flight.location = "Dorking Air Field"
         flight.weatherConditions = "Overcast, light drizzle"
         flight.siteConditions = "Clise cropped grass, slightle wet"

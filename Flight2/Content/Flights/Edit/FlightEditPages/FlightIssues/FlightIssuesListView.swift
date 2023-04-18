@@ -6,7 +6,6 @@
 // Copyright © 2023 Steven Barnett. All rights reserved.
 //
 
-
 import SwiftUI
 
 struct FlightIssuesListView: View {
@@ -39,7 +38,7 @@ struct FlightIssuesListView: View {
                 }
             } else {
                 VStack {
-                    List(issues, id:\.listId, selection: $selectedIncident) { issue in
+                    List(issues, id: \.listId, selection: $selectedIncident) { issue in
                         FlightIssueCell(issue: issue)
                             .listRowBackground(Color(.secondarySystemBackground))
                             .listRowSeparator(.hidden)
@@ -102,9 +101,9 @@ struct FlightIssuesListView: View {
             
             print("Edit Dismissed, user saved the add. So add a record to the list")
             issues.append(issueToEdit)
-        }) {
+        }, content: {
             FlightIssueEditView(issue: $issueToEdit)
-        }
+        })
         .sheet(isPresented: $showEdit, onDismiss: {
             // Add a new issue to the list using the details in the saved issue
             if let issueIndex = issues.firstIndex(where: { $0.id == issueToEdit.id }) {
@@ -112,9 +111,9 @@ struct FlightIssuesListView: View {
                 issues[issueIndex].notes = issueToEdit.notes
                 issues[issueIndex].resolved = issueToEdit.resolved
             }
-        }) {
+        }, content: {
             FlightIssueEditView(issue: $issueToEdit)
-        }
+        })
         .sheet(isPresented: $showIssue) {
             FlightIssueView(issue: selectedIncident!)
         }
@@ -122,7 +121,7 @@ struct FlightIssuesListView: View {
             Button("Delete issue?", role: .destructive) {
                 toggleDeletedState(issueToEdit)
             }
-        } , message: {
+        }, message: {
             Text("You can undo this action until you save the flight details.")
                 .font(.caption)
         })

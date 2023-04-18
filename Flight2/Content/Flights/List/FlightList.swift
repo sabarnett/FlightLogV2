@@ -23,7 +23,7 @@ struct FlightList: View {
     @State private var columnsVisible: NavigationSplitViewVisibility = .all
     
     var body: some View {
-        NavigationSplitView(columnVisibility: $columnsVisible) {
+        NavigationSplitView(columnVisibility: $columnsVisible, sidebar: {
             VStack(spacing: 0) {
                 ListTitleBar(title: "Flights",
                              iconName: "airplane.departure",
@@ -36,7 +36,7 @@ struct FlightList: View {
                 .listStyle(.plain)
                 .id(vm.primaryListId)
             }
-        } content: {
+        }, content: {
             if vm.primarySelection != nil {
                 List(vm.secondaryList, id: \.objectID, selection: $vm.secondarySelection) { flight in
                     FlightSecondaryListCell(flight: flight, groupedBy: vm.groupedByOpposite)
@@ -45,24 +45,26 @@ struct FlightList: View {
             } else {
                 Text(vm.groupBy == .pilot ? "Please select a pilot" : "Please sleect an aircraft")
             }
-        } detail: {
+        }, detail: {
             if vm.secondarySelection != nil {
                 FlightDetailView(vm: FlightDetailViewModel(flight: vm.selectedFlight))
             } else {
                 Text("Select a flight")
             }
-        }
+        })
         .navigationSplitViewStyle(.balanced)
-        .sheet(isPresented: $showAdd, onDismiss: {
+        .sheet(isPresented: $showAdd,
+            onDismiss: {
             vm.refreshData()
-        }) {
+        }, content: {
             FlightEdit(editViewModel: FlightEditViewModel(flightID: nil))
-        }
-        .sheet(isPresented: $showFilters, onDismiss: {
+        })
+        .sheet(isPresented: $showFilters,
+               onDismiss: {
             vm.refreshData()
-        }) {
+        }, content: {
             FlightListFilterView(vm: vm)
-        }
+        })
         .onAppear { vm.refreshData(forceLoad: true) }
         .onChange(of: vm.showDeleted) { _ in vm.refreshData(forceLoad: true) }
         .onChange(of: vm.groupBy) { _ in vm.refreshData() }
@@ -77,7 +79,6 @@ struct FlightList: View {
             }
         }
     }
-    
     
     func additionalButtons() -> [AdditionalToolbarButton] {
         var buttons: [AdditionalToolbarButton] = []

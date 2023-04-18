@@ -32,5 +32,7 @@ excluded: # paths to ignore during linting. overridden by `included`.
   - Pods
   - Modules
 
+line_length: 130
+
 identifier_name:
   min_length: 2
