@@ -39,45 +39,22 @@ struct FlightIssuesListView: View {
             } else {
                 VStack {
                     List(issues, id: \.listId, selection: $selectedIncident) { issue in
-                        FlightIssueCell(issue: issue)
+                        FlightIssueCell(issue: issue,
+                                        editable: editable,
+                                        onEditAction: listEditAction)
                             .listRowBackground(Color(.secondarySystemBackground))
                             .listRowSeparator(.hidden)
-                            .onTapGesture {
-                                viewIssue(issue)
-                            }
-                            .swipeActions(edge: .trailing) {
-                                if editable && !issue.isDeleted {
-                                    Button( action: {
-                                        editIssue(issue)
-                                    }, label: {
-                                        Image(systemName: "square.and.pencil")
-                                    }).tint(Color(.systemBlue))
-                                }
-                                
-                                if editable {
-                                    Button(action: {
-                                        removeIssue(issue)
-                                    }, label: {
-                                        Image(systemName: issue.isDeleted
-                                              ? "trash.slash"
-                                              : "trash.square")
-                                    }).tint(Color(.systemRed))
-                                }
-                            }
-                            .swipeActions(edge: .leading) {
-                                if editable && !issue.isDeleted {
-                                    Button(action: {
-                                        resolveIssue(issue)
-                                    }, label: {
-                                        Image(systemName: issue.resolved
-                                              ? "x.square"
-                                              : "checkmark.square")
-                                    }).tint(Color(.systemGreen))
-                                }
-                            }
                     }
                     .listStyle(.plain)
-                    
+                    .confirmationDialog("Are you sure?", isPresented: $showDeleteConfirmation, actions: {
+                        Button("Delete issue???", role: .destructive) {
+                            toggleDeletedState(issueToEdit)
+                        }
+                        Button("Cancel", role: .none) { }
+                    }, message: {
+                        Text("You can undo this action until you save the flight details.")
+                            .font(.caption)
+                    })
                 }
             }
             
@@ -117,14 +94,20 @@ struct FlightIssuesListView: View {
         .sheet(isPresented: $showIssue) {
             FlightIssueView(issue: selectedIncident!)
         }
-        .confirmationDialog("Are you sure?", isPresented: $showDeleteConfirmation, actions: {
-            Button("Delete issue?", role: .destructive) {
-                toggleDeletedState(issueToEdit)
-            }
-        }, message: {
-            Text("You can undo this action until you save the flight details.")
-                .font(.caption)
-        })
+
+    }
+    
+    private func listEditAction(_ editAction: flightIssueEditAction, _ issue: FlightIssueModel) {
+        switch editAction {
+        case .view:
+            viewIssue(issue)
+        case .edit:
+            editIssue(issue)
+        case .delete:
+            removeIssue(issue)
+        case .resolve:
+            resolveIssue(issue)
+        }
     }
     
     private func addIssue() {

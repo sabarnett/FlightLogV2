@@ -8,17 +8,69 @@
 
 import SwiftUI
 
+enum flightIssueEditAction {
+    case view
+    case edit
+    case delete
+    case resolve
+}
+
 struct FlightIssueCell: View {
     
     var issue: FlightIssueModel
+    var editable: Bool = false
+    var onEditAction: (_: flightIssueEditAction, _: FlightIssueModel) -> Void
     
     var body: some View {
         HStack {
-            Image(systemName: issue.resolved ? "checkmark" : "xmark")
-            Text(issue.title)
-                .font(.body)
-                .strikethrough(issue.isDeleted)
+            HStack {
+                Image(systemName: issue.resolved ? "checkmark" : "xmark")
+                Text(issue.title)
+                    .font(.body)
+                    .strikethrough(issue.isDeleted)
+            }
+            .onTapGesture {
+                onEditAction(.view, issue)
+            }
             Spacer()
+            // Edit actions here...
+            HStack {
+                if editable && !issue.isDeleted {
+                    Button( action: {
+                        onEditAction(.edit, issue)
+                    }, label: {
+                        Image(systemName: "square.and.pencil")
+                            .scaleEffect(1.2)
+                    })
+                    .buttonStyle(.plain)
+                    .tint(Color(.systemBlue))
+                }
+                
+                if editable {
+                    Button(action: {
+                        onEditAction(.delete, issue)
+                    }, label: {
+                        Image(systemName: issue.isDeleted
+                              ? "trash.slash"
+                              : "trash")
+                        .scaleEffect(1.2)
+                    })
+                    .buttonStyle(.plain)
+                    .tint(Color(.systemRed))
+                }
+                if editable && !issue.isDeleted {
+                    Button(action: {
+                        onEditAction(.resolve, issue)
+                    }, label: {
+                        Image(systemName: issue.resolved
+                              ? "xmark"
+                              : "checkmark")
+                        .scaleEffect(1.2)
+                    })
+                    .buttonStyle(.plain)
+                    .tint(Color(.systemGreen))
+                }
+            }
         }.foregroundColor(issueTextColor)
     }
     
@@ -32,6 +84,10 @@ struct FlightIssueCell: View {
 
 struct FlightIncidentCell_Previews: PreviewProvider {
     static var previews: some View {
-        FlightIssueCell(issue: FlightIssueModel(flightIssue: FlightIssue.dummyData))
+        FlightIssueCell(issue: FlightIssueModel(flightIssue: FlightIssue.dummyData),
+        editable: true,
+        onEditAction: { action, issue in
+            
+        })
     }
 }
