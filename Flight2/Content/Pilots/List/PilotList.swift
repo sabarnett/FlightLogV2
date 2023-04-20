@@ -20,8 +20,8 @@ struct PilotList: View {
     var body: some View {
         NavigationSplitView (sidebar: {
             VStack {
-                ListTitleBar(title: "Pilots",
-                             iconName: "person.fill",
+                ListTitleBar(title: $vm.listTitle,
+                             iconName: $vm.listIcon,
                              additionalButtons: additionalButtons())
                 
                 if !vm.hasPilots {

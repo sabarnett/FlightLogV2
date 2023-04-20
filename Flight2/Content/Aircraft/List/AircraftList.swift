@@ -20,7 +20,7 @@ struct AircraftList: View {
     var body: some View {
         NavigationSplitView(sidebar: {
             VStack(spacing: 0) {
-                ListTitleBar(title: "Aircraft", iconName: "airplane",
+                ListTitleBar(title: $vm.listTitle, iconName: $vm.listIcon,
                              additionalButtons: additionalButtons())
                 
                 if !vm.hasAircraft {

@@ -14,6 +14,8 @@ class AircraftListViewModel: ObservableObject {
     
     @Published var aircraftList: [Aircraft] = []
     @Published var selectedAircraftID: NSManagedObjectID?
+    @Published var listTitle: String = "Aircraft"
+    @Published var listIcon: String = "airplane"
     
     var includeDeleted: Bool = false
     

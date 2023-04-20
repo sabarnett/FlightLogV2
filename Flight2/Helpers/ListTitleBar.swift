@@ -19,8 +19,8 @@ struct ListTitleBar: View {
     
     @State private var showSettings: Bool = false
     @State private var showAbout: Bool = false
-    @State var title: String
-    @State var iconName: String
+    @Binding var title: String
+    @Binding var iconName: String
     var additionalButtons: [AdditionalToolbarButton] = []
     
     var body: some View {

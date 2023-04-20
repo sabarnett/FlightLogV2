@@ -14,6 +14,8 @@ class PilotsListViewModel: ObservableObject {
     
     @Published var pilotList: [Pilot] = []
     @Published var selectedPilotID: NSManagedObjectID?
+    @Published var listTitle: String = "Pilots"
+    @Published var listIcon: String = "person.fill"
     
     // This is abit of a fudge. If we have updated a pilot in the detail view, we need to
     // get the listview to update. It won't do that because it reuses the old structs for the

@@ -27,6 +27,9 @@ class FlightListViewModel: ObservableObject {
     @Published var selectedFlightID: NSManagedObjectID = NSManagedObjectID()
     @Published var showActiveFlights: Bool = false
     
+    @Published var listTitle: String = ""
+    @Published var listIcon: String = ""
+
     var selectedFlight: Flight {
             guard let selectedFlightId = secondarySelection else {
                 return Flight.dummyData
@@ -44,7 +47,7 @@ class FlightListViewModel: ObservableObject {
     @AppStorage("FlightPeriod") var ageFilter: FlightAgeSelection = .lastMonth
     
     var groupedByOpposite: GroupFlightsBy {        
-            groupBy == .pilot ? .aircraft : .pilot
+        groupBy == .pilot ? .aircraft : .pilot
     }
     
     // A change in these variables will require us to re-build the dictionary only. The fetched
@@ -154,6 +157,9 @@ class FlightListViewModel: ObservableObject {
     /// - Parameter forceLoad: When true, indicates that we need tomake a round trip to the database for the data.
     ///
     func refreshData(forceLoad: Bool = false) {
+        listTitle = groupBy == .pilot ? "Pilots" : "Aircraft"
+        listIcon = groupBy == .pilot ? "person.fill" : "airplane"
+
         if forceLoad {
             loadFlights()
         } else {

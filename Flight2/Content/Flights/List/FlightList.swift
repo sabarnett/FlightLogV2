@@ -25,9 +25,10 @@ struct FlightList: View {
     var body: some View {
         NavigationSplitView(columnVisibility: $columnsVisible, sidebar: {
             VStack(spacing: 0) {
-                ListTitleBar(title: "Flights",
-                             iconName: "airplane.departure",
+                ListTitleBar(title: $vm.listTitle,
+                             iconName: $vm.listIcon,
                              additionalButtons: additionalButtons())
+                //.id(vm.primaryListId)
                 
                 List(vm.primaryList, id: \.objectID, selection: $vm.primarySelection) { flight in
                     FlightPrimaryListCell(flight: flight, groupedBy: vm.groupBy)
