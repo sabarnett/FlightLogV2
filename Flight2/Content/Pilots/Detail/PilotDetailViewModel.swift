@@ -18,21 +18,6 @@ class PilotDetailViewModel: ObservableObject {
     init(pilot: Pilot) {
         self.pilotId = pilot.objectID
         self.pilot = pilot
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(sectionChanged),
-                                               name: Notification.Name.sectionChanged,
-                                               object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: Notification.Name.sectionChanged,
-                                                  object: nil)
-    }
-    
-    @objc func sectionChanged() {
-        pilotId = nil
     }
     
     func reloadData() {

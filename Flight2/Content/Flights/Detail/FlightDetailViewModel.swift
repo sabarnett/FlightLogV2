@@ -19,20 +19,6 @@ class FlightDetailViewModel: ObservableObject {
         self.flight = flight
         
         loadIssues()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(sectionChanged),
-                                               name: Notification.Name.sectionChanged,
-                                               object: nil)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self,
-                                                  name: Notification.Name.sectionChanged,
-                                                  object: nil)
-    }
-    
-    @objc func sectionChanged() {
-        flightId = nil
     }
     
     var flightIssueSet: [FlightIssueModel] = []

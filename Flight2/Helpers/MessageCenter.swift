@@ -18,5 +18,4 @@ extension Notification.Name {
     static let pilotUpdated = Notification.Name("PilotUpdated")
     static let aircraftUpdated = Notification.Name("AircraftUpdated")
     static let flightUpdated = Notification.Name("FlightUpdated")
-    static let sectionChanged = Notification.Name("sectionChanged")
 }
