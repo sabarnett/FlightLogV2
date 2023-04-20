@@ -71,6 +71,9 @@ struct FlightList: View {
         .onChange(of: vm.ageFilter) { _ in vm.refreshData() }
         .onChange(of: vm.showActiveFlights) { _ in vm.refreshData() }
 //        .onChange(of: searchFor) { _ in vm.searchFor = self.searchFor }
+        .onChange(of: vm.primarySelection) { _ in
+            vm.secondarySelection = nil
+        }
         .onChange(of: vm.secondarySelection) { _ in
             if vm.secondarySelection == nil {
                 columnsVisible = .all

@@ -85,7 +85,34 @@ extension Flight: BaseModel {
             predicates.append(NSPredicate(format: "deletedDate = nil"))
         }
         
-        // Potential predicate 2 : Search for specific text in the pilot and aitcraft
+        // Potential predicate : Search for specific text in the pilot and aircraft
+        appendSearchPredicate(&predicates, options)
+        
+        // Potential predicate : Limit the results based on the takeoff date
+        appendAgeFilterPredicate(&predicates, options)
+        
+        // Only create the fetch request predicate if we created some. These will all be ANDed together.
+        if !predicates.isEmpty {
+            let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+            fetchRequest.predicate = predicate
+        }
+        
+        // Set the sort order based on the pilot name
+        fetchRequest.sortDescriptors = [
+            NSSortDescriptor(key: #keyPath(Flight.takeoff), ascending: true),
+            NSSortDescriptor(key: #keyPath(Flight.pilot.lastName), ascending: true),
+            NSSortDescriptor(key: #keyPath(Flight.pilot.firstName), ascending: true)
+        ]
+
+        do {
+            return try StorageProvider.shared.context.fetch(fetchRequest)
+        } catch {
+            return []
+        }
+    }
+    
+    private static func appendSearchPredicate(_ predicates: inout [NSPredicate], _ options: FlightSearchOptions) {
+        
         if let searchFor = options.textSearch, searchFor.count > 0 {
             // We have search text!
             let searchFirstName = NSPredicate(format: "%K CONTAINS[cd] %@", #keyPath(Pilot.firstName), searchFor)
@@ -108,8 +135,10 @@ extension Flight: BaseModel {
 
             predicates.append(searchPredicate)
         }
+    }
+    
+    private static func appendAgeFilterPredicate(_ predicates: inout [NSPredicate], _ options: FlightSearchOptions) {
         
-        // Potential predicate : Limit the results based on the takeoff date
         if let ageFilter = options.ageFilter {
             var fromDate: Date?
             let baseDate = calculateBaseDate()
@@ -139,25 +168,6 @@ extension Flight: BaseModel {
                                                 fromDate as CVarArg)
                 predicates.append(datePredicate)
             }
-        }
-        
-        // Only create the fetch request predicate if we created some. These will all be ANDed together.
-        if !predicates.isEmpty {
-            let predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
-            fetchRequest.predicate = predicate
-        }
-        
-        // Set the sort order based on the pilot name
-        fetchRequest.sortDescriptors = [
-            NSSortDescriptor(key: #keyPath(Flight.takeoff), ascending: true),
-            NSSortDescriptor(key: #keyPath(Flight.pilot.lastName), ascending: true),
-            NSSortDescriptor(key: #keyPath(Flight.pilot.firstName), ascending: true)
-        ]
-
-        do {
-            return try StorageProvider.shared.context.fetch(fetchRequest)
-        } catch {
-            return []
         }
     }
     

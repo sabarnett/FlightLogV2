@@ -158,15 +158,9 @@ class FlightEditViewModel: ObservableObject {
         }
     }
     
+    // swiftlint:disable cyclomatic_complexity
     func save() {
-        var flight: Flight
-        
-        if let flightID {
-            flight = Flight.byId(id: flightID) as! Flight
-        } else {
-            flight = Flight.create()
-            flight.deletedDate = nil
-        }
+        let flight: Flight = newOrExistingFlight()
         
         if flight.title != title { flight.title = title }
         if flight.activity != expectedActivity { flight.activity = expectedActivity }
@@ -193,21 +187,39 @@ class FlightEditViewModel: ObservableObject {
 
         if flight.notes != notes { flight.notes = notes }
         
+        updatePilot(inFlight: flight)
+        updateAircraft(inFlight: flight)
+        
+        flight.save()
+        
+        MessageCenter.send(Notification.Name.flightUpdated, withData: flight.objectID)
+    }
+    // swiftlint:enable cyclomatic_complexity
+    
+    private func newOrExistingFlight() -> Flight {
+        if let flightID {
+            return Flight.byId(id: flightID) as! Flight
+        }
+        
+        let flight = Flight.create() as! Flight
+        flight.deletedDate = nil
+        return flight
+    }
+    
+    private func updatePilot(inFlight flight: Flight) {
         if let pilot = selectedPilot as? PickerOptionWithKey {
             if flight.pilot?.objectID != pilot.managedObjectID {
                 flight.pilot = Pilot.byId(id: pilot.managedObjectID)
             }
         }
-
+    }
+    
+    private func updateAircraft(inFlight flight: Flight) {
         if let aircraft = selectedAircraft as? PickerOptionWithKey {
             if flight.aircraft?.objectID != aircraft.managedObjectID {
                 flight.aircraft = Aircraft.byId(id: aircraft.managedObjectID)
             }
         }
-        
-        flight.save()
-        
-        MessageCenter.send(Notification.Name.flightUpdated, withData: flight.objectID)
     }
     
     private func updateIssues(inFlight: Flight, fromIssues issues: Set<FlightIssue>?,
