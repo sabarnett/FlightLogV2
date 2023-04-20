@@ -12,7 +12,7 @@ struct FlightDetailParticipantsView: View {
     
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     
-    @State var vm: FlightDetailViewModel
+    @ObservedObject var vm: FlightDetailViewModel
     @State var showPilotDetail: Bool = false
     @State var showAircraftdetail: Bool = false
     

@@ -9,7 +9,8 @@
 import SwiftUI
 
 struct FlightDetailNotesView: View {
-    @State var vm: FlightDetailViewModel
+    
+    @ObservedObject var vm: FlightDetailViewModel
     
     var body: some View {
         Section(content: {
