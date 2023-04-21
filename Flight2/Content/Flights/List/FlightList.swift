@@ -28,7 +28,6 @@ struct FlightList: View {
                 ListTitleBar(title: $vm.listTitle,
                              iconName: $vm.listIcon,
                              additionalButtons: additionalButtons())
-                //.id(vm.primaryListId)
                 
                 List(vm.primaryList, id: \.objectID, selection: $vm.primarySelection) { flight in
                     FlightPrimaryListCell(flight: flight, groupedBy: vm.groupBy)
@@ -40,7 +39,7 @@ struct FlightList: View {
         }, content: {
             if vm.primarySelection != nil {
                 List(vm.secondaryList, id: \.objectID, selection: $vm.secondarySelection) { flight in
-                    FlightSecondaryListCell(flight: flight, groupedBy: vm.groupedByOpposite)
+                    FlightSecondaryListCell(flight: flight, groupedBy: vm.groupBy)
                         .tag(flight.objectID)
                 }
             } else {
