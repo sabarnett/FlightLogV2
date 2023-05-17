@@ -12,4 +12,5 @@ extension Color {
     static var toolbarIcon: Color { Color("ToolbarIconColor") }
     static var heading: Color { Color("Headings") }
     static var primaryText: Color { Color("PrimaryText") }
+    static var listCellBackground: Color { Color("ListCellBackground") }
 }

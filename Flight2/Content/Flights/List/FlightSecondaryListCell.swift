@@ -21,7 +21,7 @@ struct FlightSecondaryListCell: View {
                 Image(uiImage: image)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 55, height: 55)
+                    .frame(width: 80, height: 80)
             } else {
                 ZStack {
                     RoundedRectangle(cornerRadius: 8)
@@ -30,7 +30,7 @@ struct FlightSecondaryListCell: View {
                         .scaleEffect(1.3)
                         .foregroundColor(.secondary.opacity(0.5))
                 }
-                .frame(width: 55, height: 55)
+                .frame(width: 80, height: 80)
             }
             
             VStack(alignment: .leading) {

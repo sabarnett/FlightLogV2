@@ -17,7 +17,7 @@ struct AircraftListCellView: View {
             Image(uiImage: aircraft.viewAircraftImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 70, height: 70)
+                .frame(width: 80, height: 80)
             VStack(alignment: .leading) {
                 Text(aircraft.viewName)
                     .font(.title3)

@@ -17,7 +17,7 @@ struct PilotListCellView: View {
             Image(uiImage: pilot.viewProfileImage)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 70, height: 70)
+                .frame(width: 80, height: 80)
             VStack(alignment: .leading) {
                 Text("\(pilot.viewFirstName) \(pilot.viewLastName)")
                     .font(.title3)
