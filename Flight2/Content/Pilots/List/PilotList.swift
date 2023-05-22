@@ -9,14 +9,13 @@
 import SwiftUI
 
 struct PilotList: View {
-    
+
     @AppStorage("showDeletedPilots") var showDeleted: Bool = false
-    @AppStorage("displayPilotsAs") var displayPilotsAs: ViewStyleToggle = .card
-    
+    @AppStorage("displayPilotsAs") var displayPilotsAs: ViewStyleToggle = .list
+
     @StateObject private var vm: PilotsListViewModel = PilotsListViewModel()
-    @State private var viewStyle: ViewStyleToggle = .list
     @State private var showAdd: Bool = false
-    
+
     var body: some View {
         NavigationSplitView (sidebar: {
             VStack {
@@ -28,14 +27,19 @@ struct PilotList: View {
                     PlaceHolderView(image: "person-placeholder",
                                     prompt: "Select + to add a pilot")
                 } else {
-                    List(vm.pilotList, id: \.objectID, selection: $vm.selectedPilotID) { pilot in
-                        NavigationLink(value: pilot.objectID) {
-                            PilotListCellView(pilot: pilot)
-                        }
+                    switch displayPilotsAs {
+                    case .list:
+                        PilotListView(vm: vm)
+                        
+                    case .card:
+                        PilotCardListView(viewModel: vm)
+                        
+                    case .grid:
+                        PilotGridListView(viewModel: vm)
                     }
-                    .listStyle(.plain)
                 }
             }
+
         }, detail: {
             if let selectedPilot = vm.selectedPilot {
                 PilotDetailView(vm: PilotDetailViewModel(pilot: selectedPilot))
@@ -68,8 +72,8 @@ struct PilotList: View {
     
     func toggleStateButton() -> AdditionalToolbarButton {
         AdditionalToolbarButton(
-            image: Image(systemName: viewStyle.imageName)) {
-                viewStyle = viewStyle.nextStyle
+            image: Image(systemName: displayPilotsAs.nextStyle.imageName)) {
+                displayPilotsAs = displayPilotsAs.nextStyle
             }
     }
 }
