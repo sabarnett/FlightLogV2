@@ -23,7 +23,7 @@ extension Aircraft {
     var viewNotes: String { self.notes ?? "" }
     var viewSerialNumber: String { self.serialNumber ?? "" }
     var viewPurchasedFrom: String { self.purchasedFrom ?? "" }
-    var viewPurchaseDate: Date { self.purchaseDate ?? Date() }    // TODO: Blank date???
+    var viewPurchaseDate: Date { self.purchaseDate ?? Date.distantPast }
     var viewNewAtPurchase: String { self.newAtPurchase == true ? "Yes" : "No" }
     var viewAircraftImage: UIImage { self.aircraftImage?.image ?? UIImage(named: "aircraft-placeholder")!}
     

@@ -23,10 +23,8 @@ extension Flight {
     var viewSiteConditions: String { self.siteConditions ?? "" }
     var viewPreflightChecksPerformed: Bool { self.preflightChecks }
     var viewPreflightIssuesResolved: Bool { self.preflightIssuesResolved }
-    // TODO: var viewPreflightIssues: [FlightIssue] { self.preflightIssues ?? [] }
     var viewTakeOff: Date? { self.takeoff}
     var viewLanding: Date? { self.landing }
-    // TODO: var viewIncidents: [FlightIssue] { self.flightIssues ?? [] }
     var viewNotes: String { self.notes ?? "" }
     
     var viewPilot: Pilot { self.pilot ?? Pilot.dummyData }
