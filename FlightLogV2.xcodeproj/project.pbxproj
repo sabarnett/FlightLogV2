@@ -49,8 +49,6 @@
 		E8C89E2529E98C1C000E7EB5 /* FlightListFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C89E2429E98C1B000E7EB5 /* FlightListFilterView.swift */; };
 		E8C8EE2B29DED5F7001823D3 /* PilotEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */; };
 		E8C8EE2D29DED62D001823D3 /* PilotEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */; };
-		E8D3EF9729D4BD2B00C042DB /* UtilityViews.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; };
-		E8D3EF9829D4BD2B00C042DB /* UtilityViews.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */; };
 		E8D3EF9E29D4C07500C042DB /* GroupFlightsBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */; };
 		E8D3EFA029D4C0C000C042DB /* FlightAgeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9F29D4C0C000C042DB /* FlightAgeSelection.swift */; };
@@ -85,6 +83,8 @@
 		E8DCA84829DD83C2000E4961 /* PilotDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84729DD83C2000E4961 /* PilotDetailViewModel.swift */; };
 		E8DCA84A29DD863B000E4961 /* DetailLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84929DD863B000E4961 /* DetailLine.swift */; };
 		E8F0D9CB29EEB9040031C6EC /* FlightSecondaryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D9CA29EEB9040031C6EC /* FlightSecondaryListCell.swift */; };
+		E8F279572A1BE65000C77185 /* UtilityViews.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; };
+		E8F279582A1BE65000C77185 /* UtilityViews.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,8 +94,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E8D3EF9829D4BD2B00C042DB /* UtilityViews.xcframework in Embed Frameworks */,
 				E85E91302A15272800C4B174 /* UtilityClasses.xcframework in Embed Frameworks */,
+				E8F279582A1BE65000C77185 /* UtilityViews.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -186,8 +186,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8F279572A1BE65000C77185 /* UtilityViews.xcframework in Frameworks */,
 				E8D3EFA329D4C31E00C042DB /* Mantis in Frameworks */,
-				E8D3EF9729D4BD2B00C042DB /* UtilityViews.xcframework in Frameworks */,
 				E85E912F2A15272800C4B174 /* UtilityClasses.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

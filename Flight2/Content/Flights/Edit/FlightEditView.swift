@@ -21,25 +21,40 @@ struct FlightEdit: View {
     @State private var showLandingPicker: Bool = false
     @State private var confirmFlightDuration: Bool = false
     
+    @State private var wizardSteps: [String] = ["Activity", "Participants", "Location",
+            "Pre-Flight", "Flight", "Notes"]
+    @State private var selectedStep: String = "Activity"
+    
     var body: some View {
         ZStack {
             VStack {
-                TabView {
+                SegmentedView(segments: wizardSteps,
+                              showBackground: false,
+                              segmentStyle: .underline,
+                              selected: $selectedStep)
+                
+                TabView(selection: $selectedStep) {
                     FlightEditTitle(editViewModel: editViewModel)
+                        .tag("Activity")
 
                     FlightEditParticipants(editViewModel: editViewModel,
                                            showPilotPicker: $showPilotPicker,
                                            showAircraftPicker: $showAircraftPicker)
+                    .tag("Participants")
 
                     FlightEditLocation(editViewModel: editViewModel)
+                        .tag("Location")
 
                     FlightEditPreflight(editViewModel: editViewModel)
+                        .tag("Pre-Flight")
 
                     FlightEditFlight(editViewModel: editViewModel,
                                      showTakeoffPicker: $showTakeoffPicker,
                                      showLandingPicker: $showLandingPicker)
+                    .tag("Flight")
 
                     FlightEditNotes(editViewModel: editViewModel)
+                        .tag("Notes")
 
                 }.tabViewStyle(.page)
                     .padding(.top, 30)
