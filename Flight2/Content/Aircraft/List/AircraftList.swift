@@ -14,7 +14,6 @@ struct AircraftList: View {
     @AppStorage("displayAircraftAs") var displayAircraftAs: ViewStyleToggle = .card
     
     @StateObject private var vm: AircraftListViewModel = AircraftListViewModel()
-    @State private var viewStyle: ViewStyleToggle = .list
     @State private var showAdd: Bool = false
     
     var body: some View {
@@ -27,13 +26,14 @@ struct AircraftList: View {
                     PlaceHolderView(image: "aircraft-placeholder",
                                     prompt: "Select + to add an aircraft")
                 } else {
-                    List(vm.aircraftList, id: \.objectID, selection: $vm.selectedAircraftID) {
-                        aircraft in
-                            NavigationLink(value: aircraft.objectID) {
-                                AircraftListCellView(aircraft: aircraft)
-                            }
-                        }
-                    .listStyle(.plain)
+                    switch displayAircraftAs {
+                    case .list:
+                        AircraftListView(vm: vm)
+                    case .card:
+                        AircraftCardListView(vm: vm)
+                    case .grid:
+                        AircraftGridListView(vm: vm)
+                    }
                 }
             }
         }, detail: {
@@ -68,8 +68,8 @@ struct AircraftList: View {
     
     func toggleStateButton() -> AdditionalToolbarButton {
         AdditionalToolbarButton(
-            image: Image(systemName: viewStyle.imageName)) {
-                viewStyle = viewStyle.nextStyle
+            image: Image(systemName: displayAircraftAs.nextStyle.imageName)) {
+                displayAircraftAs = displayAircraftAs.nextStyle
         }
     }
 }

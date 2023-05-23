@@ -14,6 +14,7 @@ struct PilotCardView: View {
     var cardWidth: CGFloat
     
     var cardFrameWidth: CGFloat {
+        // Note: GeometryReader may return a negative value, so we trap it here
         if cardWidth < 120 { return 120 }
         return cardWidth
     }

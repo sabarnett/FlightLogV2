@@ -17,6 +17,16 @@ class AircraftListViewModel: ObservableObject {
     @Published var listTitle: String = "Aircraft"
     @Published var listIcon: String = "airplane"
     
+    // This is abit of a fudge. If we have updated a pilot in the detail view, we need to
+    // get the listview to update. It won't do that because it reuses the old structs for the
+    // data, so the list uses old data. To fix this, we give the list an id and we change that
+    // id when we are told that the pilot has been changed. The change of list id will force it
+    // to refresh the data.
+    //
+    // Note; we only need this for iPad in master/detail view. On the phone, the list will update
+    // correctly when the list is re-displayed, just by updating the listId.
+    @Published var listRefresh: UUID = UUID()
+    
     var includeDeleted: Bool = false
     
     var aircraftCount: Int { aircraftList.count }

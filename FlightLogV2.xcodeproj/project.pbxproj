@@ -49,6 +49,11 @@
 		E8C89E2529E98C1C000E7EB5 /* FlightListFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C89E2429E98C1B000E7EB5 /* FlightListFilterView.swift */; };
 		E8C8EE2B29DED5F7001823D3 /* PilotEdit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */; };
 		E8C8EE2D29DED62D001823D3 /* PilotEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */; };
+		E8CB80342A1CBC7500510D73 /* AircraftListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB80332A1CBC7500510D73 /* AircraftListView.swift */; };
+		E8CB80372A1CBCE200510D73 /* AircraftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB80352A1CBCE200510D73 /* AircraftCardView.swift */; };
+		E8CB80382A1CBCE200510D73 /* AircraftCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB80362A1CBCE200510D73 /* AircraftCardListView.swift */; };
+		E8CB803B2A1CBDCC00510D73 /* AircraftGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB80392A1CBDCC00510D73 /* AircraftGridListView.swift */; };
+		E8CB803C2A1CBDCC00510D73 /* AircraftGridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB803A2A1CBDCC00510D73 /* AircraftGridCellView.swift */; };
 		E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */; };
 		E8D3EF9E29D4C07500C042DB /* GroupFlightsBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */; };
 		E8D3EFA029D4C0C000C042DB /* FlightAgeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9F29D4C0C000C042DB /* FlightAgeSelection.swift */; };
@@ -150,6 +155,11 @@
 		E8C89E2429E98C1B000E7EB5 /* FlightListFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightListFilterView.swift; sourceTree = "<group>"; };
 		E8C8EE2A29DED5F7001823D3 /* PilotEdit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotEdit.swift; sourceTree = "<group>"; };
 		E8C8EE2C29DED62D001823D3 /* PilotEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotEditViewModel.swift; sourceTree = "<group>"; };
+		E8CB80332A1CBC7500510D73 /* AircraftListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftListView.swift; sourceTree = "<group>"; };
+		E8CB80352A1CBCE200510D73 /* AircraftCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftCardView.swift; sourceTree = "<group>"; };
+		E8CB80362A1CBCE200510D73 /* AircraftCardListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftCardListView.swift; sourceTree = "<group>"; };
+		E8CB80392A1CBDCC00510D73 /* AircraftGridListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftGridListView.swift; sourceTree = "<group>"; };
+		E8CB803A2A1CBDCC00510D73 /* AircraftGridCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftGridCellView.swift; sourceTree = "<group>"; };
 		E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UtilityViews.xcframework; path = ../../Apps/Frameworks/UtilityViews/UtilityViews/build/UtilityViews.xcframework; sourceTree = "<group>"; };
 		E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFlightsBy.swift; sourceTree = "<group>"; };
@@ -408,6 +418,33 @@
 			path = Filters;
 			sourceTree = "<group>";
 		};
+		E8CB80302A1CBBEA00510D73 /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				E8CB80362A1CBCE200510D73 /* AircraftCardListView.swift */,
+				E8CB80352A1CBCE200510D73 /* AircraftCardView.swift */,
+			);
+			path = CardView;
+			sourceTree = "<group>";
+		};
+		E8CB80312A1CBBF400510D73 /* ListView */ = {
+			isa = PBXGroup;
+			children = (
+				E8D88ED029E4451900621F69 /* AircraftListCellView.swift */,
+				E8CB80332A1CBC7500510D73 /* AircraftListView.swift */,
+			);
+			path = ListView;
+			sourceTree = "<group>";
+		};
+		E8CB80322A1CBBFC00510D73 /* GridView */ = {
+			isa = PBXGroup;
+			children = (
+				E8CB803A2A1CBDCC00510D73 /* AircraftGridCellView.swift */,
+				E8CB80392A1CBDCC00510D73 /* AircraftGridListView.swift */,
+			);
+			path = GridView;
+			sourceTree = "<group>";
+		};
 		E8D3EF9529D4BD2B00C042DB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,9 +527,11 @@
 		E8D88ED229E446BE00621F69 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				E8CB80322A1CBBFC00510D73 /* GridView */,
+				E8CB80312A1CBBF400510D73 /* ListView */,
+				E8CB80302A1CBBEA00510D73 /* CardView */,
 				E812D71429D1C77F009ED9A1 /* AircraftList.swift */,
 				E8D88ECE29E441B200621F69 /* AircraftListViewModel.swift */,
-				E8D88ED029E4451900621F69 /* AircraftListCellView.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -700,10 +739,12 @@
 				E8B4C2D929ED450200D4B452 /* FlightDetailLocationView.swift in Sources */,
 				E8C89E0A29E98379000E7EB5 /* FlightEditViewModel.swift in Sources */,
 				E812D71329D1C76E009ED9A1 /* PilotList.swift in Sources */,
+				E8CB803B2A1CBDCC00510D73 /* AircraftGridListView.swift in Sources */,
 				E8D3EFC629D4C41400C042DB /* SavedImage+CoreDataClass.swift in Sources */,
 				E8D88EDC29E4491200621F69 /* AircraftEditViewModel.swift in Sources */,
 				E88D940B29E5E18800087E97 /* FlightPrimaryListCell.swift in Sources */,
 				E8F0D9CB29EEB9040031C6EC /* FlightSecondaryListCell.swift in Sources */,
+				E8CB80372A1CBCE200510D73 /* AircraftCardView.swift in Sources */,
 				E88D940329E5DD5200087E97 /* NothingSelectedView.swift in Sources */,
 				E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */,
 				E8D88ED129E4451900621F69 /* AircraftListCellView.swift in Sources */,
@@ -720,6 +761,7 @@
 				E8B4C2D629ED450200D4B452 /* FlightDetailPreflightView.swift in Sources */,
 				E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */,
 				E812D71529D1C77F009ED9A1 /* AircraftList.swift in Sources */,
+				E8CB803C2A1CBDCC00510D73 /* AircraftGridCellView.swift in Sources */,
 				E8C8EE2B29DED5F7001823D3 /* PilotEdit.swift in Sources */,
 				E8D3EFB829D4C40300C042DB /* Aircraft+Extensions.swift in Sources */,
 				E812D71C29D1CC3A009ED9A1 /* InfoView.swift in Sources */,
@@ -733,6 +775,7 @@
 				E8F2795B2A1BEF1800C77185 /* PilotCardView.swift in Sources */,
 				E8B4C2CD29ED44E600D4B452 /* FlightDetailViewModel.swift in Sources */,
 				E8D3EFB929D4C40300C042DB /* Flight+Extensions.swift in Sources */,
+				E8CB80382A1CBCE200510D73 /* AircraftCardListView.swift in Sources */,
 				E8D3EFBA29D4C40300C042DB /* FlightIssue+Extensions.swift in Sources */,
 				E8B4C2D829ED450200D4B452 /* FlightDetailActivityView.swift in Sources */,
 				E8DCA84429DD809F000E4961 /* PilotListCellView.swift in Sources */,
@@ -744,6 +787,7 @@
 				E8C89E1929E984A7000E7EB5 /* FlightEditTitle.swift in Sources */,
 				E8C8EE2D29DED62D001823D3 /* PilotEditViewModel.swift in Sources */,
 				E8C89E1729E984A7000E7EB5 /* FlightEditNotes.swift in Sources */,
+				E8CB80342A1CBC7500510D73 /* AircraftListView.swift in Sources */,
 				E8B4C2CE29ED44E600D4B452 /* FlightDetailView.swift in Sources */,
 				E8D3EFB329D4C3F800C042DB /* UIImage+Transformer.swift in Sources */,
 				E8D3EFAA29D4C35D00C042DB /* ImagePickerView.swift in Sources */,
