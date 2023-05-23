@@ -160,7 +160,15 @@ class FlightEditViewModel: ObservableObject {
     
     // swiftlint:disable cyclomatic_complexity
     func save() {
-        let flight: Flight = newOrExistingFlight()
+
+        var flight: Flight
+
+        if let flightID {
+            flight = Flight.byId(id: flightID) as! Flight
+        } else {
+            flight = Flight.create()
+            flight.deletedDate = nil
+        }
         
         if flight.title != title { flight.title = title }
         if flight.activity != expectedActivity { flight.activity = expectedActivity }
@@ -195,16 +203,6 @@ class FlightEditViewModel: ObservableObject {
         MessageCenter.send(Notification.Name.flightUpdated, withData: flight.objectID)
     }
     // swiftlint:enable cyclomatic_complexity
-    
-    private func newOrExistingFlight() -> Flight {
-        if let flightID {
-            return Flight.byId(id: flightID) as! Flight
-        }
-        
-        let flight = Flight.create() as! Flight
-        flight.deletedDate = nil
-        return flight
-    }
     
     private func updatePilot(inFlight flight: Flight) {
         if let pilot = selectedPilot as? PickerOptionWithKey {

@@ -11,7 +11,7 @@ import SwiftUI
 struct AircraftList: View {
     
     @AppStorage("showDeletedAircraft") var showDeleted: Bool = false
-    @AppStorage("displayAircraftAs") var displayAircraftAs: ViewStyleToggle = .card
+    @AppStorage("displayAircraftAs") var displayAircraftAs: ViewStyleToggle = .list
     
     @StateObject private var vm: AircraftListViewModel = AircraftListViewModel()
     @State private var showAdd: Bool = false
