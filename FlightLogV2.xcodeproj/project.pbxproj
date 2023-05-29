@@ -54,6 +54,7 @@
 		E8CB80382A1CBCE200510D73 /* AircraftCardListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB80362A1CBCE200510D73 /* AircraftCardListView.swift */; };
 		E8CB803B2A1CBDCC00510D73 /* AircraftGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB80392A1CBDCC00510D73 /* AircraftGridListView.swift */; };
 		E8CB803C2A1CBDCC00510D73 /* AircraftGridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB803A2A1CBDCC00510D73 /* AircraftGridCellView.swift */; };
+		E8CCCF872A1D0B7100963F22 /* ShowTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCCF862A1D0B7100963F22 /* ShowTime.swift */; };
 		E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */; };
 		E8D3EF9E29D4C07500C042DB /* GroupFlightsBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */; };
 		E8D3EFA029D4C0C000C042DB /* FlightAgeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9F29D4C0C000C042DB /* FlightAgeSelection.swift */; };
@@ -160,6 +161,7 @@
 		E8CB80362A1CBCE200510D73 /* AircraftCardListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftCardListView.swift; sourceTree = "<group>"; };
 		E8CB80392A1CBDCC00510D73 /* AircraftGridListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftGridListView.swift; sourceTree = "<group>"; };
 		E8CB803A2A1CBDCC00510D73 /* AircraftGridCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftGridCellView.swift; sourceTree = "<group>"; };
+		E8CCCF862A1D0B7100963F22 /* ShowTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTime.swift; sourceTree = "<group>"; };
 		E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UtilityViews.xcframework; path = ../../Apps/Frameworks/UtilityViews/UtilityViews/build/UtilityViews.xcframework; sourceTree = "<group>"; };
 		E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFlightsBy.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 		E89282E229D1D127000BB957 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E8CCCF862A1D0B7100963F22 /* ShowTime.swift */,
 				E8D3EFCC29D4C56400C042DB /* MessageCenter.swift */,
 				E8D3EFCD29D4C56400C042DB /* Validators.swift */,
 				E8D3EFA429D4C34400C042DB /* Images */,
@@ -747,6 +750,7 @@
 				E8CB80372A1CBCE200510D73 /* AircraftCardView.swift in Sources */,
 				E88D940329E5DD5200087E97 /* NothingSelectedView.swift in Sources */,
 				E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */,
+				E8CCCF872A1D0B7100963F22 /* ShowTime.swift in Sources */,
 				E8D88ED129E4451900621F69 /* AircraftListCellView.swift in Sources */,
 				E8DCA84229DD735A000E4961 /* PilotListViewModel.swift in Sources */,
 				E8F279602A1BF0DB00C77185 /* PilotListView.swift in Sources */,
