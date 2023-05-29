@@ -46,15 +46,17 @@ struct AircraftCardView: View {
                     SplitText(prompt: "From", value: "")
                     SplitText(prompt: "New?", value: "")
                 }
+                
+                Spacer()
             }
-        }
-        .foregroundColor(aircraft.aircraftDeleted ? Color(.systemRed) : .primary)
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.secondary)
-                .opacity(0.2)
-        )
+            .foregroundColor(aircraft.aircraftDeleted ? Color(.systemRed) : .primary)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.secondary)
+                    .opacity(0.2)
+            )
+        }.padding(.bottom, 40)
     }
 }
 

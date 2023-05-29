@@ -21,28 +21,32 @@ struct PilotCardView: View {
     
     var body: some View {
         VStack {
-            Image(uiImage: pilot.viewProfileImage)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .clipShape(
-                    RoundedRectangle(cornerRadius: 10)).shadow(color: .secondary, radius: 3, x: 2, y: 2)
-                .frame(width: cardFrameWidth, height: 220)
-                .padding(4)
-            
-            Text(pilot.displayName).font(.title)
-            Text(pilot.viewCAARegistration).font(.title2)
-            
-            SplitText(prompt: "Mobile", value: pilot.viewMobilePhone)
-            SplitText(prompt: "Phone", value: pilot.viewAlternatePhone)
-            SplitText(prompt: "Email", value: pilot.viewEmailAddress)
-        }
-        .foregroundColor(pilot.pilotDeleted ? Color(.systemRed) : .primary)
-        .padding()
-        .background(
-            RoundedRectangle(cornerRadius: 20)
-                .fill(Color.secondary)
-                .opacity(0.2)
-        )
+            VStack {
+                Image(uiImage: pilot.viewProfileImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .clipShape(
+                        RoundedRectangle(cornerRadius: 10)).shadow(color: .secondary, radius: 3, x: 2, y: 2)
+                    .frame(width: cardFrameWidth, height: 220)
+                    .padding(4)
+                
+                Text(pilot.displayName).font(.title)
+                Text(pilot.viewCAARegistration).font(.title2)
+                
+                SplitText(prompt: "Mobile", value: pilot.viewMobilePhone)
+                SplitText(prompt: "Phone", value: pilot.viewAlternatePhone)
+                SplitText(prompt: "Email", value: pilot.viewEmailAddress)
+                
+                Spacer()
+            }
+            .foregroundColor(pilot.pilotDeleted ? Color(.systemRed) : .primary)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(Color.secondary)
+                    .opacity(0.2)
+            )
+        }.padding(.bottom, 40)
     }
 }
 

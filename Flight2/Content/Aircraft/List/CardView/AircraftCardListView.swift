@@ -24,9 +24,9 @@ struct AircraftCardListView: View {
                             },
                                            label: {
                                 AircraftCardView(aircraft: aircraft,
-                                                 cardWidth: geoReader.size.width - 60)
+                                                 cardWidth: geoReader.size.width - 70)
                                     .frame(minHeight: 540)
-                                    .padding(.horizontal, 20)
+                                    .padding(.horizontal, 4)
                             })
                             .tag(aircraft.id)
                         }
