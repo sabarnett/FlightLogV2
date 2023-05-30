@@ -58,7 +58,7 @@ struct FlightDetailView: View {
                     }.foregroundColor(.toolbarIcon)
                 }
             }
-            .sheet(isPresented: $editFlight, onDismiss: {
+            .fullScreenCover(isPresented: $editFlight, onDismiss: {
                 vm.reloadData()
             }, content: {
                 FlightEdit(editViewModel: FlightEditViewModel(flightID: vm.flight.objectID))

@@ -108,7 +108,7 @@ struct PilotDetailView: View {
                         }
                     }
                 }
-                .sheet(isPresented: $editPilot, onDismiss: {
+                .fullScreenCover(isPresented: $editPilot, onDismiss: {
                     vm.reloadData()
                 }, content: {
                     if let pilotId = vm.pilotId {

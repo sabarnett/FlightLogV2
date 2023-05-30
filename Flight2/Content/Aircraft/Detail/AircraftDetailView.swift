@@ -123,7 +123,7 @@ struct AircraftDetailView: View {
                     }
                 }
             }
-            .sheet(isPresented: $editAircraft,
+            .fullScreenCover(isPresented: $editAircraft,
                    onDismiss: { vm.reloadData()
             }, content: {
                 AircraftEdit(editViewModel: AircraftEditViewModel(aircraftID: vm.aircraft.objectID))
