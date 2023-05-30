@@ -36,25 +36,31 @@ struct FlightEdit: View {
                 TabView(selection: $selectedStep) {
                     FlightEditTitle(editViewModel: editViewModel)
                         .tag("Activity")
+                        .padding(.horizontal, 20)
 
                     FlightEditParticipants(editViewModel: editViewModel,
                                            showPilotPicker: $showPilotPicker,
                                            showAircraftPicker: $showAircraftPicker)
                     .tag("Participants")
+                    .padding(.horizontal, 20)
 
                     FlightEditLocation(editViewModel: editViewModel)
                         .tag("Location")
+                        .padding(.horizontal, 20)
 
                     FlightEditPreflight(editViewModel: editViewModel)
                         .tag("Pre-Flight")
+                        .padding(.horizontal, 20)
 
                     FlightEditFlight(editViewModel: editViewModel,
                                      showTakeoffPicker: $showTakeoffPicker,
                                      showLandingPicker: $showLandingPicker)
                     .tag("Flight")
+                    .padding(.horizontal, 20)
 
                     FlightEditNotes(editViewModel: editViewModel)
                         .tag("Notes")
+                        .padding(.horizontal, 20)
 
                 }.tabViewStyle(.page)
                     .padding(.top, 30)

@@ -60,14 +60,16 @@ struct FlightIssuesListView: View {
             
             // List is editable, so add the edit buttons
             if editable {
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        addIssue()
-                    }, label: {
-                        Image(systemName: "plus.square")
-                    })
-                }
+                Button(action: {
+                    addIssue()
+                }, label: {
+                    Text("Add")
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 2)
+                        .foregroundColor(.white)
+                }).buttonStyle(.borderedProminent)
+                    .tint(Color(.systemBlue))
+                    .controlSize(.mini)
             }
         }
         .sheet(isPresented: $showAdd, onDismiss: {
