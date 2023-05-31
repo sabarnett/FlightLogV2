@@ -9,4 +9,7 @@ This app is intended to fill the bulk of the requirements.
 It is also my first significant app built for the Apple platform, so the code may well be
 overly complex or badly formed. Who knows... I'm just trying to learn.
 
+## Dependencies
 
+Note that this project has dependencies on my UtilityViews and UtilityClasses repos for various 
+views and for my developer log.
