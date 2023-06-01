@@ -213,6 +213,7 @@
 		E8F2795F2A1BF0DB00C77185 /* PilotListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotListView.swift; sourceTree = "<group>"; };
 		E8F279642A1BFAE900C77185 /* PilotGridCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotGridCellView.swift; sourceTree = "<group>"; };
 		E8F279652A1BFAE900C77185 /* PilotGridListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotGridListView.swift; sourceTree = "<group>"; };
+		E8F5AF672A28E15F00D0EA69 /* db 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "db 2.xcdatamodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1057,9 +1058,10 @@
 		E8D3EFBD29D4C41300C042DB /* db.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E8F5AF672A28E15F00D0EA69 /* db 2.xcdatamodel */,
 				E8D3EFBE29D4C41300C042DB /* db.xcdatamodel */,
 			);
-			currentVersion = E8D3EFBE29D4C41300C042DB /* db.xcdatamodel */;
+			currentVersion = E8F5AF672A28E15F00D0EA69 /* db 2.xcdatamodel */;
 			path = db.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
