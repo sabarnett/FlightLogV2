@@ -74,6 +74,7 @@ class AircraftListViewModel: ObservableObject {
         
         StorageProvider.shared.context.refresh(aircraftList[aircraftIndex], mergeChanges: true)
         selectedAircraftID = aircraftList[aircraftIndex].objectID
+        listRefresh = UUID()
     }
     
     func loadAircraft(includeDeleted: Bool = false) {

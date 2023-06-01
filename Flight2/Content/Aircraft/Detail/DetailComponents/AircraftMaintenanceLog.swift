@@ -14,34 +14,36 @@ struct AircraftMaintenanceLog: View {
 
     var body: some View {
         Section(content: {
-//            List(vm.aircraft.maintenanceItems, id: \.self) { item in
-//                AircraftMaintenanceLogCell(maint: item)
-//            }
-//            .listStyle(.plain)
+            List(vm.aircraft.maintenanceItems, id: \.self) { item in
+                AircraftMaintenanceLogCell(maint: item)
+                    .listRowBackground(Color(.secondarySystemBackground))
+            }
+            .listStyle(.plain)
+            .frame(minHeight: 150)
         }, header: {
             SectionTitle("Maintenance Log")
         })
     }
 }
 
-//struct AircraftMaintenanceLogCell: View {
-//
-//    @ObservedObject var maint: AircraftMaintenance
-//
-//    var body: some View {
-//        HStack {
-//            Text(maint.viewActionDate)
-//                .font(.body)
-//                .frame(minWidth: 30)
-//            VStack {
-//                Text(maint.viewTitle)
-//                    .font(.body)
-//                Text(maint.viewDetails)
-//                    .font(.caption)
-//            }
-//        }
-//    }
-//}
+struct AircraftMaintenanceLogCell: View {
+
+    @ObservedObject var maint: AircraftMaintenance
+
+    var body: some View {
+        HStack(alignment: .top) {
+            Text(maint.viewDate)
+                .font(.body)
+                .frame(minWidth: 60)
+            VStack(alignment: .leading) {
+                Text(maint.viewTitle)
+                    .font(.body)
+                Text(maint.viewAction)
+                    .font(.caption)
+            }
+        }
+    }
+}
 
 struct AircraftMaintenanceLog_Previews: PreviewProvider {
     static var previews: some View {

@@ -29,6 +29,12 @@ extension Aircraft {
     
     var aircraftDeleted: Bool { self.deletedDate != nil }
     
+    var maintenanceItems: [AircraftMaintenance] {
+        guard let items = self.maintenance else { return [] }
+        guard let itemsArray = items.allObjects as? [AircraftMaintenance] else { return [] }
+        
+        return itemsArray.sorted(by: { $0.actionDate! < $1.actionDate! })
+    }
 }
 
 extension Aircraft: BaseModel {

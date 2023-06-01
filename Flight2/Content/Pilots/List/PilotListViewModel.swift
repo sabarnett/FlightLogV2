@@ -74,6 +74,8 @@ class PilotsListViewModel: ObservableObject {
         
         StorageProvider.shared.context.refresh(pilotList[pilotIndex], mergeChanges: true)
         selectedPilotID = pilotList[pilotIndex].objectID
+        
+        listRefresh = UUID()
     }
     
     func loadPilots(includeDeleted: Bool = false) {
