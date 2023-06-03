@@ -86,6 +86,7 @@ struct AircraftEdit: View {
                     .disabled(!editViewModel.canSave())
                     
                     Button("Cancel") {
+                        editViewModel.cancel()
                         dismiss()
                     }
                     .buttonStyle(.borderedProminent)
@@ -96,6 +97,7 @@ struct AircraftEdit: View {
             .interactiveDismissDisabled(true)
             .overlay(alignment: .topTrailing) {
                 Button(action: {
+                    editViewModel.cancel()
                     dismiss()
                 }, label: {
                     XDismissButton()

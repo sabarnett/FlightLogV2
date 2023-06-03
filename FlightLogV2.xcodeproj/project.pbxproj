@@ -94,6 +94,7 @@
 		E8DCA84629DD839E000E4961 /* PilotDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84529DD839E000E4961 /* PilotDetailView.swift */; };
 		E8DCA84829DD83C2000E4961 /* PilotDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84729DD83C2000E4961 /* PilotDetailViewModel.swift */; };
 		E8DCA84A29DD863B000E4961 /* DetailLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCA84929DD863B000E4961 /* DetailLine.swift */; };
+		E8E640302A2B777900BB05EE /* AircraftMaintenance+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E6402F2A2B777900BB05EE /* AircraftMaintenance+Extensions.swift */; };
 		E8F0D9CB29EEB9040031C6EC /* FlightSecondaryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F0D9CA29EEB9040031C6EC /* FlightSecondaryListCell.swift */; };
 		E8F279572A1BE65000C77185 /* UtilityViews.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; };
 		E8F279582A1BE65000C77185 /* UtilityViews.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -207,6 +208,7 @@
 		E8DCA84529DD839E000E4961 /* PilotDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotDetailView.swift; sourceTree = "<group>"; };
 		E8DCA84729DD83C2000E4961 /* PilotDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PilotDetailViewModel.swift; sourceTree = "<group>"; };
 		E8DCA84929DD863B000E4961 /* DetailLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLine.swift; sourceTree = "<group>"; };
+		E8E6402F2A2B777900BB05EE /* AircraftMaintenance+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AircraftMaintenance+Extensions.swift"; sourceTree = "<group>"; };
 		E8F0D9CA29EEB9040031C6EC /* FlightSecondaryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightSecondaryListCell.swift; sourceTree = "<group>"; };
 		E8F279592A1BEF1800C77185 /* PilotCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotCardView.swift; sourceTree = "<group>"; };
 		E8F2795A2A1BEF1800C77185 /* PilotCardListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotCardListView.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 				E8D3EFB529D4C40200C042DB /* Flight+Extensions.swift */,
 				E8D3EFB629D4C40300C042DB /* FlightIssue+Extensions.swift */,
 				E8D3EFB729D4C40300C042DB /* Pilot+Extensions.swift */,
+				E8E6402F2A2B777900BB05EE /* AircraftMaintenance+Extensions.swift */,
 			);
 			path = ObjectExtensions;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 				E86159B92A28D6B4001EC0C2 /* AircraftDeletedIndicator.swift in Sources */,
 				E8D3EFC829D4C46C00C042DB /* PicketOption+Extensions.swift in Sources */,
 				E812D71729D1C78B009ED9A1 /* FlightList.swift in Sources */,
+				E8E640302A2B777900BB05EE /* AircraftMaintenance+Extensions.swift in Sources */,
 				E8D3EFC229D4C41400C042DB /* BaseModel.swift in Sources */,
 				E812D70229D1C6CC009ED9A1 /* Flight2App.swift in Sources */,
 				E8F279662A1BFAE900C77185 /* PilotGridCellView.swift in Sources */,

@@ -68,6 +68,12 @@ class AircraftEditViewModel: ObservableObject {
         }
     }
     
+    func cancel() {
+        if StorageProvider.shared.context.hasChanges {
+            StorageProvider.shared.context.rollback()
+        }
+    }
+    
     func save() {
         var aircraft: Aircraft
         
@@ -93,6 +99,18 @@ class AircraftEditViewModel: ObservableObject {
             aircraft.setAircraftImage(aircraftImage)
         }
         
+//        var maintLog1 = AircraftMaintenance(context: StorageProvider.shared.context)
+//        maintLog1.title = "Repair paintwork"
+//        maintLog1.actionDate = Date.now
+//        maintLog1.action = "Paintwork was damaged in transit. The aircraft was sanded down and repainted to restore the original colour."
+//        maintLog1.maintenance = aircraft
+//        
+//        var maintLog2 = AircraftMaintenance(context: StorageProvider.shared.context)
+//        maintLog2.title = "Charge battery"
+//        maintLog2.actionDate = Date.now
+//        maintLog2.action = "Replaced battery with a new, higher capacity, model. This needs to be charged for a minmum of 12 hours bvefore the next flight."
+//        maintLog2.maintenance = aircraft
+
         aircraft.save()
         
         MessageCenter.send(Notification.Name.aircraftUpdated, withData: aircraft.objectID)
