@@ -48,6 +48,7 @@ struct MaintenanceListView: View {
                             .listRowSeparator(.hidden)
                     }
                     .listStyle(.plain)
+                    .frame(minHeight: 350)
                     .confirmationDialog("Are you sure?", isPresented: $showDeleteConfirmation, actions: {
                         Button("Delete maintenance item?", role: .destructive) {
                             toggleDeletedState(itemToEdit)

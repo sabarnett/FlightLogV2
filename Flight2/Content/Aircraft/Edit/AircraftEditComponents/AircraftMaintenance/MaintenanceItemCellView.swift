@@ -23,13 +23,13 @@ struct MaintenanceItemCellView: View {
     var body: some View {
         HStack {
             HStack(alignment: .top) {
-                Text(item.maintenanceItem?.viewActionDate?.appDate ?? "")
+                Text(item.actionDate?.appDate ?? "")
                     .font(.body)
                     .frame(minWidth: 60)
                 VStack(alignment: .leading) {
-                    Text(item.maintenanceItem!.viewTitle)
+                    Text(item.title)
                         .font(.body)
-                    Text(item.maintenanceItem!.viewAction)
+                    Text(item.action)
                         .font(.caption)
                 }
             }
