@@ -30,48 +30,49 @@ struct FlightIssueEditView: View {
                     FloatingTextView("Short Description", text: $title)
 
                     TextEdit(placeholder: "Long Description", text: $notes)
-                        .frame(minHeight: 300)
-                }
-                Section("") {
-                    Toggle(isOn: $resolved,
-                           label: { Text("Issue Resolved")})
-                }
-            }
-            
-            Spacer()
-            HStack {
-                Spacer()
-                
-                Button("Save") {
-                    self.issue.title = title
-                    self.issue.notes = notes
-                    self.issue.resolved = resolved
-                    dismiss()
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(Color(.systemGreen))
-                .disabled(title.isEmpty)
-                
-                Button("Cancel") {
-                    dismiss()
-                }
-                .buttonStyle(.borderedProminent)
-                .tint(Color(.systemRed))
-                
-                Spacer()
-            }
-            .padding()
-        }
-        .overlay(alignment: .topTrailing) {
-            Button(action: { dismiss() },
-                   label: { XDismissButton() })
-        }
-        .onAppear {
-            self.title = issue.title
-            self.notes = issue.notes
-            self.resolved = issue.resolved
+                         .frame(minHeight: 300)
+                 }
+                 Section("") {
+                     Toggle(isOn: $resolved,
+                            label: { Text("Issue Resolved")})
+                 }
+             }
+             
+             Spacer()
+             HStack {
+                 Spacer()
+                 
+                 Button("Save") {
+                     self.issue.title = title
+                     self.issue.notes = notes
+                     self.issue.resolved = resolved
+                     dismiss()
+                 }
+                 .buttonStyle(.borderedProminent)
+                 .tint(Color(.systemGreen))
+                 .disabled(title.isEmpty)
+                 
+                 Button("Cancel") {
+                     dismiss()
+                 }
+                 .buttonStyle(.borderedProminent)
+                 .tint(Color(.systemRed))
+                 
+                 Spacer()
+             }
+             .padding()
+         }
+         .overlay(alignment: .topTrailing) {
+             Button(action: { dismiss() },
+                    label: { XDismissButton() })
+         }
+         .onAppear {
+             self.title = issue.title
+             self.notes = issue.notes
+             self.resolved = issue.resolved
 
-        }
+         }
+
     }
 }
 

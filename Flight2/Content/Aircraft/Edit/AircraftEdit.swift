@@ -16,64 +16,43 @@ struct AircraftEdit: View {
     @StateObject var editViewModel: AircraftEditViewModel
     @State private var isEditingAddress: Bool = false
     @State private var showPurchaseDatePicker: Bool = false
+
+    @State private var wizardSteps: [String] = ["Aircraft", "Purchase", "Maintenance", "Notes"]
+    @State private var selectedStep: String = "Aircraft"
     
     var body: some View {
         ZStack {
             VStack {
-                List {
-                    Section("Profile Picture") {
-                        HStack {
-                            Spacer()
-                            ImagePickerView(image: $editViewModel.aircraftImage,
-                                            placeholderImage: "aircraft-placeholder")
-                            Spacer()
-                        }
-                        .padding()
-                    }
-                    Section("Aircraft") {
-                        FloatingTextView("Name", text: $editViewModel.name)
-                            .autocorrectionDisabled(true)
-                        FloatingTextView("Manufacturer", text: $editViewModel.manufacturer)
-                            .autocorrectionDisabled(true)
-                            .textInputAutocapitalization(.words)
-                        FloatingTextView("Model", text: $editViewModel.model)
-                            .autocorrectionDisabled(true)
-                            .textInputAutocapitalization(.words)
-                        FloatingTextView("Serial Number", text: $editViewModel.serialNumber)
-                            .autocorrectionDisabled(true)
-                            .textInputAutocapitalization(.never)
-                    }
+                SegmentedView(segments: wizardSteps,
+                              showBackground: false,
+                              segmentStyle: .underline,
+                              selected: $selectedStep)
+                
+                TabView(selection: $selectedStep) {
+                    AircraftEditAircraft(editViewModel: editViewModel)
+                        .tag("Aircraft")
+                        .padding(.horizontal, 20)
                     
-                    Section("Purchase") {
-                        FloatingTextView("Purchased From", text: $editViewModel.purchasedFrom)
-                            .autocorrectionDisabled(true)
-                        
-                        DateTimePickerButton(label: "Purchase Date",
-                                             dateTime: $editViewModel.purchasedDate,
-                                             showPicker: $showPurchaseDatePicker,
-                                             showTimeComponent: false)
-                        
-                        .disabled(!editViewModel.hasPurchaseLocation())
-                        .foregroundColor(!editViewModel.hasPurchaseLocation() ? .secondary : .primary)
-                        
-                        Toggle(isOn: $editViewModel.purchasedNew,
-                               label: { Text("New at Purchase")})
-                        .disabled(!editViewModel.hasPurchaseLocation())
-                        .foregroundColor(!editViewModel.hasPurchaseLocation() ? .secondary : .primary)
-                    }
-                    Section("Notes") {
-                        TextEdit(placeholder: "Notes", text: $editViewModel.notes)
-                            .frame(minHeight: 100)
-                    }
+                    AircraftEditPurchase(editViewModel: editViewModel,
+                                         showPurchaseDatePicker: $showPurchaseDatePicker)
+                        .tag("Purchase")
+                        .padding(.horizontal, 20)
                     
-                    if editViewModel.hasErrors {
-                        Section("Errors") {
-                            Text(editViewModel.errorDigest)
-                                .foregroundColor(Color(.systemRed))
-                        }
+                    AircraftEditMaintenance(editViewModel: editViewModel)
+                        .tag("Maintenance")
+                        .padding(.horizontal, 20)
+                    
+                    AircraftEditNotes(editViewModel: editViewModel)
+                        .tag("Notes")
+                        .padding(.horizontal, 20)
+                }
+                
+                if editViewModel.hasErrors {
+                    Section("Errors") {
+                        Text(editViewModel.errorDigest)
+                            .foregroundColor(Color(.systemRed))
                     }
                 }
-                .listStyle(.grouped)
                 
                 Spacer()
                 HStack {
