@@ -34,6 +34,7 @@ struct PilotGridListView: View {
                     .tag(pilot.id)
                 }
             }.listStyle(.plain)
+             .id(vm.listRefresh)
             Spacer()
         }
     }

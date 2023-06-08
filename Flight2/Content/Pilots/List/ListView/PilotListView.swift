@@ -19,5 +19,6 @@ struct PilotListView: View {
             }
         }
         .listStyle(.plain)
+        .id(vm.listRefresh)
     }
 }
