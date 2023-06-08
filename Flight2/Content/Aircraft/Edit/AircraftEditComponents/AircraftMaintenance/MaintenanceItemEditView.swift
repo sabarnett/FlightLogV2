@@ -31,7 +31,8 @@ struct MaintenanceItemEditView: View {
                 Section("") {
                     DateTimePickerButton(label: "Action Date",
                                          dateTime: $actionDate,
-                                         showPicker: $showDatePicker)
+                                         showPicker: $showDatePicker,
+                                         showTimeComponent: false)
                 }
                 Section("") {
                     FloatingTextView("Action", text: $title)

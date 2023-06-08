@@ -76,13 +76,9 @@ struct MaintenanceListView: View {
             }
         }
         .sheet(isPresented: $showAdd, onDismiss: {
-            if itemToEdit.title == "" {
-                print("User cancelled from the add")
-                return
-            }
-            
-            print("Edit Dismissed, user saved the add. So add a record to the list")
+            if itemToEdit.title == "" { return }
             items.append(itemToEdit)
+            items.sort { lhs, rhs in lhs.actionDate! < rhs.actionDate! }
         }, content: {
             MaintenanceItemEditView(item: $itemToEdit)
         })
@@ -93,6 +89,7 @@ struct MaintenanceListView: View {
                 items[itemIndex].action = itemToEdit.action
                 items[itemIndex].actionDate = itemToEdit.actionDate
             }
+            items.sort { lhs, rhs in lhs.actionDate! < rhs.actionDate! }
         }, content: {
             MaintenanceItemEditView(item: $itemToEdit)
         })

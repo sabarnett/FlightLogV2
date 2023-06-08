@@ -19,7 +19,7 @@ struct AircraftEditNotes: View {
                 EditSectionHeader("Notes")
             
                 TextEdit(placeholder: "Notes", text: $editViewModel.notes)
-                    .frame(minHeight: 100)
+                    .frame(minHeight: 400)
             }
             Spacer()
         }

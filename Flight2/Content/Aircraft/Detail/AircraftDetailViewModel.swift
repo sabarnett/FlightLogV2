@@ -15,9 +15,41 @@ class AircraftDetailViewModel: ObservableObject {
     @Published var aircraft: Aircraft
     @Published var aircraftId: NSManagedObjectID?
     
+    // MARK: - Initialisation and cleanup
+
     init(aircraft: Aircraft) {
         self.aircraftId = aircraft.objectID
         self.aircraft = aircraft
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(aircraftUpdated),
+                                               name: Notification.Name.aircraftUpdated,
+                                               object: nil)    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self,
+                                                  name: Notification.Name.aircraftUpdated,
+                                                  object: nil)
+    }
+    
+    /// Handles the aircraft updated notification. This will have been sent when an aircraft was edited from
+    /// the details view. It gives us the opportunity to update the detail view to match the new data.
+    ///
+    /// - Parameter data: The notification data. In this case, we will have been sent the
+    /// NSManagedObjectId of the flight that was updated.
+    ///
+    @objc func aircraftUpdated(_ data: NSNotification?) {
+        
+        guard let data = data,
+              let id = data.object as? NSManagedObjectID else {
+            return
+        }
+        
+        if self.aircraftId == id {
+            // We need to refresh the data.
+            self.aircraftId = id
+            self.aircraft = Aircraft.byId(id: id) as! Aircraft
+        }
     }
     
     func reloadData() {

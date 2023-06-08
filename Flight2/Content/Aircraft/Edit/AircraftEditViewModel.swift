@@ -52,7 +52,9 @@ class AircraftEditViewModel: ObservableObject {
             aircraftImage = aircraft.aircraftImage?.image ?? UIImage()
             
             if let maintItems = aircraft.maintenance as? Set<AircraftMaintenance> {
-                maintenanceItems = maintItems.map(AircraftMaintenanceModel.init)
+                maintenanceItems = maintItems.map(AircraftMaintenanceModel.init).sorted(by: { lhs, rhs in
+                    lhs.actionDate! < rhs.actionDate!
+                })
             } else {
                 maintenanceItems = []
             }
