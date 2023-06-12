@@ -14,12 +14,14 @@ class AircraftDetailViewModel: ObservableObject {
     
     @Published var aircraft: Aircraft
     @Published var aircraftId: NSManagedObjectID?
+    @Published var statistics: StatisticsSummary
     
     // MARK: - Initialisation and cleanup
 
     init(aircraft: Aircraft) {
         self.aircraftId = aircraft.objectID
         self.aircraft = aircraft
+        self.statistics = Aircraft.statistics(for: aircraft)
 
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(aircraftUpdated),
@@ -49,6 +51,7 @@ class AircraftDetailViewModel: ObservableObject {
             // We need to refresh the data.
             self.aircraftId = id
             self.aircraft = Aircraft.byId(id: id) as! Aircraft
+            self.statistics = Aircraft.statistics(for: aircraft)
         }
     }
     

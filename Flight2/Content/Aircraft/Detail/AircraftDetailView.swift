@@ -32,6 +32,7 @@ struct AircraftDetailView: View {
                     }
                     AircraftPurchaseDetail(vm: vm)
                     AircraftDetailNotes(vm: vm)
+                    AircraftStatisticsView(vm: vm)
                     AircraftMaintenanceLog(vm: vm)
                 }
                 .listStyle(.insetGrouped)

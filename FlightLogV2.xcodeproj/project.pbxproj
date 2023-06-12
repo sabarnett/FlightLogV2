@@ -113,6 +113,7 @@
 		E8F279672A1BFAE900C77185 /* PilotGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F279652A1BFAE900C77185 /* PilotGridListView.swift */; };
 		E8F9333A2A3765AE00FFFA78 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F933392A3765AE00FFFA78 /* Statistics.swift */; };
 		E8F9333D2A37663B00FFFA78 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9333C2A37663B00FFFA78 /* StatisticsView.swift */; };
+		E8F9333F2A37710B00FFFA78 /* AircraftStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9333E2A37710B00FFFA78 /* AircraftStatisticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -236,6 +237,7 @@
 		E8F5AF672A28E15F00D0EA69 /* db 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "db 2.xcdatamodel"; sourceTree = "<group>"; };
 		E8F933392A3765AE00FFFA78 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 		E8F9333C2A37663B00FFFA78 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		E8F9333E2A37710B00FFFA78 /* AircraftStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftStatisticsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +387,7 @@
 				E86159B42A28D6B4001EC0C2 /* AircraftDetailNotes.swift */,
 				E86159B52A28D6B4001EC0C2 /* AircraftBasicDetail.swift */,
 				E86159B62A28D6B4001EC0C2 /* AircraftPurchaseDetail.swift */,
+				E8F9333E2A37710B00FFFA78 /* AircraftStatisticsView.swift */,
 			);
 			path = DetailComponents;
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 				E8C89E1529E984A7000E7EB5 /* FlightEditFlight.swift in Sources */,
 				E8C89E1929E984A7000E7EB5 /* FlightEditTitle.swift in Sources */,
 				E8C8EE2D29DED62D001823D3 /* PilotEditViewModel.swift in Sources */,
+				E8F9333F2A37710B00FFFA78 /* AircraftStatisticsView.swift in Sources */,
 				E8C89E1729E984A7000E7EB5 /* FlightEditNotes.swift in Sources */,
 				E8CB80342A1CBC7500510D73 /* AircraftListView.swift in Sources */,
 				E8B4C2CE29ED44E600D4B452 /* FlightDetailView.swift in Sources */,

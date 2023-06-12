@@ -65,13 +65,6 @@ extension Aircraft: BaseModel {
             NSSortDescriptor(key: #keyPath(Aircraft.manufacturer), ascending: true),
             NSSortDescriptor(key: #keyPath(Aircraft.name), ascending: true)
         ]
-               
-//        fetchRequest.propertiesToFetch = [
-//            #keyPath(Aircraft.manufacturer),
-//            #keyPath(Aircraft.name),
-//            #keyPath(Aircraft.aircraftImage),
-//            #keyPath(Aircraft.manufacturer)
-//        ]
         
         do {
             return try StorageProvider.shared.context.fetch(fetchRequest).map { aircraft in
@@ -186,5 +179,14 @@ extension Aircraft: BaseModel {
         aircraft.aircraftImage = nil
         
         return aircraft
+    }
+}
+
+extension Aircraft {
+    
+    static func statistics(for aircraft: Aircraft) -> StatisticsSummary {
+        
+        let statistics = Statistics()
+        return statistics.getStatistics(forAircraft: aircraft)
     }
 }

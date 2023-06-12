@@ -40,7 +40,7 @@ struct StatisticsDetailLineView: View {
             VStack(alignment: .leading) {
                 Text("Flights: \(item.count)")
                 Text("Duration: \(item.formattedFlightDuration) Minutes")
-            }
+            }.frame(minWidth: 120)
         }
     }
 }
