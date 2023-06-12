@@ -111,6 +111,8 @@
 		E8F279602A1BF0DB00C77185 /* PilotListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F2795F2A1BF0DB00C77185 /* PilotListView.swift */; };
 		E8F279662A1BFAE900C77185 /* PilotGridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F279642A1BFAE900C77185 /* PilotGridCellView.swift */; };
 		E8F279672A1BFAE900C77185 /* PilotGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F279652A1BFAE900C77185 /* PilotGridListView.swift */; };
+		E8F9333A2A3765AE00FFFA78 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F933392A3765AE00FFFA78 /* Statistics.swift */; };
+		E8F9333D2A37663B00FFFA78 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F9333C2A37663B00FFFA78 /* StatisticsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -232,6 +234,8 @@
 		E8F279642A1BFAE900C77185 /* PilotGridCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotGridCellView.swift; sourceTree = "<group>"; };
 		E8F279652A1BFAE900C77185 /* PilotGridListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PilotGridListView.swift; sourceTree = "<group>"; };
 		E8F5AF672A28E15F00D0EA69 /* db 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "db 2.xcdatamodel"; sourceTree = "<group>"; };
+		E8F933392A3765AE00FFFA78 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
+		E8F9333C2A37663B00FFFA78 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,6 +442,7 @@
 				E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */,
 				E8DCA84929DD863B000E4961 /* DetailLine.swift */,
 				E88D940229E5DD5200087E97 /* NothingSelectedView.swift */,
+				E8F9333B2A37662A00FFFA78 /* Statistics */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -684,6 +689,15 @@
 			path = "Grid View";
 			sourceTree = "<group>";
 		};
+		E8F9333B2A37662A00FFFA78 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				E8F933392A3765AE00FFFA78 /* Statistics.swift */,
+				E8F9333C2A37663B00FFFA78 /* StatisticsView.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -829,6 +843,7 @@
 				E88D940329E5DD5200087E97 /* NothingSelectedView.swift in Sources */,
 				E845A5AB2A2F5B0A001436C9 /* MaintenanceItemEditView.swift in Sources */,
 				E86159B82A28D6B4001EC0C2 /* AircraftDetailHeading.swift in Sources */,
+				E8F9333D2A37663B00FFFA78 /* StatisticsView.swift in Sources */,
 				E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */,
 				E8CCCF872A1D0B7100963F22 /* ShowTime.swift in Sources */,
 				E8D88ED129E4451900621F69 /* AircraftListCellView.swift in Sources */,
@@ -864,6 +879,7 @@
 				E82C348E2A2F3047000D1F74 /* AircraftEditMaintenance.swift in Sources */,
 				E8D3EFB929D4C40300C042DB /* Flight+Extensions.swift in Sources */,
 				E8CB80382A1CBCE200510D73 /* AircraftCardListView.swift in Sources */,
+				E8F9333A2A3765AE00FFFA78 /* Statistics.swift in Sources */,
 				E8D3EFBA29D4C40300C042DB /* FlightIssue+Extensions.swift in Sources */,
 				E8B4C2D829ED450200D4B452 /* FlightDetailActivityView.swift in Sources */,
 				E8DCA84429DD809F000E4961 /* PilotListCellView.swift in Sources */,

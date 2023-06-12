@@ -14,12 +14,13 @@ class PilotDetailViewModel: ObservableObject {
     
     @Published var pilot: Pilot
     @Published var pilotId: NSManagedObjectID?
+    @Published var flightStats: StatisticsSummary
     
     init(pilot: Pilot) {
         self.pilotId = pilot.objectID
         self.pilot = pilot
         
-        let stats = Pilot.statistics(for: pilot)
+        flightStats = Pilot.statistics(for: pilot)
     }
     
     func reloadData() {

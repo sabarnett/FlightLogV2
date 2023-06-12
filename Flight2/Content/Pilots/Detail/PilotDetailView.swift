@@ -78,6 +78,12 @@ struct PilotDetailView: View {
                         }, header: {
                             SectionTitle("Contact Detals")
                         }).foregroundColor(.primaryText)
+                        
+                        Section(content: {
+                            StatisticsView(statistics: vm.flightStats)
+                        }, header: {
+                            SectionTitle("Flight Statistics")
+                        })
                     }
                     .listStyle(.grouped)
                     .navigationTitle("")
