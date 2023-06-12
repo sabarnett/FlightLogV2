@@ -18,6 +18,8 @@ class PilotDetailViewModel: ObservableObject {
     init(pilot: Pilot) {
         self.pilotId = pilot.objectID
         self.pilot = pilot
+        
+        let stats = Pilot.statistics(for: pilot)
     }
     
     func reloadData() {
