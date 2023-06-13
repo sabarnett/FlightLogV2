@@ -26,11 +26,14 @@ extension Flight {
     var viewTakeOff: Date? { self.takeoff}
     var viewLanding: Date? { self.landing }
     var viewNotes: String { self.notes ?? "" }
+    var viewlockedDate: Date? { self.lockedDate }
     
     var viewPilot: Pilot { self.pilot ?? Pilot.dummyData }
     var viewAircraft: Aircraft { self.aircraft ?? Aircraft.dummyData }
     
     var flightDeleted: Bool { self.deletedDate != nil }
+    
+    var flightLocked: Bool { self.lockedDate != nil }
     
     var viewTakeoffDate: String {
         guard let takeoff = self.takeoff else { return "Not known" }

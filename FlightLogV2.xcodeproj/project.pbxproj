@@ -164,6 +164,7 @@
 		E88D940229E5DD5200087E97 /* NothingSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NothingSelectedView.swift; sourceTree = "<group>"; };
 		E88D940829E5E16C00087E97 /* FlightListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModel.swift; sourceTree = "<group>"; };
 		E88D940A29E5E18800087E97 /* FlightPrimaryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightPrimaryListCell.swift; sourceTree = "<group>"; };
+		E88E62022A38AE33009B8DAA /* db 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "db 3.xcdatamodel"; sourceTree = "<group>"; };
 		E89282E029D1D120000BB957 /* ListTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTitleBar.swift; sourceTree = "<group>"; };
 		E8B4C2CB29ED44E600D4B452 /* FlightDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetailViewModel.swift; sourceTree = "<group>"; };
 		E8B4C2CC29ED44E600D4B452 /* FlightDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
@@ -1130,10 +1131,11 @@
 		E8D3EFBD29D4C41300C042DB /* db.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				E88E62022A38AE33009B8DAA /* db 3.xcdatamodel */,
 				E8F5AF672A28E15F00D0EA69 /* db 2.xcdatamodel */,
 				E8D3EFBE29D4C41300C042DB /* db.xcdatamodel */,
 			);
-			currentVersion = E8F5AF672A28E15F00D0EA69 /* db 2.xcdatamodel */;
+			currentVersion = E88E62022A38AE33009B8DAA /* db 3.xcdatamodel */;
 			path = db.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
