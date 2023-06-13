@@ -56,6 +56,8 @@ class FlightDetailViewModel: ObservableObject {
 
     var isDeleted: Bool { flight.deletedDate != nil }
     
+    var isLocked: Bool { flight.flightLocked }
+    
     var takeoffDateTime: String {
         guard let takeoff = flight.takeoff else { return "Not known" }
         return takeoff.appDateTime

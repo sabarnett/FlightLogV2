@@ -8,12 +8,15 @@
 
 import SwiftUI
 import UtilityViews
+import UtilityClasses
 
 struct FlightDetailView: View {
     
     @ObservedObject var vm: FlightDetailViewModel
     @State var editFlight: Bool = false
-    @State private var isPresentingDeleteConfirm: Bool = false
+    @State private var confirmDelete: Bool = false
+    @State private var confirmLock: Bool = false
+    @State private var confirmLockAgain: MessageItem?
     
     var body: some View {
         if vm.flightId == nil {
@@ -50,11 +53,38 @@ struct FlightDetailView: View {
             .toolbar {
                 ToolbarItemGroup(placement: .primaryAction) {
                     HStack {
+                        if vm.isLocked {
+                            Button(action: { },
+                                   label: { Image(systemName: "lock.fill")
+                                    .foregroundColor(Color(.systemRed))
+                            })
+                        } else {
+                            Button(action: { lockFlight()},
+                                   label: { Image(systemName: "lock.open.fill")})
+                            .confirmationDialog("Are you sure?",
+                                                isPresented: $confirmLock,
+                                                actions: {
+                                Button("Lock flight?", role: .destructive) {
+                                    confirmLockAgain = MessageContext.flightLockConfirmPrompt
+                                }
+                            }, message: {
+                                Text("This will lock the flight. After it is locked you will ONLY be able to edit notes. Everything else will be locked for change.\n\nThis action CANNOT be undone.")
+                            })
+                        }
                         Button(action: { editFlight = true },
                                label: { Image(systemName: "square.and.pencil") })
                         Button(action: { deleteFlight() },
                                label: { Image(systemName: vm.isDeleted ? "trash.slash" : "trash") })
                             .disabled(!vm.canDelete)
+                            .confirmationDialog("Are you sure?",
+                                                isPresented: $confirmDelete,
+                                                actions: {
+                                Button("Delete flight?", role: .destructive) {
+                                    vm.deleteFlight()
+                                }
+                            }, message: {
+                                Text("You can undo this action.")
+                            })
                     }.foregroundColor(.toolbarIcon)
                 }
             }
@@ -63,15 +93,13 @@ struct FlightDetailView: View {
             }, content: {
                 FlightEdit(editViewModel: FlightEditViewModel(flightID: vm.flight.objectID))
             })
-            .confirmationDialog("Are you sure?",
-                                isPresented: $isPresentingDeleteConfirm,
-                                actions: {
-                Button("Delete flight?", role: .destructive) {
-                    vm.deleteFlight()
+            .messageBox(message: $confirmLockAgain) {
+                response in
+                
+                if response == .primary {
+                    WriteLog.warning("Lock the flight")
                 }
-            }, message: {
-                Text("You can undo this action.")
-            })
+            }
         }
     }
     
@@ -80,8 +108,12 @@ struct FlightDetailView: View {
             vm.undeleteFlight()
             vm.reloadData()
         } else {
-            isPresentingDeleteConfirm = true
+            confirmDelete = true
         }
+    }
+    
+    func lockFlight() {
+        confirmLock = true
     }
 }
 

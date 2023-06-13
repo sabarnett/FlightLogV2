@@ -39,6 +39,10 @@
 		E88D940329E5DD5200087E97 /* NothingSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D940229E5DD5200087E97 /* NothingSelectedView.swift */; };
 		E88D940929E5E16C00087E97 /* FlightListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D940829E5E16C00087E97 /* FlightListViewModel.swift */; };
 		E88D940B29E5E18800087E97 /* FlightPrimaryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D940A29E5E18800087E97 /* FlightPrimaryListCell.swift */; };
+		E88E62072A38B703009B8DAA /* Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E62042A38B703009B8DAA /* Messages.swift */; };
+		E88E62082A38B703009B8DAA /* MessageBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E62052A38B703009B8DAA /* MessageBoxView.swift */; };
+		E88E62092A38B703009B8DAA /* MessageBoxViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E62062A38B703009B8DAA /* MessageBoxViewModifier.swift */; };
+		E88E620B2A38BA88009B8DAA /* APPButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E620A2A38BA88009B8DAA /* APPButtonText.swift */; };
 		E89282E129D1D120000BB957 /* ListTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89282E029D1D120000BB957 /* ListTitleBar.swift */; };
 		E8B4C2CD29ED44E600D4B452 /* FlightDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4C2CB29ED44E600D4B452 /* FlightDetailViewModel.swift */; };
 		E8B4C2CE29ED44E600D4B452 /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4C2CC29ED44E600D4B452 /* FlightDetailView.swift */; };
@@ -165,6 +169,10 @@
 		E88D940829E5E16C00087E97 /* FlightListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightListViewModel.swift; sourceTree = "<group>"; };
 		E88D940A29E5E18800087E97 /* FlightPrimaryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightPrimaryListCell.swift; sourceTree = "<group>"; };
 		E88E62022A38AE33009B8DAA /* db 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "db 3.xcdatamodel"; sourceTree = "<group>"; };
+		E88E62042A38B703009B8DAA /* Messages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Messages.swift; sourceTree = "<group>"; };
+		E88E62052A38B703009B8DAA /* MessageBoxView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoxView.swift; sourceTree = "<group>"; };
+		E88E62062A38B703009B8DAA /* MessageBoxViewModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBoxViewModifier.swift; sourceTree = "<group>"; };
+		E88E620A2A38BA88009B8DAA /* APPButtonText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APPButtonText.swift; sourceTree = "<group>"; };
 		E89282E029D1D120000BB957 /* ListTitleBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTitleBar.swift; sourceTree = "<group>"; };
 		E8B4C2CB29ED44E600D4B452 /* FlightDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetailViewModel.swift; sourceTree = "<group>"; };
 		E8B4C2CC29ED44E600D4B452 /* FlightDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
@@ -434,9 +442,21 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		E88E62032A38B703009B8DAA /* MessageBox */ = {
+			isa = PBXGroup;
+			children = (
+				E88E62042A38B703009B8DAA /* Messages.swift */,
+				E88E62052A38B703009B8DAA /* MessageBoxView.swift */,
+				E88E62062A38B703009B8DAA /* MessageBoxViewModifier.swift */,
+				E88E620A2A38BA88009B8DAA /* APPButtonText.swift */,
+			);
+			path = MessageBox;
+			sourceTree = "<group>";
+		};
 		E89282E229D1D127000BB957 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E88E62032A38B703009B8DAA /* MessageBox */,
 				E8CCCF862A1D0B7100963F22 /* ShowTime.swift */,
 				E8D3EFCC29D4C56400C042DB /* MessageCenter.swift */,
 				E8D3EFCD29D4C56400C042DB /* Validators.swift */,
@@ -843,6 +863,7 @@
 				E8D88EDC29E4491200621F69 /* AircraftEditViewModel.swift in Sources */,
 				E88D940B29E5E18800087E97 /* FlightPrimaryListCell.swift in Sources */,
 				E8F0D9CB29EEB9040031C6EC /* FlightSecondaryListCell.swift in Sources */,
+				E88E62082A38B703009B8DAA /* MessageBoxView.swift in Sources */,
 				E8CB80372A1CBCE200510D73 /* AircraftCardView.swift in Sources */,
 				E88D940329E5DD5200087E97 /* NothingSelectedView.swift in Sources */,
 				E845A5AB2A2F5B0A001436C9 /* MaintenanceItemEditView.swift in Sources */,
@@ -850,6 +871,7 @@
 				E8F9333D2A37663B00FFFA78 /* StatisticsView.swift in Sources */,
 				E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */,
 				E8CCCF872A1D0B7100963F22 /* ShowTime.swift in Sources */,
+				E88E620B2A38BA88009B8DAA /* APPButtonText.swift in Sources */,
 				E8D88ED129E4451900621F69 /* AircraftListCellView.swift in Sources */,
 				E8DCA84229DD735A000E4961 /* PilotListViewModel.swift in Sources */,
 				E8F279602A1BF0DB00C77185 /* PilotListView.swift in Sources */,
@@ -859,6 +881,7 @@
 				E8C89E1629E984A7000E7EB5 /* FlightEditParticipants.swift in Sources */,
 				E86159BC2A28D6B4001EC0C2 /* AircraftPurchaseDetail.swift in Sources */,
 				E8D3EFCF29D4C56400C042DB /* MessageCenter.swift in Sources */,
+				E88E62072A38B703009B8DAA /* Messages.swift in Sources */,
 				E8B4C2DB29ED450200D4B452 /* FlightDetailFlightView.swift in Sources */,
 				E8C89E1F29E985C8000E7EB5 /* FlightIssueView.swift in Sources */,
 				E8F279672A1BFAE900C77185 /* PilotGridListView.swift in Sources */,
@@ -895,6 +918,7 @@
 				E8C89E1529E984A7000E7EB5 /* FlightEditFlight.swift in Sources */,
 				E8C89E1929E984A7000E7EB5 /* FlightEditTitle.swift in Sources */,
 				E8C8EE2D29DED62D001823D3 /* PilotEditViewModel.swift in Sources */,
+				E88E62092A38B703009B8DAA /* MessageBoxViewModifier.swift in Sources */,
 				E8F9333F2A37710B00FFFA78 /* AircraftStatisticsView.swift in Sources */,
 				E8C89E1729E984A7000E7EB5 /* FlightEditNotes.swift in Sources */,
 				E8CB80342A1CBC7500510D73 /* AircraftListView.swift in Sources */,
