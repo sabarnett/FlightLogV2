@@ -120,6 +120,12 @@ class FlightDetailViewModel: ObservableObject {
         loadIssues()
     }
     
+    func lockFlight() {
+        flight.lockedDate = Date.now
+        flight.save()
+        reloadData()
+    }
+    
     func deleteFlight() {
         setDeletedState(forFlight: self.flight, isDeleted: true)
     }
@@ -127,7 +133,7 @@ class FlightDetailViewModel: ObservableObject {
     func undeleteFlight() {
         setDeletedState(forFlight: self.flight, isDeleted: false)
     }
-    
+
     private func setDeletedState(forFlight flight: Flight, isDeleted: Bool) {
         flight.deletedDate = isDeleted ? Date() : nil
         flight.save()

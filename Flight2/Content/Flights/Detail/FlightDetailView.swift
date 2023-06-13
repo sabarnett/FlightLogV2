@@ -17,6 +17,7 @@ struct FlightDetailView: View {
     @State private var confirmDelete: Bool = false
     @State private var confirmLock: Bool = false
     @State private var confirmLockAgain: MessageItem?
+    @State private var flightLockMessage: MessageItem?
     
     var body: some View {
         if vm.flightId == nil {
@@ -54,7 +55,7 @@ struct FlightDetailView: View {
                 ToolbarItemGroup(placement: .primaryAction) {
                     HStack {
                         if vm.isLocked {
-                            Button(action: { },
+                            Button(action: { flightLockMessage = MessageContext.flightIsLocked },
                                    label: { Image(systemName: "lock.fill")
                                     .foregroundColor(Color(.systemRed))
                             })
@@ -97,9 +98,10 @@ struct FlightDetailView: View {
                 response in
                 
                 if response == .primary {
-                    WriteLog.warning("Lock the flight")
+                    vm.lockFlight()
                 }
             }
+            .messageBox(message: $flightLockMessage)
         }
     }
     

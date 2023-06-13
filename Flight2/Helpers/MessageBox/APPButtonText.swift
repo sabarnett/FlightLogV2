@@ -11,7 +11,7 @@ struct APPButtonText: View {
     var buttonWidth: CGFloat?
     var buttonHeight: CGFloat = 50
     var backgroundColor: Color = Color(UIColor.systemBlue)
-    var foregroundColor: Color = Color(UIColor.black)
+    var foregroundColor: Color = .primary
     
     var body: some View {
         Text(caption)

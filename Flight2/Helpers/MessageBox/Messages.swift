@@ -55,12 +55,16 @@ struct MessageItem: Identifiable, Equatable {
 struct MessageContext {
 
     static let flightLockConfirmPrompt = MessageItem(title: "Lock Flight?",
-                                                message: "Please confirm that you want to lock this flight." +
-                                                     "\n\nYou CANNOT undo this operation.",
-                                                primaryButton: "Lock",
-                                                secondaryButton: "Cancel"
+        message: "Please confirm that you want to lock this flight." +
+                 "\n\nYou CANNOT undo this operation.",
+        primaryButton: "Lock",
+        secondaryButton: "Cancel"
     )
-        
+    
+    static let flightIsLocked = MessageItem(title: "Flight Locked",
+        message: "This flight has been locked. You can continue to edit notes, but nothing else.",
+        dismissButton: "OK")
+
 //    static let oldPasswordRequired = MessageItem(title: "Invalid Entry",
 //                                                 message: "You must enter your current password.",
 //                                                 dismissButton: "OK")
