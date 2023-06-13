@@ -384,8 +384,8 @@
 				E86159B12A28D6B4001EC0C2 /* AircraftMaintenanceLog.swift */,
 				E86159B22A28D6B4001EC0C2 /* AircraftDetailHeading.swift */,
 				E86159B32A28D6B4001EC0C2 /* AircraftDeletedIndicator.swift */,
-				E86159B42A28D6B4001EC0C2 /* AircraftDetailNotes.swift */,
 				E86159B52A28D6B4001EC0C2 /* AircraftBasicDetail.swift */,
+				E86159B42A28D6B4001EC0C2 /* AircraftDetailNotes.swift */,
 				E86159B62A28D6B4001EC0C2 /* AircraftPurchaseDetail.swift */,
 				E8F9333E2A37710B00FFFA78 /* AircraftStatisticsView.swift */,
 			);

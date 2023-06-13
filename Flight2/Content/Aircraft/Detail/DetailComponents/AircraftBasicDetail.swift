@@ -15,9 +15,17 @@ struct AircraftBasicDetail: View {
     var body: some View {
         Section(content: {
             DetailLine(key: "Name", value: vm.aircraft.viewName)
+                .foregroundColor(.primaryText)
+
             DetailLine(key: "Manufacturer", value: vm.aircraft.viewManufacturer)
+                .foregroundColor(.primaryText)
+
             DetailLine(key: "Model", value: vm.aircraft.viewModel)
+                .foregroundColor(.primaryText)
+
             DetailLine(key: "Serial Number", value: vm.aircraft.viewSerialNumber)
+                .foregroundColor(.primaryText)
+
         }, header: {
             SectionTitle("Aircraft")
         })

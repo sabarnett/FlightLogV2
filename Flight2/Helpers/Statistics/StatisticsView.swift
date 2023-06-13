@@ -16,11 +16,16 @@ struct StatisticsView: View {
         VStack(alignment: .leading) {
             Text("Total Flights: \(statistics.flightCount)")
                 .font(.body)
+                .foregroundColor(.primaryText)
+                .padding(.horizontal)
             Text("Total Flight Time: \(statistics.formattedFlightDuration) minutes")
                 .font(.body)
+                .foregroundColor(.primaryText)
+                .padding(.horizontal)
             
             List(statistics.detail, id: \.id) { item in
                 StatisticsDetailLineView(item: item)
+                    .foregroundColor(.primaryText)
                     .listRowBackground(Color(.secondarySystemBackground))
             }.listStyle(.plain)
                 .scrollContentBackground(.hidden)
@@ -39,7 +44,7 @@ struct StatisticsDetailLineView: View {
             Spacer()
             VStack(alignment: .leading) {
                 Text("Flights: \(item.count)")
-                Text("Duration: \(item.formattedFlightDuration) Minutes")
+                Text("Duration: \(item.formattedFlightDuration) Min")
             }.frame(minWidth: 120)
         }
     }

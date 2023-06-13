@@ -16,8 +16,14 @@ struct AircraftPurchaseDetail: View {
         if vm.aircraft.hasPurchaseData {
             Section(content: {
                 DetailLine(key: "From", value: vm.aircraft.viewPurchasedFrom)
+                    .foregroundColor(.primaryText)
+
                 DetailLine(key: "On", value: vm.aircraft.formattedPurchaseDate)
+                    .foregroundColor(.primaryText)
+
                 DetailLine(key: "New?", value: vm.aircraft.viewNewAtPurchase)
+                    .foregroundColor(.primaryText)
+
             }, header: {
                 SectionTitle("Purchase Info")
             })

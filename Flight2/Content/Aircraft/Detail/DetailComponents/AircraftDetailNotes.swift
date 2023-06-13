@@ -17,6 +17,8 @@ struct AircraftDetailNotes: View {
             HStack {
                 Text(vm.aircraft.viewNotes)
                     .lineLimit(10)
+                    .foregroundColor(.primaryText)
+
                 Spacer()
             }.padding(.horizontal, 16)
         }, header: {

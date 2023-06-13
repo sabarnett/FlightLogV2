@@ -24,8 +24,14 @@ struct AircraftDetailHeading: View {
                     Text("\(vm.aircraft.viewName) by \(vm.aircraft.viewManufacturer)")
                         .font(.title)
                         .foregroundColor(Color.heading)
-                    Text(vm.aircraft.viewModel).font(.title2)
-                    Text("s/n \(vm.aircraft.viewSerialNumber)").font(.title2)
+                    Text(vm.aircraft.viewModel)
+                        .font(.title2)
+                        .foregroundColor(.primaryText)
+
+                    Text("s/n \(vm.aircraft.viewSerialNumber)")
+                        .font(.title2)
+                        .foregroundColor(.primaryText)
+
                 }.foregroundColor(.primaryText)
                 Spacer()
             }.frame(height: 210)

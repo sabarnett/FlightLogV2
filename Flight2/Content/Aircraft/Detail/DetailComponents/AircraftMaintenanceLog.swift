@@ -17,6 +17,8 @@ struct AircraftMaintenanceLog: View {
             List(vm.aircraft.maintenanceItems, id: \.self) { item in
                 AircraftMaintenanceLogCell(maint: item)
                     .listRowBackground(Color(.secondarySystemBackground))
+                    .foregroundColor(.primaryText)
+
             }
             .listStyle(.plain)
             .frame(minHeight: 150)
