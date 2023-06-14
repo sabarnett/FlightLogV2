@@ -18,11 +18,14 @@ struct FlightEditTitle: View {
             EditSectionHeader("Activity Description")
 
             ScrollView(showsIndicators: false) {
-                FloatingTextView("Title", text: $editViewModel.title)
-                
-                TextEdit(placeholder: "Expected Activity", text: $editViewModel.expectedActivity)
-                    .frame(minHeight: 200)
-                
+                VStack(alignment: .leading) {
+                    FloatingTextView("Title", text: $editViewModel.title)
+                    
+                    TextEdit(placeholder: "Expected Activity", text: $editViewModel.expectedActivity)
+                        .frame(minHeight: 200)
+                }
+                .disabled(editViewModel.isLocked)
+
                 Spacer()
             }
         }

@@ -21,24 +21,27 @@ struct FlightEditFlight: View {
             EditSectionHeader("Flight Details")
             
             ScrollView(showsIndicators: false) {
-                DateTimePickerButton(label: "Take-off",
-                                     dateTime: $editViewModel.takeOff,
-                                     showPicker: $showTakeoffPicker)
-                
-                DateTimePickerButton(label: "Landing",
-                                     dateTime: $editViewModel.landing,
-                                     showPicker: $showLandingPicker)
-                .disabled(!editViewModel.hasTakeoffDate)
-                .foregroundColor(!editViewModel.hasTakeoffDate
-                                 ? Color(.placeholderText)
-                                 : .primary)
-                KeyValueView(key: "Duration", value: editViewModel.duration)
-                
-                TextEdit(placeholder: "Flight Review", text: $editViewModel.flightDetails)
-                    .frame(height: 200)
-                
-                FlightIssuesListView(issues: $editViewModel.flightIssues, editable: true, viewTitle: "Flight Issues")
-                    .frame(height: 200)
+                VStack(alignment: .leading) {
+                    DateTimePickerButton(label: "Take-off",
+                                         dateTime: $editViewModel.takeOff,
+                                         showPicker: $showTakeoffPicker)
+                    
+                    DateTimePickerButton(label: "Landing",
+                                         dateTime: $editViewModel.landing,
+                                         showPicker: $showLandingPicker)
+                    .disabled(!editViewModel.hasTakeoffDate)
+                    .foregroundColor(!editViewModel.hasTakeoffDate
+                                     ? Color(.placeholderText)
+                                     : .primary)
+                    KeyValueView(key: "Duration", value: editViewModel.duration)
+                    
+                    TextEdit(placeholder: "Flight Review", text: $editViewModel.flightDetails)
+                        .frame(height: 200)
+                    
+                    FlightIssuesListView(issues: $editViewModel.flightIssues, editable: true, viewTitle: "Flight Issues")
+                        .frame(height: 200)
+                }
+                .disabled(editViewModel.isLocked)
                 
                 Spacer()
             }

@@ -39,6 +39,7 @@ class FlightEditViewModel: ObservableObject {
     }
     @Published var landing: Date?
     @Published var flightIssues: [FlightIssueModel]
+    @Published var lockedDate: Date?
     
     // Notes page
     @Published var notes: String
@@ -65,6 +66,10 @@ class FlightEditViewModel: ObservableObject {
         takeOff != nil
     }
     
+    var isLocked: Bool {
+        lockedDate != nil
+    }
+    
     var duration: String {
         guard let takeOffDate = takeOff,
                 let landingDate = landing else {
@@ -78,64 +83,69 @@ class FlightEditViewModel: ObservableObject {
     }
     
     init(flightID: NSManagedObjectID?) {
+
+        self.flightID = nil
+        
+        title = ""
+        expectedActivity = ""
+        location = ""
+        weatherConditions = ""
+        siteConditions = ""
+        
+        checksPerformed = false
+        preflightIssues = []
+        issuesResolved = false
+        
+        flightDetails = ""
+        takeOff = nil
+        landing = nil
+        lockedDate = nil
+        flightIssues = []
+
+        notes = ""
         
         if let flightID {
-            self.flightID = flightID
+            initFromExisting(flightID)
+        }
+        loadPickerLists()
+    }
+    
+    func initFromExisting(_ flightID: NSManagedObjectID) {
+        
+        self.flightID = flightID
 
-            let flight = Flight.byId(id: flightID) ?? Flight.dummyData
-            
-            self.pilot = flight.pilot
-            self.aircraft = flight.aircraft
-            
-            title = flight.title ?? ""
-            expectedActivity = flight.activity ?? ""
-            
-            location = flight.location ?? ""
-            weatherConditions = flight.weatherConditions ?? ""
-            siteConditions = flight.siteConditions ?? ""
-            
-            checksPerformed = flight.preflightChecks
-            if let pfi = flight.preflightIssues as? Set<FlightIssue> {
-                preflightIssues = pfi.map { FlightIssueModel(flightIssue: $0) }
-            } else {
-                preflightIssues = []
-            }
-            issuesResolved = flight.preflightIssuesResolved
-            
-            flightDetails = flight.details ?? ""
-            takeOff = flight.takeoff
-            landing = flight.landing
-            
-            if let fli = flight.flightIssues as? Set<FlightIssue> {
-                flightIssues = fli.map { FlightIssueModel(flightIssue: $0)}
-            } else {
-                flightIssues = []
-            }
-            
-            notes = flight.notes ?? ""
-            
+        let flight = Flight.byId(id: flightID) ?? Flight.dummyData
+        
+        self.pilot = flight.pilot
+        self.aircraft = flight.aircraft
+        
+        title = flight.title ?? ""
+        expectedActivity = flight.activity ?? ""
+        
+        location = flight.location ?? ""
+        weatherConditions = flight.weatherConditions ?? ""
+        siteConditions = flight.siteConditions ?? ""
+        
+        checksPerformed = flight.preflightChecks
+        if let pfi = flight.preflightIssues as? Set<FlightIssue> {
+            preflightIssues = pfi.map { FlightIssueModel(flightIssue: $0) }
         } else {
-            self.flightID = nil
-            
-            title = ""
-            expectedActivity = ""
-            location = ""
-            weatherConditions = ""
-            siteConditions = ""
-            
-            checksPerformed = false
             preflightIssues = []
-            issuesResolved = false
-            
-            flightDetails = ""
-            takeOff = nil
-            landing = nil
+        }
+        issuesResolved = flight.preflightIssuesResolved
+        
+        flightDetails = flight.details ?? ""
+        takeOff = flight.takeoff
+        landing = flight.landing
+        lockedDate = flight.lockedDate
+        
+        if let fli = flight.flightIssues as? Set<FlightIssue> {
+            flightIssues = fli.map { FlightIssueModel(flightIssue: $0)}
+        } else {
             flightIssues = []
-
-            notes = ""
         }
         
-        loadPickerLists()
+        notes = flight.notes ?? ""
     }
     
     func loadPickerLists() {

@@ -32,6 +32,11 @@ struct FlightEdit: View {
                               showBackground: false,
                               segmentStyle: .underline,
                               selected: $selectedStep)
+                if editViewModel.isLocked {
+                    Text("This flight is locked for editing. You may change the Notes only")
+                        .font(.caption)
+                        .foregroundColor(Color(.systemRed))
+                }
                 
                 TabView(selection: $selectedStep) {
                     FlightEditTitle(editViewModel: editViewModel)

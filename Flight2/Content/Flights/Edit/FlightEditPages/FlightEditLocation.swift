@@ -18,13 +18,16 @@ struct FlightEditLocation: View {
             EditSectionHeader("Flight Location")
             
             ScrollView(showsIndicators: false) {
-                FloatingTextView("Location", text: $editViewModel.location)
-                
-                TextEdit(placeholder: "Weather Conditions", text: $editViewModel.weatherConditions)
-                    .frame(minHeight: 200)
-                
-                TextEdit(placeholder: "Site Conditions", text: $editViewModel.siteConditions)
-                    .frame(minHeight: 200)
+                VStack(alignment: .leading) {
+                    FloatingTextView("Location", text: $editViewModel.location)
+                    
+                    TextEdit(placeholder: "Weather Conditions", text: $editViewModel.weatherConditions)
+                        .frame(minHeight: 200)
+                    
+                    TextEdit(placeholder: "Site Conditions", text: $editViewModel.siteConditions)
+                        .frame(minHeight: 200)
+                }
+                .disabled(editViewModel.isLocked)
                 
                 Spacer()
             }

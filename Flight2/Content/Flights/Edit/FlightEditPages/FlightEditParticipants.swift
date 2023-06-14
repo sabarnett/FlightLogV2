@@ -21,10 +21,13 @@ struct FlightEditParticipants: View {
             EditSectionHeader("Pilot/Aircraft")
    
             ScrollView(showsIndicators: false) {
-                PickerPopupButton(selectedItem: editViewModel.currentPilot,
-                                  showPicker: $showPilotPicker)
-                PickerPopupButton(selectedItem: editViewModel.currentAircraft,
-                                  showPicker: $showAircraftPicker)
+                VStack(alignment: .leading) {
+                    PickerPopupButton(selectedItem: editViewModel.currentPilot,
+                                      showPicker: $showPilotPicker)
+                    PickerPopupButton(selectedItem: editViewModel.currentAircraft,
+                                      showPicker: $showAircraftPicker)
+                }
+                .disabled(editViewModel.isLocked)
                 
                 Spacer()
             }
