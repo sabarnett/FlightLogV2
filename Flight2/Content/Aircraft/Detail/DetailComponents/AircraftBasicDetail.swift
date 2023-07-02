@@ -25,7 +25,7 @@ struct AircraftBasicDetail: View {
 
             DetailLine(key: "Serial Number", value: vm.aircraft.viewSerialNumber)
                 .foregroundColor(.primaryText)
-
+            
         }, header: {
             SectionTitle("Aircraft")
         })

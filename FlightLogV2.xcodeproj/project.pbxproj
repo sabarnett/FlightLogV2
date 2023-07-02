@@ -73,6 +73,8 @@
 		E8CB803B2A1CBDCC00510D73 /* AircraftGridListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB80392A1CBDCC00510D73 /* AircraftGridListView.swift */; };
 		E8CB803C2A1CBDCC00510D73 /* AircraftGridCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CB803A2A1CBDCC00510D73 /* AircraftGridCellView.swift */; };
 		E8CCCF872A1D0B7100963F22 /* ShowTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCCF862A1D0B7100963F22 /* ShowTime.swift */; };
+		E8CCFFAA2A5166F40087C3FA /* AircraftDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCFFA92A5166F40087C3FA /* AircraftDetailsView.swift */; };
+		E8CCFFAC2A5167CF0087C3FA /* AircraftEditDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8CCFFAB2A5167CF0087C3FA /* AircraftEditDetails.swift */; };
 		E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */; };
 		E8D3EF9E29D4C07500C042DB /* GroupFlightsBy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */; };
 		E8D3EFA029D4C0C000C042DB /* FlightAgeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3EF9F29D4C0C000C042DB /* FlightAgeSelection.swift */; };
@@ -203,6 +205,8 @@
 		E8CB80392A1CBDCC00510D73 /* AircraftGridListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftGridListView.swift; sourceTree = "<group>"; };
 		E8CB803A2A1CBDCC00510D73 /* AircraftGridCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AircraftGridCellView.swift; sourceTree = "<group>"; };
 		E8CCCF862A1D0B7100963F22 /* ShowTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTime.swift; sourceTree = "<group>"; };
+		E8CCFFA92A5166F40087C3FA /* AircraftDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftDetailsView.swift; sourceTree = "<group>"; };
+		E8CCFFAB2A5167CF0087C3FA /* AircraftEditDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AircraftEditDetails.swift; sourceTree = "<group>"; };
 		E8D3EF9629D4BD2B00C042DB /* UtilityViews.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = UtilityViews.xcframework; path = ../../Apps/Frameworks/UtilityViews/UtilityViews/build/UtilityViews.xcframework; sourceTree = "<group>"; };
 		E8D3EF9A29D4BE1300C042DB /* SectionTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitle.swift; sourceTree = "<group>"; };
 		E8D3EF9D29D4C07500C042DB /* GroupFlightsBy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupFlightsBy.swift; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 				E82C34892A2F2D46000D1F74 /* AircraftEditPurchase.swift */,
 				E82C348B2A2F2DAE000D1F74 /* AircraftEditNotes.swift */,
 				E82C348D2A2F3047000D1F74 /* AircraftEditMaintenance.swift */,
+				E8CCFFAB2A5167CF0087C3FA /* AircraftEditDetails.swift */,
 			);
 			path = AircraftEditComponents;
 			sourceTree = "<group>";
@@ -397,6 +402,7 @@
 				E86159B42A28D6B4001EC0C2 /* AircraftDetailNotes.swift */,
 				E86159B62A28D6B4001EC0C2 /* AircraftPurchaseDetail.swift */,
 				E8F9333E2A37710B00FFFA78 /* AircraftStatisticsView.swift */,
+				E8CCFFA92A5166F40087C3FA /* AircraftDetailsView.swift */,
 			);
 			path = DetailComponents;
 			sourceTree = "<group>";
@@ -871,6 +877,7 @@
 				E8F9333D2A37663B00FFFA78 /* StatisticsView.swift in Sources */,
 				E8D3EFA929D4C35D00C042DB /* ImageCropper.swift in Sources */,
 				E8CCCF872A1D0B7100963F22 /* ShowTime.swift in Sources */,
+				E8CCFFAA2A5166F40087C3FA /* AircraftDetailsView.swift in Sources */,
 				E88E620B2A38BA88009B8DAA /* APPButtonText.swift in Sources */,
 				E8D88ED129E4451900621F69 /* AircraftListCellView.swift in Sources */,
 				E8DCA84229DD735A000E4961 /* PilotListViewModel.swift in Sources */,
@@ -886,6 +893,7 @@
 				E8C89E1F29E985C8000E7EB5 /* FlightIssueView.swift in Sources */,
 				E8F279672A1BFAE900C77185 /* PilotGridListView.swift in Sources */,
 				E845A5A52A2F5ACF001436C9 /* MaintenanceListView.swift in Sources */,
+				E8CCFFAC2A5167CF0087C3FA /* AircraftEditDetails.swift in Sources */,
 				E8B4C2D629ED450200D4B452 /* FlightDetailPreflightView.swift in Sources */,
 				E8D3EF9B29D4BE1300C042DB /* SectionTitle.swift in Sources */,
 				E812D71529D1C77F009ED9A1 /* AircraftList.swift in Sources */,

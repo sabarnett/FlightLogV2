@@ -22,6 +22,7 @@ class AircraftEditViewModel: ObservableObject {
     @Published var purchasedNew: Bool = true
     @Published var aircraftImage: UIImage = UIImage()
     @Published var maintenanceItems: [AircraftMaintenanceModel] = []
+    @Published var details: String = ""
     
     private var aircraftId: NSManagedObjectID?
     
@@ -47,6 +48,7 @@ class AircraftEditViewModel: ObservableObject {
             purchasedFrom = aircraft.purchasedFrom ?? ""
             purchasedDate = aircraft.purchaseDate ?? Date()
             purchasedNew = aircraft.newAtPurchase
+            details = aircraft.details ?? ""
             
             // Empty profile image
             aircraftImage = aircraft.aircraftImage?.image ?? UIImage()
@@ -60,21 +62,7 @@ class AircraftEditViewModel: ObservableObject {
             }
 
         } else {
-            // Initialise the fields
-            name = ""
-            manufacturer =  ""
-            model =  ""
-            serialNumber =  ""
-            notes =  ""
-            purchasedFrom = ""
-            purchasedDate =  Date()
-            purchasedNew = true
-            
-            // Empty profile image
-            aircraftImage = UIImage()
-            
-            maintenanceItems = []
-
+            // New aircraft, use default values
             self.aircraftId = nil
         }
     }
@@ -103,6 +91,7 @@ class AircraftEditViewModel: ObservableObject {
         aircraft.purchasedFrom = purchasedFrom
         aircraft.purchaseDate = purchasedDate
         aircraft.newAtPurchase = purchasedNew
+        aircraft.details = details
         
         if aircraftImage.size.width == 0 {
             aircraft.clearAircraftImage()

@@ -30,6 +30,7 @@ struct AircraftDetailView: View {
                     if UIDevice.current.userInterfaceIdiom != .pad {
                         AircraftBasicDetail(vm: vm)
                     }
+                    AircraftDetails(vm: vm)
                     AircraftPurchaseDetail(vm: vm)
                     AircraftDetailNotes(vm: vm)
                     AircraftStatisticsView(vm: vm)

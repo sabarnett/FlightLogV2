@@ -26,6 +26,7 @@ extension Aircraft {
     var viewPurchaseDate: Date { self.purchaseDate ?? Date.distantPast }
     var viewNewAtPurchase: String { self.newAtPurchase == true ? "Yes" : "No" }
     var viewAircraftImage: UIImage { self.aircraftImage?.image ?? UIImage(named: "aircraft-placeholder")!}
+    var viewdetails: String { self.details ?? "" }
     
     var aircraftDeleted: Bool { self.deletedDate != nil }
     
@@ -177,6 +178,7 @@ extension Aircraft: BaseModel {
         aircraft.purchasedFrom = "eBay"
         aircraft.serialNumber = "AIR-000-12345"
         aircraft.aircraftImage = nil
+        aircraft.details = "Manufactured in 2010, the aircraft has wings and wheels and an engine and stuff."
         
         return aircraft
     }

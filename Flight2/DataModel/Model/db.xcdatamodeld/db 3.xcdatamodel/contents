@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Aircraft" representedClassName="Aircraft" syncable="YES" codeGenerationType="class">
         <attribute name="deletedDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="details" optional="YES" attributeType="String"/>
         <attribute name="manufacturer" optional="YES" attributeType="String"/>
         <attribute name="model" optional="YES" attributeType="String"/>
         <attribute name="name" attributeType="String"/>

@@ -17,7 +17,7 @@ struct AircraftEdit: View {
     @State private var isEditingAddress: Bool = false
     @State private var showPurchaseDatePicker: Bool = false
 
-    @State private var wizardSteps: [String] = ["Aircraft", "Purchase", "Maintenance", "Notes"]
+    @State private var wizardSteps: [String] = ["Aircraft", "Details", "Purchase", "Maintenance", "Notes"]
     @State private var selectedStep: String = "Aircraft"
     
     var body: some View {
@@ -33,11 +33,15 @@ struct AircraftEdit: View {
                         .tag("Aircraft")
                         .padding(.horizontal, 20)
                     
+                    AircraftEditDetails(editViewModel: editViewModel)
+                        .tag("Details")
+                        .padding(.horizontal, 20)
+                    
                     AircraftEditPurchase(editViewModel: editViewModel,
                                          showPurchaseDatePicker: $showPurchaseDatePicker)
                         .tag("Purchase")
                         .padding(.horizontal, 20)
-                    
+
                     AircraftEditMaintenance(editViewModel: editViewModel)
                         .tag("Maintenance")
                         .padding(.horizontal, 20)
