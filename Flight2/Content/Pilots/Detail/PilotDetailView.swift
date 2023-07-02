@@ -8,6 +8,7 @@
              
 import SwiftUI
 import UtilityViews
+import PDFTools
 import CoreData
 
 struct PilotDetailView: View {
@@ -19,6 +20,7 @@ struct PilotDetailView: View {
 
     @State private var editPilot: Bool = false
     @State private var isPresentingDeleteConfirm: Bool = false
+    @State private var showReport: Bool = false
     
     var body: some View {
         VStack {
@@ -102,6 +104,7 @@ struct PilotDetailView: View {
                                         Button(action: { editPilot = true
                                         }, label: { Image(systemName: "square.and.pencil") })
                                     }
+                                    
                                     Button(action: { deletePilot()
                                     }, label: { Image(systemName: vm.pilot.pilotDeleted ? "trash.slash" : "trash") })
                                     .confirmationDialog("Are you sure?",
@@ -113,12 +116,18 @@ struct PilotDetailView: View {
                                     }, message: {
                                         Text("You can undo this action.")
                                     })
+                                    
+                                    Button(action: {createReport() },
+                                           label: { Image(systemName: "doc.richtext")})
 
                                 }
                                 .foregroundColor(.toolbarIcon)
                             }
                         }
                     }
+                }
+                .fullScreenCover(isPresented: $showReport) {
+                    ShowReport(reportTitle: "Pilot Report", pdfData: vm.pdfReport)
                 }
                 .fullScreenCover(isPresented: $editPilot, onDismiss: {
                     vm.reloadData()
@@ -148,5 +157,10 @@ struct PilotDetailView: View {
         } else {
             isPresentingDeleteConfirm = true
         }
+    }
+    
+    func createReport() {
+        // TODO: Generate the report
+        showReport = true
     }
 }

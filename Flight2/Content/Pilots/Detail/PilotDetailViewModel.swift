@@ -15,6 +15,7 @@ class PilotDetailViewModel: ObservableObject {
     @Published var pilot: Pilot
     @Published var pilotId: NSManagedObjectID?
     @Published var flightStats: StatisticsSummary
+    @Published var pdfReport: Data?
     
     init(pilot: Pilot) {
         self.pilotId = pilot.objectID
