@@ -28,6 +28,7 @@ extension Pilot {
     var viewDisplayName: String { self.displayName }
     var viewAddress: String { self.address ?? "" }
     var viewPostCode: String { self.postCode ?? "" }
+    var viewBiography: String { self.biography ?? "" }
     
     var pilotDeleted: Bool { self.deletedDate != nil }
 }
@@ -158,6 +159,7 @@ extension Pilot: BaseModel {
         pilot.address = "Line 1\nLine 2\nLine 3"
         pilot.postCode = "V12 7RR"
         pilot.profileImage = nil
+        pilot.biography = "I'm a pilot and I fly aircraft."
         
         return pilot
     }

@@ -21,6 +21,7 @@ class PilotEditViewModel: ObservableObject {
     @Published var mobilePhone: String = ""
     @Published var email: String = ""
     @Published var profilePicture: UIImage = UIImage()
+    @Published var biography: String = ""
     
     private var pilotId: NSManagedObjectID?
     
@@ -46,24 +47,13 @@ class PilotEditViewModel: ObservableObject {
             homePhone = pilot.homePhone ?? ""
             mobilePhone = pilot.mobilePhone ?? ""
             email = pilot.email ?? ""
+            biography = pilot.biography ?? ""
             
             // Empty profile image
             profilePicture = pilot.profileImage?.image ?? UIImage()
 
         } else {
-            // Initialise the fields
-            firstName = ""
-            lastName = ""
-            caaRegistration = ""
-            address = ""
-            postCode = ""
-            homePhone = ""
-            mobilePhone = ""
-            email = ""
-            
-            // Empty profile image
-            profilePicture = UIImage()
-
+            // New pilot - use the default values
             self.pilotId = nil
         }
     }
@@ -86,6 +76,7 @@ class PilotEditViewModel: ObservableObject {
         pilot.homePhone = homePhone
         pilot.mobilePhone = mobilePhone
         pilot.email = email
+        pilot.biography = biography
         
         if profilePicture.size.width == 0 {
             pilot.clearProfileImage()

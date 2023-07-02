@@ -63,6 +63,14 @@ struct PilotEdit: View {
                     SectionTitle("Contact")
                 })
                 
+                Section(content: {
+                    Text("Tell us something about yourself and your history")
+                    TextEdit(placeholder: "Biography", text: $editViewModel.biography)
+                        .frame(minHeight: 200)
+                }, header: {
+                    SectionTitle("Biography")
+                })
+                
                 if editViewModel.hasErrors {
                     Section(content: {
                         Text(editViewModel.errorDigest)

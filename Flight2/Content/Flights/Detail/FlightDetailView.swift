@@ -69,7 +69,9 @@ struct FlightDetailView: View {
                                     confirmLockAgain = MessageContext.flightLockConfirmPrompt
                                 }
                             }, message: {
-                                Text("This will lock the flight. After it is locked you will ONLY be able to edit notes. Everything else will be locked for change.\n\nThis action CANNOT be undone.")
+                                Text("This will lock the flight. " +
+                                     "After it is locked you will ONLY be able to edit notes." +
+                                     "Everything else will be locked for change.\n\nThis action CANNOT be undone.")
                             })
                         }
                         Button(action: { editFlight = true },

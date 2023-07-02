@@ -80,6 +80,12 @@ struct PilotDetailView: View {
                         }).foregroundColor(.primaryText)
                         
                         Section(content: {
+                            DetailLine(key: "Biography", value: vm.pilot.viewBiography).foregroundColor(.primaryText)
+                        }, header: {
+                            SectionTitle("About Me")
+                        }).foregroundColor(.primaryText)
+                        
+                        Section(content: {
                             StatisticsView(statistics: vm.flightStats)
                         }, header: {
                             SectionTitle("Flight Statistics")
