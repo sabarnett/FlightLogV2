@@ -160,7 +160,6 @@ struct PilotDetailView: View {
     }
     
     func createReport() {
-        // TODO: Generate the report
-        showReport = true
+        showReport = vm.generateReport()
     }
 }

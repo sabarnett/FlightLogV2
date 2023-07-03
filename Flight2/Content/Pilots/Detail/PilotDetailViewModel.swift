@@ -36,6 +36,12 @@ class PilotDetailViewModel: ObservableObject {
         setDeletedState(forPilot: self.pilot, isDeleted: false)
     }
     
+    func generateReport() -> Bool {
+        let reporter = PilotReport()
+        pdfReport = reporter.generateReport(for: pilot, withStats: flightStats)
+        return pdfReport != nil
+    }
+    
     private func setDeletedState(forPilot pilot: Pilot, isDeleted: Bool) {
         pilot.deletedDate = isDeleted ? Date() : nil
         pilot.save()
