@@ -26,11 +26,17 @@ class PilotReport {
     
     func headerPage(generator: PDFGenerator, pilot: Pilot) {
 
+        let imageHeight = pilot.viewProfileImage.size.height
+        let imageWidth = pilot.viewProfileImage.size.width
+        
+        // I want the image to fit height of 200
+        let imageRenderWidth = imageWidth * (200 / imageHeight)
+        
         generator.document.add(PDFSetCursor(newCursor: 130))
         generator.document.add(PDFBox(height: 40))
         generator.document.add(PDFParagraph(style: .title, text: pilot.displayName))
         generator.document.add(PDFParagraph(style: .subtitle, text: pilot.viewCAARegistration))
-        generator.document.add(PDFImage(image: pilot.viewProfileImage))
+        generator.document.add(PDFImage(image: pilot.viewProfileImage, size: CGSize(width: imageRenderWidth, height: 200)))
         generator.document.add(PDFSpacer(gap: 10))
         generator.document.add(PDFLine(lineWidth: 2))
         generator.document.add(PDFSpacer(gap: 10))
@@ -46,22 +52,35 @@ class PilotReport {
     func contactDetails(generator: PDFGenerator, pilot: Pilot) {
         generator.document.add(PDFParagraph(style: .heading2, text: "Contact Details"))
         
-        generator.document.add(PDFParagraph(style: .normal, text: "Address\t\(pilot.viewAddress)"))
-        generator.document.add(PDFParagraph(style: .normal, text: "Postcode\t\(pilot.viewPostCode)"))
-        generator.document.add(PDFParagraph(style: .normal, text: "Phone (Home)\t\(pilot.viewAlternatePhone)"))
-        generator.document.add(PDFParagraph(style: .normal, text: "Phone (mobile)\t\(pilot.viewMobilePhone)"))
-        generator.document.add(PDFParagraph(style: .normal, text: "Email\t\(pilot.viewEmailAddress)"))
+        generator.document.add(PDFLabelledText(label: "Address", content: pilot.viewAddress, labelWidth: 110))
+        generator.document.add(PDFLabelledText(label: "Post code", content: pilot.viewPostCode, labelWidth: 110))
+        generator.document.add(PDFLabelledText(label: "Phone (Home)", content: pilot.viewAlternatePhone, labelWidth: 110))
+        generator.document.add(PDFLabelledText(label: "Phone(Mobile)", content: pilot.viewMobilePhone, labelWidth: 110))
+        generator.document.add(PDFLabelledText(label: "Email", content: pilot.viewEmailAddress, labelWidth: 110))
+
+        generator.document.add(PDFSpacer(gap: 20))
     }
     
     func statistics(generator: PDFGenerator, stats: StatisticsSummary) {
         generator.document.add(PDFParagraph(style: .heading2, text: "Flight Statistics"))
+
+        generator.document.add(PDFLabelledText(label: "Number of flights",
+                                               content: "\(stats.flightCount)",
+                                               labelWidth: 110))
+        generator.document.add(PDFLabelledText(label: "Total flying time",
+                                               content: "\(stats.flightDuration) minutes",
+                                               labelWidth: 110))
         
-        generator.document.add(PDFParagraph(style: .normal, text: "Number of flights: \(stats.flightCount)"))
-        generator.document.add(PDFParagraph(style: .normal, text: "Total flying time: \(stats.flightDuration) minutes"))
+        generator.document.add(PDFSpacer(gap: 20))
 
         generator.document.add(PDFParagraph(style: .heading4, text: "Flight Details"))
         for detail in stats.detail {
-            generator.document.add(PDFParagraph(style: .normal, text: "\(detail.title) has been flown \(detail.count) times for \(detail.formattedFlightDuration) minutes in total."))
+            let statsLine = "Number of flights: \(detail.count)\n" +
+            "Flying time: \(detail.formattedFlightDuration) minutes."
+            
+            generator.document.add(PDFLabelledText(label: detail.title,
+                                                   content: statsLine,
+                                                   labelWidth: 110))
         }
     }
 }
