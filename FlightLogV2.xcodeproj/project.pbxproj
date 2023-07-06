@@ -23,8 +23,6 @@
 		E82C348A2A2F2D46000D1F74 /* AircraftEditPurchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C34892A2F2D46000D1F74 /* AircraftEditPurchase.swift */; };
 		E82C348C2A2F2DAE000D1F74 /* AircraftEditNotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C348B2A2F2DAE000D1F74 /* AircraftEditNotes.swift */; };
 		E82C348E2A2F3047000D1F74 /* AircraftEditMaintenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82C348D2A2F3047000D1F74 /* AircraftEditMaintenance.swift */; };
-		E838A20D2A51C2C40024628D /* PDFTools.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E838A20C2A51C2C40024628D /* PDFTools.xcframework */; };
-		E838A20E2A51C2C40024628D /* PDFTools.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E838A20C2A51C2C40024628D /* PDFTools.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E838A2102A51C6230024628D /* ShowReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = E838A20F2A51C6230024628D /* ShowReport.swift */; };
 		E845A5A52A2F5ACF001436C9 /* MaintenanceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845A5A42A2F5ACF001436C9 /* MaintenanceListView.swift */; };
 		E845A5A72A2F5AE3001436C9 /* MaintenanceItemCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E845A5A62A2F5AE3001436C9 /* MaintenanceItemCellView.swift */; };
@@ -39,6 +37,8 @@
 		E86159BB2A28D6B4001EC0C2 /* AircraftBasicDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86159B52A28D6B4001EC0C2 /* AircraftBasicDetail.swift */; };
 		E86159BC2A28D6B4001EC0C2 /* AircraftPurchaseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86159B62A28D6B4001EC0C2 /* AircraftPurchaseDetail.swift */; };
 		E874728629D333F60088C513 /* ViewStyleToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = E874728529D333F60088C513 /* ViewStyleToggle.swift */; };
+		E887C53A2A57169800F3FB63 /* PDFTools.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E838A20C2A51C2C40024628D /* PDFTools.xcframework */; };
+		E887C53B2A57169800F3FB63 /* PDFTools.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E838A20C2A51C2C40024628D /* PDFTools.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E88D940329E5DD5200087E97 /* NothingSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D940229E5DD5200087E97 /* NothingSelectedView.swift */; };
 		E88D940929E5E16C00087E97 /* FlightListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D940829E5E16C00087E97 /* FlightListViewModel.swift */; };
 		E88D940B29E5E18800087E97 /* FlightPrimaryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88D940A29E5E18800087E97 /* FlightPrimaryListCell.swift */; };
@@ -133,7 +133,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E838A20E2A51C2C40024628D /* PDFTools.xcframework in Embed Frameworks */,
+				E887C53B2A57169800F3FB63 /* PDFTools.xcframework in Embed Frameworks */,
 				E85E91302A15272800C4B174 /* UtilityClasses.xcframework in Embed Frameworks */,
 				E8F279582A1BE65000C77185 /* UtilityViews.xcframework in Embed Frameworks */,
 			);
@@ -268,7 +268,7 @@
 			files = (
 				E8F279572A1BE65000C77185 /* UtilityViews.xcframework in Frameworks */,
 				E8D3EFA329D4C31E00C042DB /* Mantis in Frameworks */,
-				E838A20D2A51C2C40024628D /* PDFTools.xcframework in Frameworks */,
+				E887C53A2A57169800F3FB63 /* PDFTools.xcframework in Frameworks */,
 				E85E912F2A15272800C4B174 /* UtilityClasses.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

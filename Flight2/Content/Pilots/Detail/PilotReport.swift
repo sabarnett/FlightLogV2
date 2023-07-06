@@ -16,7 +16,10 @@ class PilotReport {
         let generator = PDFGenerator(creator: "FlightLogV2",
                                      author: "Pilot Report",
                                      title: "Pilot Report For \(pilot.displayName)")
-
+        
+        generator.setPageSize(.A4)
+        generator.setMargins(vertical: 60, horizontal: 60)
+        
         headerPage(generator: generator, pilot: pilot)
         contactDetails(generator: generator, pilot: pilot)
         statistics(generator: generator, stats: stats)
@@ -37,9 +40,7 @@ class PilotReport {
         generator.document.add(PDFParagraph(style: .title, text: pilot.displayName))
         generator.document.add(PDFParagraph(style: .subtitle, text: pilot.viewCAARegistration))
         generator.document.add(PDFImage(image: pilot.viewProfileImage, size: CGSize(width: imageRenderWidth, height: 200)))
-        generator.document.add(PDFSpacer(gap: 10))
-        generator.document.add(PDFLine(lineWidth: 2))
-        generator.document.add(PDFSpacer(gap: 10))
+        generator.document.add(PDFSpacer(gap: 30))
 
         if !pilot.viewBiography.isEmpty {
             generator.document.add(PDFParagraph(style: .heading1, text: "Pilot Biography"))
