@@ -17,6 +17,7 @@ struct AircraftDetailView: View {
     @State var readonlyModal: Bool = false
     @State private var editAircraft: Bool = false
     @State private var isPresentingDeleteConfirm: Bool = false
+    @State private var showReport: Bool = false
     
     var body: some View {
         if vm.aircraftId == nil {
@@ -65,9 +66,15 @@ struct AircraftDetailView: View {
                             }, message: {
                                 Text("You can undo this action later if necessary.")
                             })
+                            
+                            Button(action: {createReport() },
+                                   label: { Image(systemName: "doc.richtext")})
                         }
                     }
                 }
+            }
+            .fullScreenCover(isPresented: $showReport) {
+                ShowReport(reportTitle: "Pilot Report", pdfData: vm.pdfReport)
             }
             .fullScreenCover(isPresented: $editAircraft, onDismiss: {
                 vm.reloadData()
@@ -95,5 +102,9 @@ struct AircraftDetailView: View {
         } else {
             isPresentingDeleteConfirm = true
         }
+    }
+    
+    func createReport() {
+        showReport = vm.generateReport()
     }
 }

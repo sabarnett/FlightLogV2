@@ -18,7 +18,7 @@ class PilotReport {
                                      title: "Pilot Report For \(pilot.displayName)")
         
         generator.setPageSize(.A4)
-        generator.setMargins(vertical: 60, horizontal: 60)
+        generator.setMargins(vertical: 60, horizontal: 50)
         
         headerPage(generator: generator, pilot: pilot)
         contactDetails(generator: generator, pilot: pilot)

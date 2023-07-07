@@ -15,6 +15,7 @@ class AircraftDetailViewModel: ObservableObject {
     @Published var aircraft: Aircraft
     @Published var aircraftId: NSManagedObjectID?
     @Published var statistics: StatisticsSummary
+    @Published var pdfReport: Data?
     
     // MARK: - Initialisation and cleanup
 
@@ -70,5 +71,11 @@ class AircraftDetailViewModel: ObservableObject {
     private func setDeletedState(forAircraft aircraft: Aircraft, isDeleted: Bool) {
         aircraft.deletedDate = isDeleted ? Date() : nil
         aircraft.save()
+    }
+    
+    func generateReport() -> Bool {
+        let reporter = AircraftReport()
+        pdfReport = reporter.generateReport(for: aircraft, withStats: statistics)
+        return pdfReport != nil
     }
 }
