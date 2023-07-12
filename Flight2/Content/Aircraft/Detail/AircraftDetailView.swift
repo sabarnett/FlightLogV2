@@ -69,7 +69,7 @@ struct AircraftDetailView: View {
                             
                             Button(action: {createReport() },
                                    label: { Image(systemName: "doc.richtext")})
-                        }
+                        }.foregroundColor(.toolbarIcon)
                     }
                 }
             }
