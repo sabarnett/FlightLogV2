@@ -13,3 +13,13 @@ overly complex or badly formed. Who knows... I'm just trying to learn.
 
 Note that this project has dependencies on my UtilityViews and UtilityClasses repos for various 
 views and for my developer log.
+
+### Reporting
+
+As of July 12, the app now includes rudimentary reporting. This is PDF based, the PDF being generated using
+a new framework library called PDFTools. So, the project now has a third project dependency on the PDFTools 
+framework in my repos.
+
+Reporting is evolving slowly, but the pilot, aircraft and flight reports are complete and contain all the
+specific details found on the detail screens. I do have plans for extending the reporting and fiddling
+with the styles I have defined, but these are not priority tasks at this time.
