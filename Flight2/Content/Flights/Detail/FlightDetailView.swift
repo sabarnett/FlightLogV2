@@ -16,6 +16,7 @@ struct FlightDetailView: View {
     @State var editFlight: Bool = false
     @State private var confirmDelete: Bool = false
     @State private var confirmLock: Bool = false
+    @State private var showReport: Bool = false
     @State private var confirmLockAgain: MessageItem?
     @State private var flightLockMessage: MessageItem?
     
@@ -88,8 +89,14 @@ struct FlightDetailView: View {
                             }, message: {
                                 Text("You can undo this action.")
                             })
+                        
+                        Button(action: {createReport() },
+                               label: { Image(systemName: "doc.richtext")})
                     }.foregroundColor(.toolbarIcon)
                 }
+            }
+            .fullScreenCover(isPresented: $showReport) {
+                ShowReport(reportTitle: "Pilot Report", pdfData: vm.pdfReport)
             }
             .fullScreenCover(isPresented: $editFlight, onDismiss: {
                 vm.reloadData()
@@ -118,6 +125,10 @@ struct FlightDetailView: View {
     
     func lockFlight() {
         confirmLock = true
+    }
+    
+    func createReport() {
+        showReport = vm.generateReport()
     }
 }
 

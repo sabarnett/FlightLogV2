@@ -37,7 +37,7 @@ class AircraftReport {
         // I want the image to fit height of 200
         let imageRenderWidth = imageWidth * (200 / imageHeight)
         
-        generator.document.add(PDFSetCursor(newCursor: 130))
+        generator.document.add(PDFSetCursor(newCursor: 80))
         generator.document.add(PDFBox(height: 40))
         generator.document.add(PDFParagraph(style: .title, text: aircraft.viewName))
         generator.document.add(PDFParagraph(style: .subtitle, text: aircraft.viewModel))

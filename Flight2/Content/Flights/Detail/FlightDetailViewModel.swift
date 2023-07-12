@@ -13,6 +13,7 @@ class FlightDetailViewModel: ObservableObject {
     
     @Published var flight: Flight
     @Published var flightId: NSManagedObjectID?
+    @Published var pdfReport: Data?
     
     init(flight: Flight) {
         flightId = flight.objectID
@@ -119,7 +120,19 @@ class FlightDetailViewModel: ObservableObject {
         self.flight = Flight.byId(id: flight.objectID) ?? Flight.dummyData
         loadIssues()
     }
-    
+
+    private func loadIssues() {
+        if let pfi = self.flight.preflightIssues as? Set<FlightIssue> {
+            preFlightIssueSet = pfi.map { FlightIssueModel(flightIssue: $0) }
+        }
+        if let fli = self.flight.flightIssues as? Set<FlightIssue> {
+            flightIssueSet = fli.map { FlightIssueModel(flightIssue: $0)}
+        }
+    }
+}
+
+// MARK: - Data modification
+extension FlightDetailViewModel {
     func lockFlight() {
         flight.lockedDate = Date.now
         flight.save()
@@ -138,13 +151,13 @@ class FlightDetailViewModel: ObservableObject {
         flight.deletedDate = isDeleted ? Date() : nil
         flight.save()
     }
-    
-    private func loadIssues() {
-        if let pfi = self.flight.preflightIssues as? Set<FlightIssue> {
-            preFlightIssueSet = pfi.map { FlightIssueModel(flightIssue: $0) }
-        }
-        if let fli = self.flight.flightIssues as? Set<FlightIssue> {
-            flightIssueSet = fli.map { FlightIssueModel(flightIssue: $0)}
-        }
+}
+
+// MARK: - Reporting
+extension FlightDetailViewModel {
+    func generateReport() -> Bool {
+        let reporter = FlightReport()
+        pdfReport = reporter.generateReport(for: flight)
+        return pdfReport != nil
     }
 }
