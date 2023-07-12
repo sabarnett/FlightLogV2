@@ -46,8 +46,8 @@
 		E88E62092A38B703009B8DAA /* MessageBoxViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E62062A38B703009B8DAA /* MessageBoxViewModifier.swift */; };
 		E88E620B2A38BA88009B8DAA /* APPButtonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88E620A2A38BA88009B8DAA /* APPButtonText.swift */; };
 		E89282E129D1D120000BB957 /* ListTitleBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89282E029D1D120000BB957 /* ListTitleBar.swift */; };
-		E8946CE72A5EE260002096F7 /* PDFTools.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E838A20C2A51C2C40024628D /* PDFTools.xcframework */; };
-		E8946CE82A5EE260002096F7 /* PDFTools.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E838A20C2A51C2C40024628D /* PDFTools.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E8946CE92A5EF443002096F7 /* PDFTools.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = E838A20C2A51C2C40024628D /* PDFTools.xcframework */; };
+		E8946CEA2A5EF443002096F7 /* PDFTools.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E838A20C2A51C2C40024628D /* PDFTools.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E8B4C2CD29ED44E600D4B452 /* FlightDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4C2CB29ED44E600D4B452 /* FlightDetailViewModel.swift */; };
 		E8B4C2CE29ED44E600D4B452 /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4C2CC29ED44E600D4B452 /* FlightDetailView.swift */; };
 		E8B4C2D629ED450200D4B452 /* FlightDetailPreflightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B4C2D029ED450200D4B452 /* FlightDetailPreflightView.swift */; };
@@ -135,7 +135,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E8946CE82A5EE260002096F7 /* PDFTools.xcframework in Embed Frameworks */,
+				E8946CEA2A5EF443002096F7 /* PDFTools.xcframework in Embed Frameworks */,
 				E85E91302A15272800C4B174 /* UtilityClasses.xcframework in Embed Frameworks */,
 				E8F279582A1BE65000C77185 /* UtilityViews.xcframework in Embed Frameworks */,
 			);
@@ -272,7 +272,7 @@
 			files = (
 				E8F279572A1BE65000C77185 /* UtilityViews.xcframework in Frameworks */,
 				E8D3EFA329D4C31E00C042DB /* Mantis in Frameworks */,
-				E8946CE72A5EE260002096F7 /* PDFTools.xcframework in Frameworks */,
+				E8946CE92A5EF443002096F7 /* PDFTools.xcframework in Frameworks */,
 				E85E912F2A15272800C4B174 /* UtilityClasses.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
